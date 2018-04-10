@@ -72,15 +72,48 @@
     width: 520px;
     margin: 0 auto;
 }
-:local(.llctitle){
+:local(.llctitle1){
     display: block;
     height: 48px;
     line-height: 48px;
     color:rgba(217,186,131,1);
     font-weight: bold;
     font-size: 26px;
-
+    position: relative;
     margin-bottom: 75px;
+}
+:local(.llctitle2){
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    color:rgba(217,186,131,1);
+    font-weight: bold;
+    font-size: 26px;
+    position: relative;
+    margin-bottom: 24px;
+}
+:local(.llctitleA){
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: normal;
+    color: #989898;
+
+}
+:local(.llctitleA):hover{
+    color: rgba(217,186,131,1);
+}
+:local(.qh){
+    width: 120px;
+    float: left;
+    margin-right: 20px;
+    height: 68px;
+}
+:local(.phone){
+    width: 380px;
+    float: left;
 }
 :local(.inputp){
     height: 48px!important;
@@ -137,6 +170,7 @@
     line-height: 36px;
     overflow: hidden;
     margin-bottom: 24px;
+    margin-top: 10px;
 }
 :local(.noacc),:local(.reg){
     float: right;
@@ -152,4 +186,10 @@
 }
 :local(.forpass){
     float: left;
+}
+:local(.qh) .ant-select-lg .ant-select-selection__rendered{
+    line-height: 46px!important;
+}
+:local(.qh) .ant-select-selection--single{
+    height: 48px!important;
 }

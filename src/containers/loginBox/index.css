@@ -74,13 +74,26 @@
 }
 :local(.llctitle){
     display: block;
-    height: 48px;
-    line-height: 48px;
+    height: 26px;
+    line-height: 26px;
     color:rgba(217,186,131,1);
     font-weight: bold;
     font-size: 26px;
+    position: relative;
+    margin-bottom: 86px;
+}
+:local(.llctitleA){
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: normal;
+    color: #989898;
 
-    margin-bottom: 75px;
+}
+:local(.llctitleA):hover{
+    color: rgba(217,186,131,1);
 }
 :local(.inputp){
     height: 48px!important;
@@ -91,6 +104,15 @@
 :local(.selphone){
     height: 68px;
 }
+:local(.qh){
+    width: 120px;
+    float: left;
+    margin-right: 20px;
+}
+:local(.phone){
+    width: 380px;
+    float: left;
+}
 :local(.boxContentRight) .ant-input{
     font-size: 14px;
 }
@@ -99,6 +121,10 @@
 }
 :local(.boxContentRight) .ant-input:focus, .ant-input:hover {
     border-color: rgba(217,186,131,1)!important;
+}
+ .has-error .ant-input:focus{
+    border-color:#ff6060!important;
+    box-shadow: 0 0 3px 2px rgba(217,186,131,0.5)!important;
 }
 :local(.boxContentRight) .ant-input:focus{
     box-shadow: 0 0 3px 2px rgba(217,186,131,0.5);
@@ -109,7 +135,7 @@
 }
 :local(.tuxing){
     width: 520px;
-    height: 76px;
+    height: 72px;
     position: relative;
 }
 :local(.tx){
@@ -137,6 +163,7 @@
     line-height: 36px;
     overflow: hidden;
     margin-bottom: 24px;
+    margin-top: 10px;
 }
 :local(.noacc),:local(.reg){
     float: right;
@@ -152,4 +179,14 @@
 }
 :local(.forpass){
     float: left;
+}
+
+:local(.qh) .ant-select-lg .ant-select-selection__rendered{
+    line-height: 46px!important;
+}
+:local(.qh) .ant-select-selection--single{
+    height: 48px!important;
+}
+.ant-form-item-with-help{
+    margin-bottom: 0!important;
 }

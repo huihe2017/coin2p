@@ -60,7 +60,7 @@ class Header extends React.Component {
             isManage:true,
             visible:false,
             messageList : [],
-            isLogin:true
+            isLogin:false
         }
         this.choceType = this.choceType.bind(this)
     }
@@ -109,11 +109,13 @@ class Header extends React.Component {
                             <Link to="/"><img src={require("./images/logoO.png")}/></Link>
                         </div>
                         <div className={style.headerContent}>
-                            <a className={style.headerNav} href="javascript:void (0)">
-                                <img src={require("./images/outMarket.png")} alt=""/>
-                                <span className={style.navContent} >场外交易</span>
+                            <Link to="/inDeal">
+                                <a className={style.headerNav} href="javascript:void (0)">
+                                    <img src={require("./images/outMarket.png")} alt=""/>
+                                    <span className={style.navContent} >场外交易</span>
 
-                            </a>
+                                </a>
+                            </Link>
                             <a className={style.headerNav} href="javascript:void (0)">
                                 <img src={require("./images/biBi.png")} alt=""/>
                                 <span className={style.navContent}>
@@ -136,7 +138,7 @@ class Header extends React.Component {
                             <a className={style.headerRNav} href="javascript:void (0)">
                                 帮助中心
                             </a>
-                            <a className={style.headerRNav} href="javascript:void (0)">
+                            <a className={style.headerRNav} href="javascript:void (0)" hidden={true}>
                                 上币申请
                             </a>
                             <a className={style.headerRNavA} href="javascript:void (0)">
@@ -144,14 +146,19 @@ class Header extends React.Component {
                             </a>
                         </div>
                         <div className={style.logReg} hidden={this.state.isLogin}>
-                            <a href="javascript:void (0)">
-                            登录
-                            </a>
-                            <a href="javascript:void (0)">
-                            注册
-                            </a>
+                            <Link to="/login">
+                                <a className={style.logRegA} href="javascript:void (0)">
+                                    登录
+                                </a>
+                            </Link>
+                            <Link to="/register">
+                                <a className={style.logRegA} href="javascript:void (0)">
+                                    注册
+                                </a>
+                            </Link>
                         </div>
-                        <div className={style.logReg1}>
+
+                        <div className={style.logReg1} hidden={!this.state.isLogin}>
                             <div className={style.dropDown} style={{marginRight:0}}>
                                 <Dropdown overlay={menu1}>
                                     <a className="ant-dropdown-link" style={{height:'40px',lineHeight:'40px'}} href="#">
@@ -165,40 +172,51 @@ class Header extends React.Component {
                 </div>
                 <Affix style={{width:'100%'}}>
                     <div className={style.headerBBOX}>
-                        <div className={style.headerBottom}>
-                            <div className={style.dropDown}>
-                                <Dropdown overlay={menu}>
-                                    <a className="ant-dropdown-link" href="#">
-                                        购买BTC <Icon type="down" />
-                                    </a>
-                                </Dropdown>
-                            </div>
-                            <div className={style.dropDown}>
-                                <Dropdown overlay={menu1}>
-                                    <a className="ant-dropdown-link" href="#">
-                                        刊登广告 <Icon type="down" />
-                                    </a>
-                                </Dropdown>
-                            </div>
-                            <div className={style.dropDown} hidden={!this.state.isLogin}>
-                                <Dropdown overlay={menu2}>
-                                    <a className="ant-dropdown-link" href="#">
-                                        交易管理 <Icon type="down" />
-                                    </a>
-                                </Dropdown>
-                            </div>
-                            <div className={style.language}>
+                        <div className={style.headerBBOXC}>
+                            <div className={style.headerBottom}>
+                                <div className={style.dropDown}>
+                                    <Dropdown overlay={menu}>
+                                        <a className="ant-dropdown-link" href="#">
+                                            购买BTC <Icon type="down" />
+                                        </a>
+                                    </Dropdown>
+                                </div>
+                                <div className={style.dropDown}>
+                                    <Dropdown overlay={menu1}>
+                                        <a className="ant-dropdown-link" href="#">
+                                            刊登广告 <Icon type="down" />
+                                        </a>
+                                    </Dropdown>
+                                </div>
+                                <div className={style.dropDown} hidden={!this.state.isLogin}>
+                                    <Dropdown overlay={menu2}>
+                                        <a className="ant-dropdown-link" href="#">
+                                            交易管理 <Icon type="down" />
+                                        </a>
+                                    </Dropdown>
+                                </div>
+                                <div className={style.language}>
                                 <span>
                                     CN
                                 </span>
-                                <div className={style.line}>
+                                    <div className={style.line}>
 
-                                </div>
-                                <span>
+                                    </div>
+                                    <span>
                                     EN
                                 </span>
+                                </div>
                             </div>
+                            <a className={style.note} href="javascript:void (0)">
+                                <img src={require('./images/note.png')} alt=""/>
+                            </a>
+                            <a className={style.bell} href="javascript:void (0)">
+                                <img src={require('./images/bell.png')} alt=""/>
+                            </a>
+
                         </div>
+
+
                     </div>
 
                 </Affix>

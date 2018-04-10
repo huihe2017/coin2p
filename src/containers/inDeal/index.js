@@ -207,7 +207,7 @@ class InDealBox extends React.Component {
                                 </div>
                             </div>
 
-                            <div className={style.partOne} hidden={true}>
+                            <div className={style.partOne} hidden={false}>
                                 <div className={style.lineTime}>
                                     BTC 托管时间剩余 <span className={style.time}>{this.state.timeMin}：{this.state.timeSec}</span> 逾期将自动取消 请及时付款并点击标记付款
                                 </div>
@@ -242,7 +242,7 @@ BTC 将持续由系统锁定托管
                                 </div>
                             </div>
 
-                            <div className={style.partThree} hidden={false}>
+                            <div className={style.partThree} hidden={true}>
                                 <div className={style.lineTime1}>
                                     我给 卖家 的交易评价
                                     <a className={style.appeal} href="">我要申诉</a>

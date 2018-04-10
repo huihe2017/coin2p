@@ -51,7 +51,7 @@
 }
 :local(.logReg1){
     position: absolute;
-    right: 60px;
+    right: 50px;
     top: 0;
     /*width: 100px;*/
     height: 50px;
@@ -60,16 +60,19 @@
 }
 :local(.userImg){
     position: relative;
-    top: 10px;
-    margin-right: 10px;
+    top: 12px;
+    margin-right: 8px;
 }
-:local(.logReg)>a {
+:local(.logRegA){
     width:36px;
 
     font-size:18px;
     color:rgba(152,152,152,1);
     line-height:63px;
     margin-left: 40px;
+}
+:local(.logRegA):hover{
+    color:rgba(217,186,131,1);
 }
 :local(.headerNav){
     display: block;
@@ -84,7 +87,7 @@
     transition: all 0.3s;
 }
 :local(.headerNav):hover{
-    background-color: #000;
+    background-color: #23262E;
 }
 
 :local(.headerNav)>img{
@@ -127,6 +130,21 @@
     width: 100%;
     height: 47px;
 }
+:local(.headerBBOXC){
+
+    width: 1500px;
+    margin: 0 auto;
+    position: relative;
+}
+:local(.note),:local(.bell){
+    position: absolute;
+    z-index: 5;
+    right: 50px;
+    top: 14px;
+}
+:local(.note){
+    right: 95px;
+}
 :local(.headerBottom){
     width: 1200px;
     margin: 0 auto;
@@ -148,6 +166,7 @@
 }
 :local(.language){
     float: right;
+    margin-right: 40px;
 }
 :local(.line){
     width: 2px;
@@ -179,7 +198,14 @@
     :local(.headerTopBot){
         width: 1200px;
     }
+    :local(.headerBBOXC){
+        width: 1200px;
+    }
     :local(.headerContent){
         width: 900px;
     }
+    :local(.headerBottom){
+        width: 900px;
+    }
+
 }

@@ -16,7 +16,7 @@ class Home extends React.Component {
         this.state = {
             showBut1:true,
             showBut2:true,
-            showBut3:true
+            showBut3:true,
         }
     }
     showButton1(e){
@@ -65,7 +65,7 @@ class Home extends React.Component {
                         </li>
                         <li className={style.bannerItemContent} onMouseEnter={this.showButton2.bind(this,false)} onMouseLeave={this.showButton2.bind(this,true)}>
                             <span className={style.itemTitle}>
-                                场外交易
+                                币币交易区
                             </span>
                             <div hidden={!this.state.showBut2}>
                                <span className={style.itemContent1}>
@@ -80,7 +80,7 @@ class Home extends React.Component {
                         </li>
                         <li className={style.bannerItemContent} onMouseEnter={this.showButton3.bind(this,false)} onMouseLeave={this.showButton3.bind(this,true)}>
                             <span className={style.itemTitle}>
-                                场外交易
+                                投资入门
                             </span>
                             <div hidden={!this.state.showBut3}>
                                <span className={style.itemContent1}>

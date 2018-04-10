@@ -27,7 +27,7 @@ class OutHeader extends React.Component {
             <div className={style.wrap}>
                 <ul className={style.stepUi}>
                     <li className={style.steps}>
-                        <div className={style.stepLi} style={{backgroundColor: 'rgba(218,187,132,1)',color: '#fff'}}>
+                        <div className={style.stepLied}>
                             条件搜索
                         </div>
                         <div className={style.stepLiItem}>
@@ -37,44 +37,52 @@ class OutHeader extends React.Component {
                                 重新选择
                             </a>
                         </div>
-                        <div style={{backgroundColor: 'rgba(218,187,132,1)'}} className={style.stepLine}>
+                        <div className={style.stepLined}>
                         </div>
                     </li>
                     <li className={style.steps}>
-                        <div className={style.stepLi} style={{backgroundColor: 'rgba(218,187,132,1)',color: '#fff'}}>
+                        <div className={style.stepLied}>
                             方案选择
                         </div>
-                        <div  style={{backgroundColor: 'rgba(218,187,132,1)'}} className={style.stepLine}>
+                        <div  className={style.stepLined}>
                         </div>
                     </li>
                     <li className={style.steps}>
-                        <div className={style.stepLi}>
+                        <div className={style.stepLied}>
                             新建交易
                         </div>
-                        <div className={style.stepLine}>
+                        <div className={style.stepLined}>
                         </div>
                     </li>
-                    <li className={style.steps}>
+                    <li className={style.steps} hidden={true}>
                         <div className={style.stepLi}>
                             进行交易
                         </div>
                         <div className={style.stepLine}>
                         </div>
                     </li>
-                    <li className={style.steps}>
+                    <li className={style.steps} hidden={true}>
                         <div className={style.stepLi}>
                             进行移交
                         </div>
                         <div className={style.stepLine}>
                         </div>
                     </li>
-                    <li className={style.steps}>
+                    <li className={style.steps} hidden={true}>
                         <div className={style.stepLi}>
                             完成交易
                         </div>
                         <div className={style.stepLine}>
                         </div>
                     </li>
+                    <li className={style.stepStop}>
+                        <div className={style.stepLiStop}>
+                            交易取消
+                        </div>
+                        <div className={style.stepLined}>
+                        </div>
+                    </li>
+
                 </ul>
                 <div className={style.online}>
                     <span className={style.onlineTitle}>

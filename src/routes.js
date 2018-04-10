@@ -1,7 +1,12 @@
 import React from 'react'
 import {Route, Router, IndexRoute, hashHistory} from 'react-router'
 import Home from './containers/home/'
-
+import RegisterBox from './containers/registerBox/'
+import LoginBox from './containers/loginBox/'
+import ForgetBox from './containers/forgetBox/'
+import OutDeal from './containers/outDeal/'
+import NewDealBox from './containers/newDeal'
+import InDealBox from './containers/inDeal'
 
 
 import { LocaleProvider } from 'antd'
@@ -27,10 +32,15 @@ class FF extends React.Component {
         return (
             <IntlProvider locale={this.props.auth.isEnglish?'en':'zh'} messages={this.props.auth.isEnglish?en_US:zh_CN}>
                 <LocaleProvider locale={this.props.auth.isEnglish?enUS:''}>
-                <Router history={hashHistory}>
-                    <Route path="/" component={Home}/>
-
-                </Router>
+                    <Router history={hashHistory}>
+                        <Route path="/" component={Home}/>
+                        <Route path="/register" component={RegisterBox}/>
+                        <Route path="/login" component={LoginBox}/>
+                        <Route path="/forget" component={ForgetBox}/>
+                        <Route path="/outDeal" component={OutDeal}/>
+                        <Route path="/newDeal" component={NewDealBox}/>
+                        <Route path="/inDeal" component={InDealBox}/>
+                    </Router>
                 </LocaleProvider>
             </IntlProvider>
         )

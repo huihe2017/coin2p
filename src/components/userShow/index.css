@@ -1,0 +1,26 @@
+:local(.boxContentLeftLi){
+    padding-bottom: 68px;
+    border-right: 2px solid #f6f6f6;
+}
+:local(.youImg){
+    float: left;
+    margin-right: 18px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 40px;
+}
+:local(.title){
+    font-size: 21px;
+    font-weight: bold;
+    color:rgba(152,152,152,1);
+    display: block;
+}
+
+:local(.content){
+    font-size: 14px;
+    line-height: 24px;
+    color:rgba(152,152,152,1);
+    display: block;
+    margin-top: 15px;
+    width: 250px;
+}

@@ -1,0 +1,24 @@
+
+:local(.but){
+    background-color: rgba(218,187,132,1);
+    color: #fff;
+    border:none;
+}
+:local(.ghost){
+    color: rgba(218,187,132,1);
+    background-color: transparent;
+    border:1px solid rgba(218,187,132,1);
+}
+
+:local(.but):hover{
+    opacity: 0.8;
+}
+:local(.ghost):hover{
+    color:#fff;
+    background-color: rgba(218,187,132,1);
+}
+:local(.but)[disabled]{
+    background-color: #EDEDED;
+    color: #989898;
+    cursor: not-allowed!important;
+}

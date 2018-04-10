@@ -154,6 +154,7 @@
 }
 :local(.outMarketBut){
     margin-top: 36px;
+    height: 40px;
 }
 :local(.outMarketBut)>a{
     display: block;
@@ -171,7 +172,67 @@
     transition: all 0.5s;
     box-sizing: border-box;
 }
+:local(.outMarketBut)>a:first-child{
+    background-color: rgba(217,186,131,0.8);
+    color: #fff;
+}
 :local(.outMarketBut)>a:hover{
     background-color: rgba(217,186,131,1);
     color: #fff;
+}
+:local(.outMarketListUl){
+    margin-top: 70px;
+}
+:local(.outMarketListLi){
+    width: 370px;
+    float: left;
+    margin-right: 45px;
+}
+:local(.outMarketListLi):last-child{
+    margin-right: 0;
+}
+:local(.aboutPart){
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 82px;
+
+}
+:local(.aboutLi){
+    width: 370px;
+    float: left;
+    margin-right: 45px;
+}
+:local(.aboutLi):last-child{
+    margin-right: 0;
+}
+:local(.aboutLiTitle){
+    display: block;
+    width: 100%;
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(72,76,88,1);
+    border-left: 6px solid rgba(217,186,131,1);
+    padding-left: 18px;
+    margin-bottom: 20px;
+}
+:local(.aboutLiContent){
+    width: 370px;
+    height: 200px;
+    border-radius: 4px;
+    background-color: #fff;
+    padding-top: 17px;
+    padding-left: 20px;
+}
+:local(.aboutLiContent)>ul{
+    list-style: inside;
+}
+:local(.aboutLiContent)>ul>li{
+    cursor: pointer;
+    font-size:14px;
+    color:rgba(72,76,88,1);
+    line-height:33px;
+}
+:local(.aboutLiContent)>ul>li:hover{
+    color: rgba(217,186,131,1);
 }

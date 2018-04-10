@@ -6,6 +6,7 @@ import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import DealList from './components/dealList'
 
 
 
@@ -117,13 +118,66 @@ class Home extends React.Component {
                                 出售BTC
                             </a>
                         </div>
-                        <div className={style.outMarketList}>
+                        <div className={style.outMarketListUl}>
+                            <div className={style.outMarketListLi}>
+                                <DealList/>
+                            </div>
+                            <div className={style.outMarketListLi}>
+                                <DealList/>
+                            </div>
+                            <div className={style.outMarketListLi}>
+                                <DealList/>
+                            </div>
+
 
                         </div>
                     </div>
                 </div>
                 <div className={style.about}>
-
+                    <div className={style.aboutPart}>
+                        <div className={style.aboutLi}>
+                            <span className={style.aboutLiTitle}>
+                                新手入门
+                            </span>
+                            <div className={style.aboutLiContent}>
+                                <ul>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className={style.aboutLi}>
+                            <span className={style.aboutLiTitle}>
+                                新手入门
+                            </span>
+                            <div className={style.aboutLiContent}>
+                                <ul>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                    <li>如何购买数字币</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className={style.aboutLi}>
+                            <span className={style.aboutLiTitle}>
+                                新手入门
+                            </span>
+                        <div className={style.aboutLiContent}>
+                            <ul>
+                                <li>如何购买数字币</li>
+                                <li>如何购买数字币</li>
+                                <li>如何购买数字币</li>
+                                <li>如何购买数字币</li>
+                                <li>如何购买数字币</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
                 </div>
                 <Footer/>
 

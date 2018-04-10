@@ -1,0 +1,221 @@
+:local(.wlop){
+    width: 100%;
+
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.step){
+    width: 1200px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding-top: 15px;
+    padding-left: 32px;
+}
+:local(.newDealHeader){
+    width: 1200px;
+    margin: 0 auto;
+    background:rgba(237,237,237,1);
+    height: 86px;
+    margin-top: 20px;
+    padding: 20px 20px;
+
+}
+:local(.haoping){
+
+    font-size:14px;
+    font-weight: bold;
+    color:rgba(72,76,88,1);
+    display: block;
+}
+:local(.bishu){
+
+    display: block;
+    font-size:14px;
+
+    color:rgba(152,152,152,1);
+
+
+}
+:local(.newDealTable){
+    width: 100%;
+
+}
+:local(.newDealTable)>tr>td:first-child{
+    width: 285px;
+}
+:local(.newDealTable)>tr>td:nth-child(2){
+    width: 200px;
+}
+:local(.newDealTable)>tr>td:nth-child(3){
+    width: 170px;
+}
+:local(.newDealTable)>tr>td:nth-child(4){
+    width: 124px;
+}
+:local(.newDealTable)>tr>td:nth-child(5){
+    width: 124px;
+}
+:local(.newDealTable)>tr>td:nth-child(6){
+    width: 100px;
+}:local(.newDealTable)>tr>td:nth-child(7){
+    width: 90px;
+}
+
+:local(.newDealTable)>tr>td:nth-child(8){
+    text-align: right;
+}
+:local(.newDealContent){
+    width: 1200px;
+    margin: 0 auto;
+    height: 608px;
+    background-color: #fff;
+    padding: 0 20px;
+}
+.ant-checkbox-checked .ant-checkbox-inner, .ant-checkbox-indeterminate .ant-checkbox-inner {
+    background-color: rgb(218, 187, 132)!important;
+    border-color: rgb(218, 187, 132)!important;
+}
+
+:local(.stepOneItem){
+    width: 240px;
+    float: left;
+    padding-top: 4px;
+    margin-right: 20px;
+}
+:local(.stepOneItem1){
+    float: left;
+    padding-top: 44px;
+    margin-right: 20px;
+}
+:local(.stepOneItemR){
+    width: 320px;
+    float: right;
+    padding-top: 4px;
+    position: relative;
+}
+:local(.yanz){
+    position: absolute;
+    top: -50px;
+    right: 0;
+}
+:local(.tou){
+    font-size: 14px;
+    line-height: 38px;
+    color:rgba(152,152,152,1);
+}
+:local(.tou1){
+    font-size: 14px;
+    line-height: 24px;
+    color:rgba(152,152,152,1);
+}
+:local(.shuoB){
+    color: #DABB84;
+}
+:local(.touUi){
+    list-style: inside;
+}
+:local(.shuoming){
+    float: left;
+}
+:local(.cash){
+    float: right;
+    width: 450px;
+}
+:local(.newDealContentTT){
+    height: 152px;
+    width: 100%;
+}
+:local(.sao){
+    display: block;
+    font-size:14px;
+    font-weight: bold;
+    line-height: 14px;
+    color:rgba(218,187,132,1);
+    margin-bottom: 20px;
+}
+:local(.sao):hover{
+    color:rgba(218,187,132,0.8);
+}
+:local(.shuo){
+    font-size:14px;
+    color:rgba(152,152,152,1);
+    margin-bottom: 10px;
+    line-height: 14px;
+}
+:local(.shuoA){
+    font-weight: bold;
+    color: #2D313B;
+}
+:local(.shuoA):hover{
+    color: RGBA(45, 49, 59, .8);
+}
+:local(.cashTitle){
+    width: 100%;
+    text-align: right;
+    display: block;
+    font-size: 14px;
+    line-height: 38px;
+    color:rgba(152,152,152,1);
+}
+:local(.cashNum){
+    font-size:20px;
+    color:rgba(218,187,132,1);
+    float: right;
+}
+:local(.cashImg){
+    width: 18px;
+    height: 18px;
+    float: right;
+    margin: 0 12px;
+    margin-top: 8px;
+}
+:local(.newDealContentTB){
+    padding-bottom: 10px;
+}
+:local(.stepOneItem)>span{
+    font-size: 14px;
+    line-height: 38px;
+    color:rgba(152,152,152,1);
+}
+:local(.stepOneItemR)>span{
+    font-size: 14px;
+    line-height: 38px;
+    color:rgba(152,152,152,1);
+    display: block;
+    text-align: right;
+}
+:local(.newDealContentT):after{
+    content: '';
+    clear: both;
+    display: block;
+}
+:local(.newDealContentT) .ant-select-lg .ant-select-selection__rendered{
+    line-height: 46px!important;
+}
+:local(.newDealContentT) .ant-select-lg .ant-select-selection--single{
+    height: 48px!important;
+}
+:local(.newDealContentT) .ant-input-lg{
+    line-height: 46px;
+    height: 48px;
+}
+:local(.newDealContentT) .ant-input:focus, .ant-input:hover {
+    border-color: rgba(218,187,132,1);
+}
+:local(.newDealContentT) .ant-input:focus{
+    box-shadow: 0 0 0 2px rgba(218,187,132,.2);
+}
+:local(.newDealContentT) .ant-select-focused .ant-select-selection, .ant-select-selection:active, .ant-select-selection:focus {
+    border-color: rgba(218,187,132,1);
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 2px rgba(218,187,132,.2);
+    box-shadow: 0 0 0 2px rgba(218,187,132,.2);
+}
+:local(.newDealContentT) .ant-select-selection:hover {
+    border-color: rgba(218,187,132,1);
+}
+:local(.newDealContentB){
+    border-top: 1px solid #EEEEEE;
+    padding-top: 35px;
+}

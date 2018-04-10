@@ -49,6 +49,20 @@
     /*background-color: #2f8912;*/
     display: block;
 }
+:local(.logReg1){
+    position: absolute;
+    right: 60px;
+    top: 0;
+    /*width: 100px;*/
+    height: 50px;
+    /*background-color: #2f8912;*/
+    display: block;
+}
+:local(.userImg){
+    position: relative;
+    top: 10px;
+    margin-right: 10px;
+}
 :local(.logReg)>a {
     width:36px;
 
@@ -91,7 +105,6 @@
 }
 :local(.headerRNav):hover{
     color:rgba(217,186,131,1);
-    border-bottom: 4px solid rgba(217,186,131,1);
 }
 :local(.headerRNavA){
     float: right;
@@ -100,7 +113,7 @@
     font-weight: bold;
     margin-right: 40px;
     color:rgba(217,186,131,1);
-    border-bottom: 4px solid rgba(217,186,131,1);
+
 }
 :local(.headerRNavA):hover{
     color:rgba(217,186,131,1);
@@ -129,6 +142,9 @@
 }
 :local(.dropDown) a:hover{
     color:rgba(217,186,131,1)!important;
+}
+:local(.topRight){
+
 }
 :local(.language){
     float: right;

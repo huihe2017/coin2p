@@ -1,0 +1,39 @@
+:local(.wlop){
+    margin-top: 5px;
+}
+:local(.ava){
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 12px;
+}
+:local(.namebox){
+    float: left;
+}
+:local(.name){
+    font-size:14px;
+    font-weight: bold;
+    color:rgba(72,76,88,1);
+    display: block;
+}
+:local(.line){
+    font-size:14px;
+    color:rgba(152,152,152,1);
+    display: block;
+}
+:local(.payPart){
+    width: 70px;
+    float: left;
+    margin-left: 38px;
+}
+:local(.payPartItem){
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    float: right;
+}
+:local(.payPartItems){
+    width: 68px;
+    height: 18px;
+    margin-top: 7px;
+}

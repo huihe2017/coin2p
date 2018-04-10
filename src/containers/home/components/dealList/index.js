@@ -3,7 +3,7 @@ import style from './index.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-class Home extends React.Component {
+class DealList extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -16,23 +16,33 @@ class Home extends React.Component {
             <ul className={style.wlop}>
                 <li>
                     <span className={style.content}>CNY => 129.87 EOS (46 秒移交)</span>
-                    <span className={style.time}></span>
+                    <span className={style.time}>
+                        3秒前
+                    </span>
                 </li>
                 <li>
                     <span className={style.content}>CNY => 129.87 EOS (46 秒移交)</span>
-                    <span className={style.time}></span>
+                    <span className={style.time}>
+                         3秒前
+                    </span>
                 </li>
                 <li>
                     <span className={style.content}>CNY => 129.87 EOS (46 秒移交)</span>
-                    <span className={style.time}></span>
+                    <span className={style.time}>
+                         3秒前
+                    </span>
                 </li>
                 <li>
                     <span className={style.content}>CNY => 129.87 EOS (46 秒移交)</span>
-                    <span className={style.time}></span>
+                    <span className={style.time}>
+                         3秒前
+                    </span>
                 </li>
                 <li>
                     <span className={style.content}>CNY => 129.87 EOS (46 秒移交)</span>
-                    <span className={style.time}></span>
+                    <span className={style.time}>
+                         3秒前
+                    </span>
                 </li>
             </ul>
         )
@@ -51,6 +61,6 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-Home = connect(mapStateToProps, mapDispatchToProps)(Home)
+DealList = connect(mapStateToProps, mapDispatchToProps)(DealList)
 
-export default Home
+export default DealList

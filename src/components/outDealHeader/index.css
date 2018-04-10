@@ -1,0 +1,100 @@
+:local(.wlop){
+    width: 100%;
+    height: 1820px;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.step){
+    width: 1200px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding-top: 15px;
+    padding-left: 32px;
+}
+:local(.stepUi){
+    width: 940px;
+    height: 135px;
+    overflow: hidden;
+    float: left;
+}
+:local(.steps){
+    position: relative;
+    width: 168px;
+    float: left;
+}
+:local(.stepLi){
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid rgba(218,187,132,1);
+    color: rgba(218,187,132,1);
+    line-height: 34px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    background-color: #fff;
+    z-index: 2;
+    float: right;
+    cursor: pointer;
+}
+:local(.steps):first-child{
+    margin-left: -68px;
+}
+:local(.stepLine){
+    width:168px;
+    height:5px;
+    background:rgba(238, 238,238,1);
+    position: absolute;
+    top: 18px;
+}
+:local(.stepLiItem){
+    float: right;
+    /*margin-top: 40px;*/
+    width: 168px;
+    margin-right: -32px;
+    margin-left: 68px;
+}
+:local(.iconPart){
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+:local(.stepLiBut){
+    width:68px;
+    height:26px;
+    background:rgba(218,187,132,1);
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 26px;
+    text-align: center;
+    margin-top: 4px;
+}
+:local(.stepLiBut):hover{
+    color: #fff;
+}
+:local(.online){
+    float: left;
+    width: 220px;
+    text-align: center;
+}
+:local(.onlineTitle){
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color:rgba(152,152,152,1);
+    line-height: 40px;
+}
+:local(.onlineNum){
+    display: block;
+    color:rgba(218,187,132,1);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 70px;
+}
+

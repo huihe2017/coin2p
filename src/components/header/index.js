@@ -40,6 +40,13 @@ const menu1 = (
         <Menu.Item>刊登批量交易广告</Menu.Item>
 
     </Menu>
+)
+;const menu2 = (
+    <Menu>
+        <Menu.Item>刊登普通广告</Menu.Item>
+        <Menu.Item>刊登批量交易广告</Menu.Item>
+
+    </Menu>
 );
 
 class Header extends React.Component {
@@ -52,7 +59,8 @@ class Header extends React.Component {
             otherStyle: true,
             isManage:true,
             visible:false,
-            messageList : []
+            messageList : [],
+            isLogin:true
         }
         this.choceType = this.choceType.bind(this)
     }
@@ -112,22 +120,45 @@ class Header extends React.Component {
                                     币币交易
                                 </span>
                             </a>
+                            <div className={style.headerRNav}>
+                                <div className={style.dropDown} style={{marginRight:0}}>
+                                    <Dropdown overlay={menu1}>
+                                        <a className="ant-dropdown-link" href="#">
+                                            刊登广告 <Icon type="down" />
+                                        </a>
+                                    </Dropdown>
+                                </div>
+                            </div>
+
                             <a className={style.headerRNav} href="javascript:void (0)">
-                            帮助中心
-                        </a>
+                                邀请好友
+                            </a>
+                            <a className={style.headerRNav} href="javascript:void (0)">
+                                帮助中心
+                            </a>
                             <a className={style.headerRNav} href="javascript:void (0)">
                                 上币申请
-                            </a><a className={style.headerRNavA} href="javascript:void (0)">
-                            首页
-                        </a>
+                            </a>
+                            <a className={style.headerRNavA} href="javascript:void (0)">
+                                首页
+                            </a>
                         </div>
-                        <div className={style.logReg}>
+                        <div className={style.logReg} hidden={this.state.isLogin}>
                             <a href="javascript:void (0)">
                             登录
                             </a>
                             <a href="javascript:void (0)">
                             注册
                             </a>
+                        </div>
+                        <div className={style.logReg1}>
+                            <div className={style.dropDown} style={{marginRight:0}}>
+                                <Dropdown overlay={menu1}>
+                                    <a className="ant-dropdown-link" style={{height:'40px',lineHeight:'40px'}} href="#">
+                                        <img className={style.userImg} src={require('./images/user.png')} alt=""/> <Icon type="down" />
+                                    </a>
+                                </Dropdown>
+                            </div>
                         </div>
                     </div>
 
@@ -149,16 +180,23 @@ class Header extends React.Component {
                                     </a>
                                 </Dropdown>
                             </div>
+                            <div className={style.dropDown} hidden={!this.state.isLogin}>
+                                <Dropdown overlay={menu2}>
+                                    <a className="ant-dropdown-link" href="#">
+                                        交易管理 <Icon type="down" />
+                                    </a>
+                                </Dropdown>
+                            </div>
                             <div className={style.language}>
-                        <span>
-                            CN
-                        </span>
+                                <span>
+                                    CN
+                                </span>
                                 <div className={style.line}>
 
                                 </div>
                                 <span>
-                            EN
-                        </span>
+                                    EN
+                                </span>
                             </div>
                         </div>
                     </div>

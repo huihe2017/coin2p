@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./index.css"
-import {hashHistory, Link} from 'react-router';
+import {hashHistory} from 'react-router';
 import {connect} from 'react-redux'
 import { IntlProvider,addLocaleData,FormattedMessage } from 'react-intl';
 

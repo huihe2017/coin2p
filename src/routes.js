@@ -7,6 +7,7 @@ import ForgetBox from './containers/forgetBox/'
 import OutDeal from './containers/outDeal/'
 import NewDealBox from './containers/newDeal'
 import InDealBox from './containers/inDeal'
+import PerCenter from './containers/perCenter'
 
 
 import { LocaleProvider } from 'antd'
@@ -40,6 +41,7 @@ class FF extends React.Component {
                         <Route path="/outDeal" component={OutDeal}/>
                         <Route path="/newDeal" component={NewDealBox}/>
                         <Route path="/inDeal" component={InDealBox}/>
+                        <Route path="/perCenter" component={PerCenter}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

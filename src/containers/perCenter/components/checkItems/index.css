@@ -1,0 +1,57 @@
+:local(.wlop){
+    width: 100%;
+
+}
+:local(.wlop):after{
+    clear: both;
+    display: block;
+    content:""
+}
+:local(.checkIdHeadImg){
+    float: left;
+}
+:local(.checkIdHeadTidle){
+    float: left;
+    font-size: 14px;
+    color: #2d313b;
+    font-weight: bold;
+    line-height: 20px;
+    margin-left: 12px;
+}
+:local(.checkIdHeadTidleN){
+    float: left;
+    font-size: 14px;
+    color: #989898;
+    line-height: 20px;
+    margin-left: 12px;
+}
+:local(.checkIdHeadA){
+    float: right;
+    font-size: 14px;
+    color: #DABB84;
+    line-height: 20px;
+
+}
+:local(.checkIdHeadAe){
+    float: right;
+    font-size: 14px;
+    color: #DABB84;
+    line-height: 20px;
+    font-weight: bold;
+}
+:local(.checkIdHeadAed){
+    float: right;
+    font-size: 14px;
+    color: #989898;
+    line-height: 20px;
+    font-weight: bold;
+}
+:local(.checkIdHeadAe):hover{
+    color:rgba(218,187,132,.8);
+}
+
+:local(.checkIdHeadA):hover{
+
+    color: RGBA(218, 187, 132, .8);
+
+}

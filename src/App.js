@@ -4,6 +4,7 @@ import CreateRouter from './routes'
 import {connect, Provider} from 'react-redux';
 import '../node_modules/antd/dist/antd.min.css';
 import './common.css';
+
 import {IntlProvider} from 'react-intl';
 import zh_CN from './common/zh_CN';
 import en_US from './common/en_US';

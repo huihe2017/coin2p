@@ -49,28 +49,43 @@
 
 }
 
-:local(.wlopMContentR) .ant-tabs-nav .ant-tabs-tab-active {
-    color: #DABB84!important;
-    font-weight: bold!important;
-    font-size: 24px!important;
+:local(.header){
+    font-size: 12px;
+    color: #2d343b;
+    line-height: 52px;
+    border-bottom: 1px solid #eee;
+    padding-top: 20px;
 }
-:local(.wlopMContentR) .ant-tabs-ink-bar{
-    background-color: #DABB84!important;
-    height: 4px!important;
+:local(.content){
+    padding-top: 40px;
 }
-:local(.wlopMContentR) .ant-tabs-nav .ant-tabs-tab:hover {
-    color: #DABB84!important;
+:local(.tuxing){
+    width: 520px;
+    height: 56px;
+    position: relative;
 }
-:local(.wlopMContentR) .ant-tabs-nav .ant-tabs-tab{
-    font-size: 24px!important;
+:local(.inputp){
+    height: 36px!important;
 }
-:local(.wlopMContentR) .ant-tabs-bar{
-    border-bottom: 1px solid #eee!important;
-}
-:local(.wlopMContentR) .ant-tabs-nav .ant-tabs-tab{
-    padding-left: 0!important;
-    padding-right: 0!important;
-    margin-right: 40px!important;
+:local(.content) .ant-input:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px RGBA(218, 187, 132, .2);
 }
 
 
+:local(.content) .ant-input:focus, .ant-input:hover {
+    border-color: RGBA(218, 187, 132, 1);
+}
+:local(.content) .ant-btn{
+    border: 1px solid RGBA(218, 187, 132, 1)!important;
+}
+:local(.content) .ant-btn:focus, .ant-btn:hover{
+    border: 1px solid RGBA(218, 187, 132, 1)!important;
+}
+:local(.but){
+    margin-top: 20px;
+}
+:local(.butL){
+    float: left;
+    margin-right: 20px;
+}

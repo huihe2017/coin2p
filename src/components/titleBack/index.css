@@ -1,0 +1,32 @@
+:local(.wlopMContentRTitle){
+    width: 100%;
+    height: 52px;
+    border-bottom: 1px solid #eee;
+}
+:local(.wlopMContentRTitleA){
+    display: block;
+    width: 144px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-top: 7px;
+    border-bottom: 4px solid #DABB84;
+    color: #DABB84;
+    float: left;
+}
+:local(.back){
+    line-height: 20px;
+    color: #989898;
+    float: right;
+    margin-top: 20px;
+    font-size: 14px;
+}
+:local(.back):hover{
+    color:RGBA(152, 152, 152, .8)
+}
+:local(.back)>img{
+    float: left;
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+}

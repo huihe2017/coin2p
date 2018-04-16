@@ -56,11 +56,21 @@ class SellPart extends React.Component {
 
     word(){
         if(this.props.checked){
-            return(
-                <span className={style.checkIdHeadAed}>
+            if(!this.props.can) {
+                return (
+                    <span className={style.checkIdHeadAed}>
                    已认证
                 </span>
-            )
+                )
+            }else {
+                return (
+                    <Link to={this.props.herf}>
+                        <a className={style.checkIdHeadAe} href="javascript:void (0)">
+                            去解绑
+                        </a>
+                    </Link>
+                )
+            }
         }else {
             if(!this.props.three){
                 return(

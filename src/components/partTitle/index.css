@@ -1,0 +1,12 @@
+:local(.title){
+    font-size: 18px;
+    color: #2d313b;
+}
+:local(.a){
+    font-size: 12px;
+    color: #989898;
+    margin-left: 18px;
+}
+:local(.a):hover{
+    color: #DABB84;
+}

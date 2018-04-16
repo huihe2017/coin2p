@@ -1,0 +1,87 @@
+:local(.header){
+    font-size: 12px;
+    color: #2d343b;
+    line-height: 52px;
+    border-bottom: 1px solid #eee;
+}
+:local(.toWallet){
+    color: #DABB84;
+}
+:local(.toWallet):hover{
+    color: RGBA(218, 187, 132, .8);
+}
+:local(.partOne){
+    padding-top: 20px;
+
+}
+:local(.partOneB){
+    margin-top: 20px;
+}
+:local(.partOneB):after{
+    content:'';
+    clear: both;
+    display: block;
+}
+:local(.partOneBCT){
+    font-size: 14px;
+    color: #2D313B;
+    line-height: 26px;
+    display: block;
+}
+:local(.partOneBCB){
+    display: block;
+    font-size: 12px;
+    color: #989898;
+    line-height: 26px;
+}
+:local(.partOneBCB)>a{
+    color: #DABB84;
+}
+:local(.partOneBCB)>a:hover{
+    color:RGBA(218, 187, 132, .8);
+}
+:local(.partOneBCL){
+    float: left;
+}
+:local(.partOneBCR){
+    float: right;
+}
+:local(.partOneBCR) .ant-switch-checked {
+    background-color: #DABB84;
+}
+:local(.partTwo){
+    margin-top: 40px;
+
+}
+:local(.partTwoB){
+    padding-top: 20px;
+
+}
+:local(.partTwoBLi){
+    display: block;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 12px;
+}
+:local(.partTwoBLi):hover{
+    background-color: #eee;
+}
+:local(.partTwoBLiT){
+    font-size: 14px;
+    color: #2D313B;
+    line-height: 60px;
+    margin-left: 18px;
+    float: left;
+    width: 140px;
+    text-align: left;
+}
+:local(.partTwoBLiB){
+    font-size: 12px;
+    color: #989898;
+    line-height: 60px;
+    float: left;
+}
+
+

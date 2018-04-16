@@ -8,7 +8,18 @@ import OutDeal from './containers/outDeal/'
 import NewDealBox from './containers/newDeal'
 import InDealBox from './containers/inDeal'
 import PerCenter from './containers/perCenter'
-
+import SetPass from './containers/setPass'
+import SetData from './containers/setData'
+import EmailCheck from './containers/emailCheck'
+import RealError from './containers/realError'
+import RealCheckStart from './containers/realCkeckStart'
+import RealCheckTwo from './containers/realCheckTwo'
+import RealCheckOne from './containers/realCheckOne'
+import RealCheckSelect from './containers/realCheckSelect'
+import RealCheckID from './containers/realCheckID'
+import RealCheckPassport from './containers/realCheckPassport'
+import RealCheckPhoto from './containers/realCheckPhoto'
+import AdvanceCheckStart from './containers/advanceCheckStart'
 
 import { LocaleProvider } from 'antd'
 import {IntlProvider} from 'react-intl';
@@ -42,6 +53,18 @@ class FF extends React.Component {
                         <Route path="/newDeal" component={NewDealBox}/>
                         <Route path="/inDeal" component={InDealBox}/>
                         <Route path="/perCenter" component={PerCenter}/>
+                        <Route path="/setPass" component={SetPass}/>
+                        <Route path="/setData" component={SetData}/>
+                        <Route path="/emailCheck" component={EmailCheck}/>
+                        <Route path="/realError" component={RealError}/>
+                        <Route path="/realCheckStart" component={RealCheckStart}/>
+                        <Route path="/realCheckOne" component={RealCheckOne}/>
+                        <Route path="/realCheckTwo" component={RealCheckTwo}/>
+                        <Route path="/realCheckSelect" component={RealCheckSelect}/>
+                        <Route path="/realCheckID" component={RealCheckID}/>
+                        <Route path="/realCheckPassport" component={RealCheckPassport}/>
+                        <Route path="/realCheckPhoto" component={RealCheckPhoto}/>
+                        <Route path="/advanceCheckStart" component={AdvanceCheckStart}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

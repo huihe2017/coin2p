@@ -41,11 +41,33 @@ const menu1 = (
 
     </Menu>
 )
-;const menu2 = (
+const menu2 = (
     <Menu>
         <Menu.Item>刊登普通广告</Menu.Item>
         <Menu.Item>刊登批量交易广告</Menu.Item>
 
+    </Menu>
+)
+const menu4 = (
+    <Menu>
+        <Menu.Item>
+            <Link to={'/perCenter'}>
+                <span className={style.it}>
+                    我的账户
+                </span>
+            </Link>
+        </Menu.Item>
+        <Menu.Item>
+             <span className={style.it}>
+                我的钱包
+            </span>
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item>
+            <span className={style.it}>
+                登出
+            </span>
+        </Menu.Item>
     </Menu>
 );
 
@@ -60,7 +82,7 @@ class Header extends React.Component {
             isManage:true,
             visible:false,
             messageList : [],
-            isLogin:false
+            isLogin:true
         }
         this.choceType = this.choceType.bind(this)
     }
@@ -160,7 +182,7 @@ class Header extends React.Component {
 
                         <div className={style.logReg1} hidden={!this.state.isLogin}>
                             <div className={style.dropDown} style={{marginRight:0}}>
-                                <Dropdown overlay={menu1}>
+                                <Dropdown overlay={menu4}>
                                     <a className="ant-dropdown-link" style={{height:'40px',lineHeight:'40px'}} href="#">
                                         <img className={style.userImg} src={require('./images/user.png')} alt=""/> <Icon type="down" />
                                     </a>

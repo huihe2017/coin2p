@@ -1,0 +1,74 @@
+:local(.wlop) a:hover{
+    color: RGBA(218, 187, 132, .8);
+}
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    height: 568px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 20px;
+    padding-top: 30px;
+}
+
+:local(.wlopContentC){
+    font-size: 14px;
+    padding-top: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+
+}
+:local(.wlopContentCTT){
+    font-size: 14px;
+    color: #2D313B;
+    font-weight: bold;
+    display: block;
+}
+:local(.wlopContentCC){
+    color: #989898;
+    display: block;
+    margin-top: 5px;
+}
+:local(.wlopContentCB){
+    margin-top: 40px;
+
+}
+
+:local(.wlopContentB){
+    padding-top: 15px;
+}
+:local(.but){
+    width: 120px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+:local(.tuxing){
+    margin-top: 10px;
+    height: 80px;
+    width: 520px;
+}
+:local(.inputp){
+    height: 36px!important;
+    width: 100%!important;
+}
+:local(.TopTitle){
+    font-size: 14px;
+    font-weight: bold;
+    color: #2d313b;
+    display: block;
+    line-height: 32px;
+}
+.ant-input:focus, .ant-input:hover {
+    border-color: #DABB84!important;
+}
+.ant-input:focus {
+
+    box-shadow: 0 0 3px 2px RGBA(218, 187, 132, .2)!important;
+}
+:local(.but) .ant-btn{
+    border: 1px solid #DABB84;
+}

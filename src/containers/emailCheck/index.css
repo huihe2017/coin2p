@@ -1,0 +1,63 @@
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    height: 766px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 20px;
+    padding-top: 30px;
+}
+:local(.emailImg){
+    display: block;
+    width: 400px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+:local(.emailContent){
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #989898;
+    margin: 20px 0;
+}
+:local(.emailTipT){
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #989898;
+    line-height: 26px;
+}
+:local(.line){
+
+    width: 720px;
+    height: 1px;
+    background-color: #eee;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+:local(.emailTipTR){
+    color: #FF6060;
+}
+:local(.but){
+    width: 120px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+:local(.emailTipB){
+    display: block;
+    width: 720px;
+    text-align: center;
+    font-size: 14px;
+    color: #2D313B;
+    line-height: 26px;
+    margin: 0 auto;
+    margin-bottom: 6px;
+}

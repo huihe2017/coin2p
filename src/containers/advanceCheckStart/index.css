@@ -1,0 +1,183 @@
+:local(.wlop) a:hover{
+    color: RGBA(218, 187, 132, .8);
+}
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    height: 2435px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 20px;
+    padding-top: 30px;
+}
+:local(.wlopContentCTT){
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    line-height: 36px;
+    margin-bottom: 8px;
+}
+:local(.wlopContentCTTT){
+    font-size: 14px;
+    line-height: 32px;
+    color: #989898;
+
+}
+:local(.wlopContentCTTB){
+    font-size: 14px;
+    line-height: 32px;
+    color: #2D313B;
+
+}
+:local(.wlopContentC){
+    font-size: 14px;
+    padding-top: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    line-height: 24px;
+}
+:local(.helpWord){
+
+    color: #2D313B;
+    font-weight: bold;
+    display: block;
+}
+:local(.helpWordB){
+    color: #989898;
+    font-weight: bold;
+    display: block;
+}
+:local(.wlopContentCTT){
+    font-size: 14px;
+    color: #2D313B;
+    font-weight: bold;
+    display: block;
+}
+:local(.wlopContentCC){
+    color: #989898;
+    display: block;
+    margin-top: 5px;
+}
+:local(.wlopContentCB){
+    margin-top: 40px;
+
+}
+:local(.Item){
+    width: 360px;
+    height: 110px;
+    background-color: #f6f6f6;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+:local(.wlopContentB){
+    padding-top: 15px;
+}
+:local(.but){
+    width: 120px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+:local(.tuxing){
+
+    height: 80px;
+    width: 520px;
+    margin-bottom: 10px;
+}
+:local(.tuxing1){
+    border-top: 1px solid #eee;
+    height: 40px;
+    width: 100%;
+}
+:local(.inputp){
+    height: 36px!important;
+    width: 100%!important;
+}
+:local(.TopTitle){
+    font-size: 14px;
+    font-weight: bold;
+    color: #2d313b;
+    display: block;
+    line-height: 32px;
+}
+.ant-input:focus, .ant-input:hover {
+    border-color: #DABB84!important;
+}
+.ant-input:focus {
+
+    box-shadow: 0 0 3px 2px RGBA(218, 187, 132, .2)!important;
+}
+:local(.but) .ant-btn{
+    border: 1px solid #DABB84;
+}
+
+:local(.selectPartImg){
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+}
+.rongcloud-layer-body .rongcloud-form-item textarea, input[type=text] {
+    width: 100%!important;
+}
+
+:local(.selectPartItem) .ant-upload-list-picture-card .ant-upload-list-item, .ant-upload-list-picture .ant-upload-list-item {
+    padding: 0!important;
+    border-radius: 0!important;
+    border: none!important;
+}
+
+:local(.selectPartItem) .ant-upload-list-picture-card .ant-upload-list-item {
+    width: 360px!important;
+    height: 360px!important;
+    margin: 0!important;
+}
+:local(.selectPartItem) .ant-upload.ant-upload-select-picture-card {
+    border: none!important;
+    width: 360px!important;
+    height: 360px!important;
+    border-radius: 4px!important;
+    background-color: transparent!important;
+    vertical-align: top;
+    margin-right: 0!important;
+    margin-bottom: 0!important;
+}
+:local(.selectPartItemW){
+     width: 100%;
+     line-height: 32px;
+     display: block;
+     background-color: #DABB84;
+     color: #fff;
+     font-size: 14px;
+     position: absolute;
+     bottom: 0;
+     text-align: center;
+ }
+:local(.selectPart):after{
+    clear: both;
+    display: block;
+    content: '';
+}
+:local(.selectPartItem){
+    width: 360px;
+
+    background-color: #f6f6f6;
+    margin-right: 20px;
+    float: left;
+    position: relative;
+    transition: all 0.3s;
+}
+:local(.selectPartItem):hover{
+
+    opacity: 0.8;
+
+}
+
+:local(.selectPart){
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}

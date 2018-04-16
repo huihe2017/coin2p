@@ -1,0 +1,11 @@
+:local(.wlopContentCC){
+    color: #989898;
+    display: block;
+    margin-top: 5px;
+}
+:local(.wlopContentCBA){
+     color: #DABB84;
+}
+:local(.wlopContentCCR){
+    color:#FF6060;
+}

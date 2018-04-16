@@ -1,0 +1,129 @@
+:local(.wlop){
+    width: 100%;
+
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    margin: 0 auto;
+}
+:local(.wlopContent):after{
+    content: '';
+    clear: both;
+    display: block;
+}
+:local(.alert){
+    font-size: 14px;
+    line-height: 22px;
+    color: #2d313b;
+}
+:local(.wlopContent) .anticon-cross{
+    line-height: 22px!important;
+}
+:local(.wlopContent) .ant-alert-close-icon{
+    height: 22px!important;
+}
+:local(.wlopContent) .ant-alert-success{
+    background-color: rgba(74,219,136,.4)!important;
+    border-color: rgba(74,219,136,.4)!important;
+}
+:local(.wlopMContent){
+    margin-top: 20px;
+}
+:local(.wlopMContentL){
+    width: 350px;
+    height: 726px;
+    float: left;
+    background-color: #fff;
+    padding: 0 20px;
+
+}
+:local(.wlopMContentR){
+    width: 830px;
+    height: 726px;
+    float: right;
+    background-color: #fff;
+    padding: 0 20px;
+    padding-top: 20px;
+
+}
+
+:local(.formitems){
+
+}
+:local(.content){
+    width: 520px;
+}
+:local(.TopTitle){
+    font-size: 14px;
+    font-weight: bold;
+    color: #2d313b;
+    display: block;
+    line-height: 32px;
+}
+:local(.avatar){
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    display: block;
+    margin-bottom: 12px;
+}
+:local(.TopTitleO){
+    font-size: 14px;
+
+    color: #2d313b;
+    display: block;
+    margin-bottom: 12px;
+}
+:local(.nickTip){
+    font-size: 14px;
+
+    color: #989898;
+    display: block;
+    line-height: 36px;
+}
+:local(.inputp){
+    height: 36px!important;
+    width: 100%!important;
+}
+:local(.nick){
+    margin-top: 8px;
+}
+:local(.tuxing){
+    margin-top: 10px;
+}
+:local(.formitems) .ant-upload.ant-upload-select{
+    float: left!important;
+}
+:local(.tuxing) .ant-select-lg .ant-select-selection--single{
+    height: 36px!important;
+}
+:local(.tuxing) .ant-select-selection__rendered {
+    line-height: 36px!important;
+}
+:local(.partOneBCL){
+    float: left;
+}
+:local(.partOneBCR){
+    float: right;
+}
+:local(.tuxing):after{
+    clear: both;
+    content: '';
+    display: block;
+}
+:local(.formitems){
+    padding-top: 30px;
+}
+:local(.butL){
+    float: left;
+    margin-right: 20px;
+}
+:local(.but){
+    margin-top: 20px;
+}
+:local(.partOneBCR) .ant-switch-checked {
+    background-color: #DABB84;
+}
+

@@ -1,0 +1,82 @@
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    height: 670px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 20px;
+}
+:local(.twoImg){
+    display: block;
+    width: 320px;
+    height: 120px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+:local(.twoTipT){
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 98px;
+    font-size: 18px;
+    color: #2D313B;
+}
+:local(.twoContentT){
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #989898;
+    font-weight: bold;
+}
+:local(.twoContentC){
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    color: #989898;
+
+}
+:local(.but){
+    width: 240px;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+:local(.inp){
+    width: 520px;
+    margin: 0 auto;
+}
+:local(.wlopContent) .ant-input-lg{
+    height: 36px!important;
+
+}
+:local(.wlopContent) .ant-btn-lg{
+    height: 36px!important;
+    width: 240px!important;
+}
+:local(.but) .ant-btn{
+    color: #989898!important;
+}
+:local(.but) .ant-btn:focus, .ant-btn:hover{
+    color: #DABB84!important;
+    border-color: #DABB84!important;
+}
+:local(.but) .ant-btn.active, .ant-btn:active{
+    color: #DABB84!important;
+}
+:local(.tip){
+    color: #989898;
+    font-size: 14px;
+    display: block;
+    width: 520px;
+    margin: 0 auto;
+    line-height: 36px;
+}
+

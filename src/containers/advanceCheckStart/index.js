@@ -46,6 +46,8 @@ class EmailCheck extends React.Component {
             }
         });
     }
+
+
     handleChange = ({ fileList }) => this.setState({ fileList })
     handlePreview = (file) => {
         this.setState({
@@ -54,6 +56,8 @@ class EmailCheck extends React.Component {
         });
     }
     handleCancel = () => this.setState({ previewVisible: false })
+
+
     handleChangeCB = (e) => {
         this.setState({
             checkNick: e.target.checked,
@@ -96,15 +100,13 @@ class EmailCheck extends React.Component {
                 <div className={style.wlop}>
                     <div className={style.wlopContent}>
                         <TitleBack wid={96} word={'进阶验证'}/>
-
-
                         <div className={style.wlopContentC}>
                             <span className={style.helpWord}>
-                                    请确保您使用本人的真实证件进行验证，您所提交的资料将不会提供给未被授权的第三方，进阶身份验证为人工审核，请您耐心等待验证结果，一般审核时间为1-3个工作日
-                                </span>
+                                请确保您使用本人的真实证件进行验证，您所提交的资料将不会提供给未被授权的第三方，进阶身份验证为人工审核，请您耐心等待验证结果，一般审核时间为1-3个工作日
+                            </span>
                             <span className={style.helpWordB}>
-                                    请注意：一旦您提交，您将无法修改您的申请，再提交之前，确保所有信息无误。照片格式只支持： png/jpg 图片要求小于 5 MB。
-                                </span>
+                                请注意：一旦您提交，您将无法修改您的申请，再提交之前，确保所有信息无误。照片格式只支持： png/jpg 图片要求小于 5 MB。
+                            </span>
                             <Form onSubmit={this.handleSubmit}>
                                 <div className={style.partOne}>
                                     <div className={style.wlopContentCTT}>
@@ -181,8 +183,11 @@ class EmailCheck extends React.Component {
                                                     </div>
                                                 )}
                                             </FormItem>
-                                        </div>
 
+                                        </div>
+                                        <span className={style.wlopContentCC1}>
+                                请确保身份证清晰可见，<span className={style.red}>并将姓名及身份证号完整露出，避免遮挡</span>。
+                                    </span>
                                     </div>
                                 </div>
                                 <div className={style.partOne}>
@@ -262,7 +267,9 @@ class EmailCheck extends React.Component {
                                                 )}
                                             </FormItem>
                                         </div>
-
+                                        <span className={style.wlopContentCC1}>
+                                            请确保银行卡正面信息清晰可见，<span className={style.red}>请勿使用信用卡验证</span>，必须是您实际交易时所使用的”储值银行卡“或”银行借记卡。
+                                        </span>
                                     </div>
                                 </div>
                                 <div className={style.partOne}>
@@ -305,7 +312,9 @@ class EmailCheck extends React.Component {
                                                 )}
                                             </FormItem>
                                         </div>
-
+                                        <span className={style.wlopContentCC1}>
+                                请确保银行卡和声明书信息清晰可见，<span className={style.red}>并将银行卡和声明书上的文字完整露出，避免遮挡</span>。
+                                    </span>
                                     </div>
                                 </div>
                                 <div className={style.partOne}>
@@ -332,25 +341,13 @@ class EmailCheck extends React.Component {
                                                 <Button htmlType="submit" style={{width: 360, height: 36, fontSize:14,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"提交申请"}</Button>
                                         </FormItem>
                                     </div>
+                                    <span className={style.wlopContentCC}>
+                                请注意 : 币点点 本身是一个中立换币平台，提供换币服务，<span className={style.red}>并未有与任何「套利平台」有合作关系</span>。若有任何套利平台声称与 OTCBTC 有合作关系，且声称有巨额回报，<span className={style.red}>请用户提高警觉，注意并小心各种潜在风险。<br/>
+                                    </span>若有疑问请随时咨询在线客服。
+                                    </span>
                                 </div>
                             </Form>
                         </div>
-                        <div className={style.wlopContentB}>
-                            <div className={style.wlopContentCT}>
-                                <span className={style.wlopContentCTT}>
-                                    请注意
-                                </span>
-                                <span className={style.wlopContentCC}>
-                                币点点 本身是一个中立换币平台，提供换币服务，并未有与任何「套利平台」有合作关系。 <br/>
-                                   若有任何套利平台声称与 OTCBTC 有合作关系，且声称有巨额回报， 请用户提高警觉，注意并小心各种潜在风险。
-                                </span>
-                                <span className={style.wlopContentCC}>
-                                   若有疑问请随时咨询在线客服。
-                                </span>
-                            </div>
-
-                        </div>
-
                     </div>
                 </div>
                 <Footer/>
@@ -361,11 +358,13 @@ class EmailCheck extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
+
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+
     }
 }
 

@@ -8,7 +8,7 @@
 }
 :local(.wlopContent){
     width: 1200px;
-    height: 2435px;
+    height: 2500px;
     margin: 0 auto;
     background-color: #fff;
     padding: 0 20px;
@@ -36,7 +36,6 @@
 :local(.wlopContentC){
     font-size: 14px;
     padding-top: 15px;
-    border-bottom: 1px solid #eee;
     padding-bottom: 20px;
     line-height: 24px;
 }
@@ -45,11 +44,13 @@
     color: #2D313B;
     font-weight: bold;
     display: block;
+    margin-top: 20px;
 }
 :local(.helpWordB){
     color: #989898;
     font-weight: bold;
     display: block;
+    margin-bottom: 20px;
 }
 :local(.wlopContentCTT){
     font-size: 14px;
@@ -61,6 +62,13 @@
     color: #989898;
     display: block;
     margin-top: 5px;
+    font-size: 12px;
+}
+:local(.wlopContentCC1){
+    color: #989898;
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
 }
 :local(.wlopContentCB){
     margin-top: 40px;
@@ -77,12 +85,11 @@
     padding-top: 15px;
 }
 :local(.but){
-    width: 120px;
+    width: 100%;
     margin-bottom: 20px;
     margin-top: 10px;
 }
 :local(.tuxing){
-
     height: 80px;
     width: 520px;
     margin-bottom: 10px;
@@ -166,7 +173,6 @@
 
     background-color: #f6f6f6;
     margin-right: 20px;
-    float: left;
     position: relative;
     transition: all 0.3s;
 }
@@ -180,4 +186,7 @@
     margin-top: 20px;
     margin-bottom: 30px;
 
+}
+:local(.red){
+    color: #FF6060;
 }

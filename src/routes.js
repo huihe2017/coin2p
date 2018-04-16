@@ -20,6 +20,9 @@ import RealCheckID from './containers/realCheckID'
 import RealCheckPassport from './containers/realCheckPassport'
 import RealCheckPhoto from './containers/realCheckPhoto'
 import AdvanceCheckStart from './containers/advanceCheckStart'
+import AdvanceCheckResult from './containers/advanceCheckResult'
+import TwoSCheckResult from './containers/twoSCheckResult'
+import TwoCheckJie from './containers/twoCheckJie'
 
 import { LocaleProvider } from 'antd'
 import {IntlProvider} from 'react-intl';
@@ -65,6 +68,9 @@ class FF extends React.Component {
                         <Route path="/realCheckPassport" component={RealCheckPassport}/>
                         <Route path="/realCheckPhoto" component={RealCheckPhoto}/>
                         <Route path="/advanceCheckStart" component={AdvanceCheckStart}/>
+                        <Route path="/advanceCheckResult" component={AdvanceCheckResult}/>
+                        <Route path="/twoSCheckResult" component={TwoSCheckResult}/>
+                        <Route path="/twoCheckJie" component={TwoCheckJie}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

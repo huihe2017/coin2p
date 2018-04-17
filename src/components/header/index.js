@@ -16,21 +16,15 @@ moment.locale('en');
 
 const ButtonGroup = Button.Group;
 const SubMenu = Menu.SubMenu;
+let data = {currency:'btc'}
+data = JSON.stringify(data);
 const menu = (
     <Menu>
         <SubMenu title="购买">
-            <Menu.Item>购买1</Menu.Item>
-            <Menu.Item>购买2</Menu.Item>
-            <Menu.Item>购买3</Menu.Item>
-            <Menu.Item>购买4</Menu.Item>
-            <Menu.Item>购买5</Menu.Item>
+            <Menu.Item><Link to= {`/outDeal/${data}`} >btc</Link></Menu.Item>
         </SubMenu>
         <SubMenu title="出售" >
-            <Menu.Item>出售1</Menu.Item>
-            <Menu.Item>出售2</Menu.Item>
-            <Menu.Item>出售3</Menu.Item>
-            <Menu.Item>出售4</Menu.Item>
-            <Menu.Item>出售5</Menu.Item>
+            <Menu.Item>btc</Menu.Item>
         </SubMenu>
     </Menu>
 );

@@ -58,7 +58,7 @@ export default function businessProcess(state = initialState, action = {}) {
 
         case 'EDIT_SEARCH':
             state.search = action.data
-
+            console.log(45454540,action.data);
             return Object.assign({}, state, {})
 
         case 'CHANGE_BUSINESS_STEP':

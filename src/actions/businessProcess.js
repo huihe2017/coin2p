@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export function editSearch(data, callback) {
-    return dispatch({
+    return dispatch=>dispatch({
         type: 'EDIT_SEARCH',
         data: {
             search: data
@@ -10,7 +10,7 @@ export function editSearch(data, callback) {
 }
 
 export function changeBusinessStep(data, callback) {
-    return dispatch({
+    return dispatch=>dispatch({
         type: 'CHANGE_BUSINESS_STEP',
         data: {
             step: data.step
@@ -21,7 +21,7 @@ export function changeBusinessStep(data, callback) {
 export function getAdList(data, callback) {
     return dispatch => {
         dispatch({type: 'GET_AD_LIST_ING'})
-        axios.post(url, {}, {})
+        axios.post('https://www.baidu.com/', {}, {})
             .then(function (res) {
 
                 if (res.code === 1) {
@@ -44,7 +44,7 @@ export function getAdList(data, callback) {
 
 export function getAdDetails(data, callback) {
     return dispatch => {
-        axios.post(url, {}, {})
+        axios.post('https://www.baidu.com/', {}, {})
             .then(function (res) {
 
                 if (res.code === 1) {
@@ -64,7 +64,7 @@ export function getAdDetails(data, callback) {
 
 export function downOrder(data, callback) {
     return dispatch => {
-        axios.post(url, {}, {})
+        axios.post('https://www.baidu.com/', {}, {})
             .then(function (res) {
 
                 if (res.code === 1) {

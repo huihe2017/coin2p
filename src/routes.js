@@ -52,8 +52,8 @@ class FF extends React.Component {
                         <Route path="/register" component={RegisterBox}/>
                         <Route path="/login" component={LoginBox}/>
                         <Route path="/forget" component={ForgetBox}/>
-                        <Route path="/outDeal" component={OutDeal}/>
-                        <Route path="/newDeal" component={NewDealBox}/>
+                        <Route path="/outDeal/:filter" component={OutDeal}/>
+                        <Route path="/newDeal/:id" component={NewDealBox}/>
                         <Route path="/inDeal" component={InDealBox}/>
                         <Route path="/perCenter" component={PerCenter}/>
                         <Route path="/setPass" component={SetPass}/>

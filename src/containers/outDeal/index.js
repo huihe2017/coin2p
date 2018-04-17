@@ -5,7 +5,10 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
+import {editSearch} from '../../actions/businessProcess'
 import {bindActionCreators} from 'redux'
+import { Link} from 'react-router';
+
 import Toast from 'antd-mobile/lib/toast';
 import UserShow from '../../components/userShow'
 import OutHeader from '../../components/outDealHeader'
@@ -22,6 +25,11 @@ class OutDeal extends React.Component {
         this.state = {
 
         }
+    }
+
+    componentDidMount(){
+        let filter = JSON.parse(this.props.params.filter);
+        this.props.editSearch(filter)
     }
 
     handleSubmit = (e) => {
@@ -349,7 +357,7 @@ class OutDeal extends React.Component {
                                             </span>
                                         </td>
                                         <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
+                                            <Link to={'/newDeal/346346263236'} ><DButton width={80} height={36} size={17} word={'购买'}/></Link>
                                         </td>
                                     </tr>
                                     <tr>
@@ -415,7 +423,7 @@ class OutDeal extends React.Component {
                                             </span>
                                         </td>
                                         <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
+                                            <Link to={'/'} ><DButton width={80} height={36} size={17} word={'购买'}/></Link>
                                         </td>
                                     </tr>
                                     <tr>
@@ -677,6 +685,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        editSearch:bindActionCreators(editSearch,dispatch)
     }
 }
 

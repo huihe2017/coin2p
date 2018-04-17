@@ -1,13 +1,13 @@
 import React from 'react'
 import style from './index.css'
-import {Input,Select,Form,Button,message,Icon,Pagination } from 'antd';
+import {Input, Select, Form, Button, message, Icon, Pagination} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {editSearch} from '../../actions/businessProcess'
 import {bindActionCreators} from 'redux'
-import { Link} from 'react-router';
+import {Link} from 'react-router';
 
 import Toast from 'antd-mobile/lib/toast';
 import UserShow from '../../components/userShow'
@@ -22,12 +22,10 @@ class OutDeal extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-
-        }
+        this.state = {}
     }
 
-    componentDidMount(){
+    componentDidMount() {
         let filter = JSON.parse(this.props.params.filter);
         this.props.editSearch(filter)
     }
@@ -46,7 +44,7 @@ class OutDeal extends React.Component {
     }
 
     render() {
-        const { getFieldDecorator} = this.props.form;
+        const {getFieldDecorator} = this.props.form;
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -60,14 +58,15 @@ class OutDeal extends React.Component {
                                 <span>使用</span>
                                 <FormItem
 
-                                    wrapperCol={{ span: 21 }}
+                                    wrapperCol={{span: 21}}
                                 >
-                                    {getFieldDecorator('part', {initialValue: 'rmb',
-                                        rules: [{  message: ' ' }],
+                                    {getFieldDecorator('part', {
+                                        initialValue: 'rmb',
+                                        rules: [{message: ' '}],
                                     })(
                                         <Select
 
-                                            style={{ width: '100%' }}
+                                            style={{width: '100%'}}
 
                                         >
                                             <Option value="rmb">RMB</Option>
@@ -80,19 +79,19 @@ class OutDeal extends React.Component {
                                 <span>金额</span>
                                 <FormItem
 
-                                    wrapperCol={{ span: 21 }}
+                                    wrapperCol={{span: 21}}
                                 >
                                     {getFieldDecorator('note', {
-                                        rules: [{  message: ' ' }],
+                                        rules: [{message: ' '}],
                                     })(
                                         <Input
                                             type="text"
-                                            onChange={(e)=>{
+                                            onChange={(e) => {
                                                 this.setState({
-                                                    money:e
+                                                    money: e
                                                 })
                                             }}
-                                            style={{ width: '100%'}}
+                                            style={{width: '100%'}}
                                         />
                                     )}
                                 </FormItem>
@@ -100,14 +99,15 @@ class OutDeal extends React.Component {
                             <div className={style.stepOneItem}>
                                 <span>兑换</span>
                                 <FormItem
-                                    wrapperCol={{ span: 21 }}
+                                    wrapperCol={{span: 21}}
                                 >
-                                    {getFieldDecorator('coinPart', {initialValue: 'btc',
-                                        rules: [{  message: ' ' }],
+                                    {getFieldDecorator('coinPart', {
+                                        initialValue: 'btc',
+                                        rules: [{message: ' '}],
                                     })(
                                         <Select
 
-                                            style={{ width: '100%' }}
+                                            style={{width: '100%'}}
 
                                         >
                                             <Option value="btc">BTC</Option>
@@ -120,14 +120,15 @@ class OutDeal extends React.Component {
                                 <span>交易方式</span>
                                 <FormItem
 
-                                    wrapperCol={{ span: 21 }}
+                                    wrapperCol={{span: 21}}
                                 >
-                                    {getFieldDecorator('dealPart', {initialValue: 'no',
-                                        rules: [{  message: ' ' }],
+                                    {getFieldDecorator('dealPart', {
+                                        initialValue: 'no',
+                                        rules: [{message: ' '}],
                                     })(
                                         <Select
 
-                                            style={{ width: '100%' }}
+                                            style={{width: '100%'}}
 
                                         >
                                             <Option value="no">不限</Option>
@@ -141,10 +142,17 @@ class OutDeal extends React.Component {
                             </div>
                             <div className={style.stepOneItemR}>
                                 <FormItem
-                                    wrapperCol={{ span:21}}
+                                    wrapperCol={{span: 21}}
                                 >
                                     {/*<button  htmlType="submit">2222</button>*/}
-                                    <Button style={{height:48,lineHeight:'48px',marginTop:38,backgroundColor: 'rgba(218,187,132,1)',color:'#fff',fontSize:18}} className={style.but} htmlType="submit">
+                                    <Button style={{
+                                        height: 48,
+                                        lineHeight: '48px',
+                                        marginTop: 38,
+                                        backgroundColor: 'rgba(218,187,132,1)',
+                                        color: '#fff',
+                                        fontSize: 18
+                                    }} className={style.but} htmlType="submit">
                                         确定
                                     </Button>
                                 </FormItem>
@@ -238,60 +246,70 @@ class OutDeal extends React.Component {
                                 <span className={style.partTitleCon}>
                                     批量交易
                                 </span>
-                                <a className={style.titleA} href="javascript:void (0)" >
+                                <a className={style.titleA} href="javascript:void (0)">
                                     什么是批量交易？
                                 </a>
                             </div>
                             <table className={style.sellTable}>
                                 <thead>
-                                    <tr>
-                                        <td>
-                                            单价
-                                        </td>
-                                        <td>
-                                            数量
-                                        </td>
-                                        <td>
-                                            一口价
-                                        </td>
-                                        <td>
-                                            操作
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        单价
+                                    </td>
+                                    <td>
+                                        数量
+                                    </td>
+                                    <td>
+                                        一口价
+                                    </td>
+                                    <td>
+                                        操作
+                                    </td>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            45.640
-                                        </td><td>
-                                            0.05
-                                        </td><td>
-                                            2.310
-                                        </td><td>
+                                <tr>
+                                    <td>
+                                        45.640
+                                    </td>
+                                    <td>
+                                        0.05
+                                    </td>
+                                    <td>
+                                        2.310
+                                    </td>
+                                    <td>
                                         <a className={style.titleB} href="javascript:void (0)">购买</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            45.640
-                                        </td><td>
-                                            0.05
-                                        </td><td>
-                                            2.310
-                                        </td><td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        45.640
+                                    </td>
+                                    <td>
+                                        0.05
+                                    </td>
+                                    <td>
+                                        2.310
+                                    </td>
+                                    <td>
                                         <a className={style.titleB} href="javascript:void (0)">购买</a>
-                                        </td>
-                                    </tr><tr>
-                                        <td>
-                                            45.640
-                                        </td><td>
-                                            0.05
-                                        </td><td>
-                                            2.310
-                                        </td><td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        45.640
+                                    </td>
+                                    <td>
+                                        0.05
+                                    </td>
+                                    <td>
+                                        2.310
+                                    </td>
+                                    <td>
                                         <a className={style.titleB} href="javascript:void (0)">购买</a>
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -306,368 +324,489 @@ class OutDeal extends React.Component {
                             </a>
                         </div>
                         <div className={style.stepTwoContent}>
-                            <table className={style.stepTwoContentTable}>
-                                <thead>
-                                    <tr>
-                                        <td>
-                                            昵称
-                                        </td>
-                                        <td>
-                                            信用 &nbsp;<Icon type="down" />
-                                        </td>
-                                        <td>
-                                            交易限额
-                                        </td>
-                                        <td>
-                                            浮动单价 &nbsp;<Icon type="down" />
-                                        </td>
-                                        <td>
-                                            操作
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className={style.nick}>
+                            {/*<table className={style.stepTwoContentTable}>*/}
+                                {/*<thead>*/}
+                                {/*<tr>*/}
+                                    {/*<td>*/}
+                                        {/*昵称*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*信用 &nbsp;<Icon type="down"/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*交易限额*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*浮动单价 &nbsp;<Icon type="down"/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*操作*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*</thead>*/}
+                                {/*<tbody>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                fudonh
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <Link to={'/newDeal/346346263236'} ><DButton width={80} height={36} size={17} word={'购买'}/></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636,*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <Link to={'/'} ><DButton width={80} height={36} size={17} word={'购买'}/></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className={style.nick}>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*<tr>*/}
+                                    {/*<td className={style.nick}>*/}
 
-                                            <SellPart/>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                交易 213121
-                                            </span>
-                                            <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                            <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                            <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <DButton width={80} height={36} size={17} word={'购买'}/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        {/*<SellPart*/}
+                                            {/*userMsg={{*/}
+                                                {/*nickname: 34636346,*/}
+                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
+                                                {/*adUptime: 346363636*/}
+                                            {/*}}*/}
+                                            {/*paymode={[*/}
+                                                {/*{alipay: true, checked: true},*/}
+                                                {/*{weixin: true},*/}
+                                                {/*{bankCard: true}*/}
+                                            {/*]}*/}
+                                        {/*/>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*fudonh*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*好评度 100%*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*100-25.754.61*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                                {/*CNY*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                            {/*<span className={style.bishu}>*/}
+                                                {/*46.724.96*/}
+                                            {/*</span>*/}
+                                        {/*<span className={style.haoping}>*/}
+                                               {/*CNY/BTC*/}
+                                            {/*</span>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
+                                                                                    {/*word={'购买'}/></Link>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                                {/*</tbody>*/}
+                            {/*</table>*/}
                         </div>
                     </div>
                     <div className={style.page}>
                         <div className={style.pages}>
-                            <Pagination defaultCurrent={1} total={1000} showSizeChanger onShowSizeChange={this.onShowSizeChange}/>
+                            <Pagination defaultCurrent={1} total={1000} showSizeChanger
+                                        onShowSizeChange={this.onShowSizeChange}/>
                         </div>
 
                         {/*<div className={style.evePage}>*/}
-                            {/*每页展示条 共<span>100</span>条*/}
+                        {/*每页展示条 共<span>100</span>条*/}
                         {/*</div>*/}
                     </div>
 
@@ -679,13 +818,12 @@ class OutDeal extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-    return {
-    }
+    return {}
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        editSearch:bindActionCreators(editSearch,dispatch)
+        editSearch: bindActionCreators(editSearch, dispatch)
     }
 }
 

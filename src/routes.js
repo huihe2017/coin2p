@@ -24,6 +24,8 @@ import AdvanceCheckResult from './containers/advanceCheckResult'
 import TwoSCheckResult from './containers/twoSCheckResult'
 import TwoCheckJie from './containers/twoCheckJie'
 
+
+
 import { LocaleProvider } from 'antd'
 import {IntlProvider} from 'react-intl';
 import zh_CN from './common/zh_CN';

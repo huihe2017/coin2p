@@ -1,13 +1,13 @@
 import React from 'react'
 import style from './index.css'
-import {Input,Select,Form,Button,message,Icon,Pagination,Checkbox } from 'antd';
+import {Input, Select, Form, Button, message, Icon, Pagination, Checkbox} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Toast from 'antd-mobile/lib/toast';
-import UserShow from '../../components/userShow'
+import {getAdDetails} from '../../actions/businessProcess'
 import OutHeader from '../../components/outDealHeader'
 import DButton from '../../components/button'
 import SellPart from '../../components/sellPart'
@@ -20,8 +20,8 @@ class NewDealBox extends React.Component {
         super(props)
 
         this.state = {
-            CNYNum:0.00,
-            BTCNum:0.00,
+            CNYNum: 0.00,
+            BTCNum: 0.00,
         }
     }
 
@@ -30,9 +30,9 @@ class NewDealBox extends React.Component {
         this.props.form.validateFields((err, values) => {
 
             if (!err) {
-                if(!values.agreement){
+                if (!values.agreement) {
                     message.error('需勾选确认后方可进行交易')
-                   return false
+                    return false
                 }
                 console.log('Received values of form: ', values);
             }
@@ -43,10 +43,13 @@ class NewDealBox extends React.Component {
         console.log(current, pageSize);
     }
 
-
+    componentDidMount() {
+        this.props.getAdDetails(this.props.params.id)
+    }
 
     render() {
-        const { getFieldDecorator} = this.props.form;
+        console.log(4444444444444,this.props.adDetails);
+        const {getFieldDecorator} = this.props.form;
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -58,7 +61,14 @@ class NewDealBox extends React.Component {
                         <table className={style.newDealTable}>
                             <tr>
                                 <td>
-                                    <SellPart/>
+                                    <SellPart
+                                        userMsg={{
+                                            nickname: this.props.adDetails.nickname,
+                                            portrait: this.props.adDetails.portrait,
+                                            adUptime: this.props.adDetails.adUptime
+                                        }}
+                                        tradeMode={this.props.adDetails.tradeMode}
+                                    />
                                 </td>
                                 <td>
                                      <span className={style.bishu}>
@@ -158,16 +168,16 @@ class NewDealBox extends React.Component {
 
                                     >
                                         {getFieldDecorator('CNY', {
-                                            rules: [{  required: true,message: ' ', }],
+                                            rules: [{required: true, message: ' ',}],
                                         })(
                                             <Input
                                                 type="text"
-                                                onChange={(e)=>{
+                                                onChange={(e) => {
                                                     this.setState({
-                                                        CNYNum:e.target.value?e.target.value:0
+                                                        CNYNum: e.target.value ? e.target.value : 0
                                                     })
                                                 }}
-                                                style={{ width: '100%'}}
+                                                style={{width: '100%'}}
                                             />
                                         )}
                                     </FormItem>
@@ -181,16 +191,16 @@ class NewDealBox extends React.Component {
 
                                     >
                                         {getFieldDecorator('BTC', {
-                                            rules: [{  required: true,message: ' ',}],
+                                            rules: [{required: true, message: ' ',}],
                                         })(
                                             <Input
                                                 type="text"
-                                                onChange={(e)=>{
+                                                onChange={(e) => {
                                                     this.setState({
-                                                        BTCNum:e.target.value?e.target.value:0
+                                                        BTCNum: e.target.value ? e.target.value : 0
                                                     })
                                                 }}
-                                                style={{ width: '100%'}}
+                                                style={{width: '100%'}}
                                             />
                                         )}
                                     </FormItem>
@@ -199,12 +209,13 @@ class NewDealBox extends React.Component {
                                     <span>交易方式</span>
                                     <FormItem
                                     >
-                                        {getFieldDecorator('coinPart', {initialValue: 'bank',
-                                            rules: [{  required: true,message: ' ',initialValue: '0.0',}],
+                                        {getFieldDecorator('coinPart', {
+                                            initialValue: 'bank',
+                                            rules: [{required: true, message: ' ', initialValue: '0.0',}],
                                         })(
                                             <Select
 
-                                                style={{ width: '100%' }}
+                                                style={{width: '100%'}}
 
                                             >
                                                 <Option value="bank">银行转账</Option>
@@ -218,7 +229,7 @@ class NewDealBox extends React.Component {
                                 <div className={style.stepOneItemR}>
                                     <span>进行交易前，请您先登录并通过邮箱验证 <a href="">点击登录</a></span>
                                     <div className={style.yanz}>
-                                        <FormItem  style={{ marginBottom: 8 }}>
+                                        <FormItem style={{marginBottom: 8}}>
                                             {getFieldDecorator('agreement', {
                                                 valuePropName: 'checked',
                                             })(
@@ -230,7 +241,15 @@ class NewDealBox extends React.Component {
 
                                     <FormItem
                                     >
-                                        <Button style={{height:48,lineHeight:'48px',backgroundColor: 'rgba(218,187,132,1)',color:'#fff',fontSize:18,width:240,float:'right'}} className={style.but} htmlType="submit">
+                                        <Button style={{
+                                            height: 48,
+                                            lineHeight: '48px',
+                                            backgroundColor: 'rgba(218,187,132,1)',
+                                            color: '#fff',
+                                            fontSize: 18,
+                                            width: 240,
+                                            float: 'right'
+                                        }} className={style.but} htmlType="submit">
                                             确定
                                         </Button>
                                     </FormItem>
@@ -241,7 +260,7 @@ class NewDealBox extends React.Component {
                         <div className={style.newDealContentTB}>
                             <a className={style.sao} href="">一键扫货</a>
                             <span className={style.shuo}>
-                                当前数字货币价格为系统自动计算，实际交易价格以发起交易时的价格为准，请点击查看<a  className={style.shuoA} href="">关于浮动价格的说明</a>
+                                当前数字货币价格为系统自动计算，实际交易价格以发起交易时的价格为准，请点击查看<a className={style.shuoA} href="">关于浮动价格的说明</a>
                             </span>
                         </div>
                         <div className={style.newDealContentB}>
@@ -265,7 +284,7 @@ class NewDealBox extends React.Component {
                                     温馨提示：超过三笔取消订单，将被冻结当天下单权限。
                                 </li>
                                 <li className={style.tou1}>
-                                    <span  className={style.shuoB}>
+                                    <span className={style.shuoB}>
                                         下单后请履行契约精神，恶意抬价或者是反悔，被投诉将冻结账户 3-14 天不等。
                                     </span>
                                 </li>
@@ -282,11 +301,13 @@ class NewDealBox extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
+        adDetails: state.businessProcess.orderDetails
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        getAdDetails: bindActionCreators(getAdDetails, dispatch)
     }
 }
 

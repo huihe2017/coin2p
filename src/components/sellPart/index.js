@@ -16,16 +16,16 @@ class SellPart extends React.Component {
     }
 
     render() {
-
+        console.log(555555,this.props.userMsg);
         return (
             <div className={style.wlop}>
-                <img className={style.ava} src={require('./images/avator.png')} alt=""/>
+                <img className={style.ava} src={this.props.userMsg.portrait} alt=""/>
                 <div className={style.namebox}>
                     <span className={style.name}>
-                        飞机哈哈哈哈
+                        {this.props.userMsg.nickname}
                     </span>
                     <span className={style.line}>
-                        <span>1</span>分钟前上线
+                        <span>1</span>{this.props.userMsg.adUptime}
                     </span>
                 </div>
                 <div className={style.payPart}>

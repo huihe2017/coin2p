@@ -21,7 +21,7 @@ let initialState = {
     adList: [],
     batchTradeList: [],
     orderDetails: {
-        account: '',
+        nickname: '567',
         adUptime: '',
         portrait: '',
         tradeMode: [],
@@ -31,7 +31,7 @@ let initialState = {
             min: '',
             max: ''
         },
-        PayPeriod: '',
+        payPeriod: '',
         tradeNum: '',
         praise: '',
         tradeTotal: '',

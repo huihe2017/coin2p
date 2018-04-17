@@ -4,11 +4,14 @@ import merge from 'lodash/merge'
 
 import user from './user'
 import auth from './auth'
+import aroundMsg from './aroundMsg'
+import businessProcess from './businessProcess'
 
 let states = {
-
+    auth,
     user,
-    auth
+    aroundMsg,
+    businessProcess
 
 }
 

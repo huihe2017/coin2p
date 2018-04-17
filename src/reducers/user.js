@@ -1,33 +1,55 @@
 let initialState = {
-
-
+    account: '',
+    loading: false,
+    error: ''
 }
 
-export default function sign(state = initialState, action = {}) {
+export default function user(state = initialState, action = {}) {
 
     switch (action.type) {
 
-        case 'LOGIN':
-
-            const {token,role,email,unReadMsg,_id} = action.data
-
-            localStorage.setItem('token', token)
-            localStorage.setItem('role', role)
-            localStorage.setItem('userName',email);
-            localStorage.setItem('userName',email);
+        case 'USER_LOGIN_ING':
+            state.loading = true
             return Object.assign({}, state, {})
 
-        case 'LOGOUT':
-            localStorage.removeItem('token')
-            localStorage.removeItem('userName')
-            localStorage.removeItem('role')
-            localStorage.removeItem('meslist')
-            localStorage.removeItem('id')
-
+        case 'USER_LOGIN_SUCCESS':
+            let {account} = action.data
+            state.account = account
+            state.loading = false
             return Object.assign({}, state, {})
 
+        case 'USER_LOGIN_FAIL':
+            var {error} = action.data
+            state.error = error
+            state.loading = false
+            return Object.assign({}, state, {})
 
+        case 'USER_LOGOUT_SUCCESS':
+            state.isLogout = true
+            return Object.assign({}, state, initialState)
 
+        case 'USER_REGIST_ING':
+            state.loading = true
+            return Object.assign({}, state, {})
+
+        case 'USER_REGIST_SUCCESS':
+            state.loading = false
+            return Object.assign({}, state, {})
+
+        case 'USER_REGIST_FAIL':
+            state.loading = false
+            var {error} = action.data
+            state.error = error
+            return Object.assign({}, state, {})
+
+        case 'FORGET_PWD_SUCCESS':
+            state.forgetPwd = true
+            return Object.assign({}, state, {})
+
+        case 'FORGET_PWD_FAIL':
+            var {error} = action.data
+            state.error = error
+            return Object.assign({}, state, {})
 
         default:
             return state

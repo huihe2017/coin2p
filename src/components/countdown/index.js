@@ -81,7 +81,7 @@ class Countdown extends React.Component {
                 </Col>
                 <Col span={9}>
                     <Button onClick={this.handle} className={this.props.className}
-                            style={{height: 48, width:175, marginLeft: 20}}>{this.state.extraText}</Button>
+                            style={{height: this.props.h?this.props.h:48, width:175, marginLeft: 20}}>{this.state.extraText}</Button>
                 </Col>
             </Row>
         )

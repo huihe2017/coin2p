@@ -144,6 +144,7 @@
 }
 :local(.selectPartItem) .ant-upload.ant-upload-select-picture-card {
     border: none!important;
+    border: none!important;
     width: 360px!important;
     height: 360px!important;
     border-radius: 4px!important;

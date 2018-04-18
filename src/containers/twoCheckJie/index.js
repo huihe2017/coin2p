@@ -24,7 +24,7 @@ class TwoSBack extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            console.log(this.state.email)
+            console.log(values)
             if (!err) {
                 //Toast.loading('', 0, null, false)
                 // this.props.register({
@@ -65,7 +65,7 @@ class TwoSBack extends React.Component {
                         <Form onSubmit={this.handleSubmit} className="login-form">
                             <div className={style.inp}>
                                 <FormItem>
-                                    {getFieldDecorator('userName', {
+                                    {getFieldDecorator('code', {
                                         rules: [{ required: true, message: ' ',pattern: /^[0-9]*$/, }]
                                     })(
                                         <Input  className={style.inputp} placeholder="请输入动态密码" />

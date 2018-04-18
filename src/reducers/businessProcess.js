@@ -21,7 +21,7 @@ let initialState = {
     adList: [],
     batchTradeList: [],
     orderDetails: {
-        nickname: '567',
+        nickname: '',
         adUptime: '',
         portrait: '',
         tradeMode: [],
@@ -80,13 +80,18 @@ export default function businessProcess(state = initialState, action = {}) {
 
             return Object.assign({}, state, {})
 
+        case 'GET_AD_DETAILS_ING':
+
+            return Object.assign({}, state, {})
+
         case 'GET_AD_DETAILS_SUCCESS':
             state.orderDetails = action.data
 
             return Object.assign({}, state, {})
 
         case 'DOWN_ORDER_SUCCESS':
-            state.isDownOrder = true
+
+            state.orderDetails.isDownOrder = true
 
             return Object.assign({}, state, {})
 

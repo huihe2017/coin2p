@@ -44,6 +44,9 @@ export function getAdList(data, callback) {
 
 export function getAdDetails(data, callback) {
     return dispatch => {
+        dispatch({
+            type: 'GET_AD_DETAILS_ING'
+        })
         axios.get('http://www.dianping.com/', {}, {})
             .then(function (res) {
                 console.log(1111111112);
@@ -61,14 +64,14 @@ export function getAdDetails(data, callback) {
                     type: 'GET_AD_DETAILS_SUCCESS',
                     data: {
                         nickname: '2352626',
-                        adUptime: '36373756',
+                        adUptime: '1524018157000',
                         portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',
                         tradeMode: [
                             {alipay: true, checked: true},
-                            {weixin: false},
+                            {weixin: true},
                             {bankCard: true}
                         ],
-                        isCertifiedBusiness: false,
+                        isCertifiedBusiness: true,
                         price: 71111.23,
                         tradeQuota: {
                             min: 40,
@@ -88,6 +91,9 @@ export function getAdDetails(data, callback) {
 
 export function downOrder(data, callback) {
     return dispatch => {
+        dispatch({
+            type: 'GET_AD_DETAILS_ING'
+        })
         axios.post('https://www.baidu.com/', {}, {})
             .then(function (res) {
 
@@ -98,7 +104,31 @@ export function downOrder(data, callback) {
                 }
             })
             .catch(function (err) {
-                console.log(err);
+                dispatch({
+                    type: 'GET_AD_DETAILS_SUCCESS',
+                    data: {
+                        nickname: '2352626',
+                        adUptime: '1524018157000',
+                        portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',
+                        tradeMode: [
+                            {alipay: true, checked: true},
+                            {weixin: true},
+                            {bankCard: true}
+                        ],
+                        isCertifiedBusiness: true,
+                        price: 71111.23,
+                        tradeQuota: {
+                            min: 40,
+                            max: 1000
+                        },
+                        payPeriod: 15,
+                        tradeNum: 77,
+                        praise: 56,
+                        tradeTotal: 4.9,
+                        state: 1
+                    }
+
+                })
             })
     }
 }

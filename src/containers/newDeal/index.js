@@ -7,7 +7,7 @@ import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Toast from 'antd-mobile/lib/toast';
-import {getAdDetails} from '../../actions/businessProcess'
+import {getAdDetails,downOrder} from '../../actions/businessProcess'
 import OutHeader from '../../components/outDealHeader'
 import DButton from '../../components/button'
 import SellPart from '../../components/sellPart'
@@ -20,23 +20,16 @@ class NewDealBox extends React.Component {
         super(props)
 
         this.state = {
-            CNYNum: 0.00,
-            BTCNum: 0.00,
+            CNYNum: '',
+            BTCNum: '',
         }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        let _this = this
+        this.props.downOrder()
 
-            if (!err) {
-                if (!values.agreement) {
-                    message.error('需勾选确认后方可进行交易')
-                    return false
-                }
-                console.log('Received values of form: ', values);
-            }
-        });
     }
 
     onShowSizeChange(current, pageSize) {
@@ -48,8 +41,15 @@ class NewDealBox extends React.Component {
     }
 
     render() {
-        console.log(4444444444444,this.props.adDetails);
         const {getFieldDecorator} = this.props.form;
+
+        if (!this.props.adDetails.nickname) {
+            return <div>loading</div>
+        }
+        alert(1)
+        if(this.props.adDetails.isDownOrder){alert(2)
+            this.props.history.pushState(null, '/')
+        }
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -65,7 +65,8 @@ class NewDealBox extends React.Component {
                                         userMsg={{
                                             nickname: this.props.adDetails.nickname,
                                             portrait: this.props.adDetails.portrait,
-                                            adUptime: this.props.adDetails.adUptime
+                                            adUptime: this.props.adDetails.adUptime,
+                                            isCertifiedBusiness: this.props.adDetails.isCertifiedBusiness,
                                         }}
                                         tradeMode={this.props.adDetails.tradeMode}
                                     />
@@ -75,7 +76,7 @@ class NewDealBox extends React.Component {
                                                 浮动单价
                                             </span>
                                     <span className={style.haoping}>
-                                                72,148.73 CNY / BTC
+                                                {this.props.adDetails.price} CNY / BTC
                                             </span>
                                 </td>
                                 <td>
@@ -83,7 +84,7 @@ class NewDealBox extends React.Component {
                                                 交易限额
                                             </span>
                                     <span className={style.haoping}>
-                                                100 ~ 1,000 CNY
+                                        {this.props.adDetails.tradeQuota.min} ~ {this.props.adDetails.tradeQuota.max} CNY
                                             </span>
                                 </td>
                                 <td>
@@ -91,7 +92,7 @@ class NewDealBox extends React.Component {
                                                 付款期限
                                             </span>
                                     <span className={style.haoping}>
-                                                15 分钟
+                                                {this.props.adDetails.payPeriod} 分钟
                                             </span>
                                 </td>
                                 <td>
@@ -99,7 +100,7 @@ class NewDealBox extends React.Component {
                                                 交易次数
                                             </span>
                                     <span className={style.haoping}>
-                                                100
+                                                {this.props.adDetails.tradeNum}
                                             </span>
                                 </td>
                                 <td>
@@ -107,7 +108,7 @@ class NewDealBox extends React.Component {
                                                 好评度
                                             </span>
                                     <span className={style.haoping}>
-                                                100%
+                                                {this.props.adDetails.praise}%
                                             </span>
                                 </td>
                                 <td>
@@ -115,7 +116,7 @@ class NewDealBox extends React.Component {
                                                 历史
                                             </span>
                                     <span className={style.haoping}>
-                                                0-2 BTC
+                                                {this.props.adDetails.tradeTotal} BTC
                                             </span>
                                 </td>
                                 <td>
@@ -123,7 +124,7 @@ class NewDealBox extends React.Component {
                                                 状态
                                             </span>
                                     <span className={style.haoping}>
-                                                已上架
+                                                {this.props.adDetails.state}
                                             </span>
                                 </td>
                             </tr>
@@ -169,12 +170,15 @@ class NewDealBox extends React.Component {
                                     >
                                         {getFieldDecorator('CNY', {
                                             rules: [{required: true, message: ' ',}],
+                                            value:this.state.CNYNum
                                         })(
                                             <Input
                                                 type="text"
+                                                value={this.props.CNYNum}
                                                 onChange={(e) => {
                                                     this.setState({
-                                                        CNYNum: e.target.value ? e.target.value : 0
+                                                        CNYNum: e.target.value ? e.target.value : 0,
+                                                        BTCNum: e.target.value / this.props.adDetails.price
                                                     })
                                                 }}
                                                 style={{width: '100%'}}
@@ -192,12 +196,15 @@ class NewDealBox extends React.Component {
                                     >
                                         {getFieldDecorator('BTC', {
                                             rules: [{required: true, message: ' ',}],
+                                            value:this.state.BTCNum
                                         })(
                                             <Input
                                                 type="text"
+                                                value={this.state.BTCNum}
                                                 onChange={(e) => {
                                                     this.setState({
-                                                        BTCNum: e.target.value ? e.target.value : 0
+                                                        BTCNum: e.target.value ? e.target.value : 0,
+                                                        CNYNum: e.target.value * this.props.adDetails.price
                                                     })
                                                 }}
                                                 style={{width: '100%'}}
@@ -218,9 +225,20 @@ class NewDealBox extends React.Component {
                                                 style={{width: '100%'}}
 
                                             >
-                                                <Option value="bank">银行转账</Option>
-                                                <Option value="wechat">微信</Option>
-                                                <Option value="pay">支付宝</Option>
+
+                                                {
+                                                    this.props.adDetails.tradeMode[0].alipay ?
+                                                        <Option value="pay">支付宝</Option> : ''
+                                                }
+                                                {
+                                                    this.props.adDetails.tradeMode[1].weixin ?
+                                                        <Option value="wechat">微信</Option> : ''
+                                                }
+                                                {
+                                                    this.props.adDetails.tradeMode[2].bankCard ?
+                                                        <Option value="bank">银行转账</Option> : ''
+                                                }
+
                                             </Select>
                                         )}
                                     </FormItem>
@@ -307,7 +325,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getAdDetails: bindActionCreators(getAdDetails, dispatch)
+        getAdDetails: bindActionCreators(getAdDetails, dispatch),
+        downOrder:bindActionCreators(downOrder, dispatch)
     }
 }
 

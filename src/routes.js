@@ -23,7 +23,11 @@ import AdvanceCheckStart from './containers/advanceCheckStart'
 import AdvanceCheckResult from './containers/advanceCheckResult'
 import TwoSCheckResult from './containers/twoSCheckResult'
 import TwoCheckJie from './containers/twoCheckJie'
-
+import TwoCheckStart from './containers/twoCheckStart'
+import PayPart from './containers/payPart'
+import PayPay from './containers/payPay'
+import PayWeChat from './containers/payWeChat'
+import PayBank from './containers/payBank'
 
 
 import { LocaleProvider } from 'antd'
@@ -73,6 +77,11 @@ class FF extends React.Component {
                         <Route path="/advanceCheckResult" component={AdvanceCheckResult}/>
                         <Route path="/twoSCheckResult" component={TwoSCheckResult}/>
                         <Route path="/twoCheckJie" component={TwoCheckJie}/>
+                        <Route path="/twoCheckStart" component={TwoCheckStart}/>
+                        <Route path="/payPart" component={PayPart}/>
+                        <Route path="/payPay" component={PayPay}/>
+                        <Route path="/payWeChat" component={PayWeChat}/>
+                        <Route path="/payBank" component={PayBank}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

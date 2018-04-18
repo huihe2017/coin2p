@@ -1,0 +1,121 @@
+:local(.wlop){
+    width: 100%;
+
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    margin: 0 auto;
+}
+:local(.wlopContent):after{
+    content: '';
+    clear: both;
+    display: block;
+}
+:local(.alert){
+    font-size: 14px;
+    line-height: 22px;
+    color: #2d313b;
+}
+:local(.wlopContent) .anticon-cross{
+    line-height: 22px!important;
+}
+:local(.wlopContent) .ant-alert-close-icon{
+    height: 22px!important;
+}
+:local(.wlopContent) .ant-alert-success{
+    background-color: rgba(74,219,136,.4)!important;
+    border-color: rgba(74,219,136,.4)!important;
+}
+:local(.wlopMContent){
+    margin-top: 20px;
+}
+:local(.wlopMContentL){
+    width: 350px;
+    height: 726px;
+    float: left;
+    background-color: #fff;
+    padding: 0 20px;
+
+}
+:local(.wlopMContentR){
+    width: 830px;
+    height: 726px;
+    float: right;
+    background-color: #fff;
+    padding-top: 20px;
+
+}
+:local(.wlopMContentRLi){
+    padding: 0 20px;
+}
+
+:local(.header){
+    font-size: 12px;
+    color: #2d343b;
+    line-height: 24px;
+    border-bottom: 1px solid #eee;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    width: 790px;
+    margin: 0 auto;
+}
+:local(.content){
+    padding-top: 10px;
+}
+:local(.contentTable){
+    width: 100%;
+    border-spacing:0;
+}
+:local(.word){
+    float: left;
+}
+:local(.img){
+    float: left;
+    margin-top: 11px;
+    margin-left: 12px;
+}
+:local(.contentTable)>tbody>tr>td{
+    height: 38px;
+    color: #989898;
+    line-height: 38px;
+    padding-left: 20px;
+}
+:local(.contentTable)>tbody>tr:nth-child(odd)>td{
+   background-color: #eee;
+}
+:local(.contentTable)>thead>tr>td{
+    height: 38px;
+    color: #2D313B;
+    font-weight: bold;
+    line-height: 38px;
+    padding-left: 20px;
+}
+:local(.contentTable)>thead>tr>td:first-child{
+    width: 360px;
+}
+:local(.contentTable)>thead>tr>td:nth-child(2){
+    width: 360px;
+}
+:local(.contentTable)>thead>tr>td:nth-child(3){
+    text-align: right;
+    padding-right: 20px;
+}
+
+
+
+:local(.headerA){
+    color: #DABB84;
+}
+:local(.headerA):hover{
+    color: RGBA(218, 187, 132, .8);
+}
+:local(.headerAA){
+    color: #DABB84;
+    float: right;
+    margin-right: 20px;
+}
+:local(.headerAA):hover{
+    color: RGBA(218, 187, 132, .8);
+}

@@ -1,0 +1,100 @@
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    height: 750px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 20px;
+    padding-top: 30px;
+}
+:local(.emailImg){
+    display: block;
+    width: 385px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+:local(.emailContent){
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #989898;
+    margin-bottom: 10px;
+}
+:local(.emailContentb){
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #989898;
+
+}
+:local(.emailTipT){
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #989898;
+    line-height: 26px;
+}
+:local(.line) {
+
+    width: 720px;
+    height: 1px;
+    background-color: #eee;
+    margin: 15px auto;
+}
+:local(.formUl){
+    width: 520px;
+    margin: 0 auto;
+}
+
+
+:local(.qh){
+    width: 120px;
+    float: left;
+    margin-right: 20px;
+}
+:local(.qh) .ant-select-lg .ant-select-selection__rendered{
+    line-height: 36px!important;
+}
+:local(.qh) .ant-select-selection--single{
+    height: 36px!important;
+}
+:local(.formUl) .ant-input-lg{
+    height: 36px!important;
+}
+:local(.formUl) .ant-input{
+    height: 36px!important;
+}
+:local(.phone){
+    width: 380px;
+    float: left;
+}
+:local(.selphone){
+    height: 56px;
+}
+:local(.tuxing){
+    width: 520px;
+    height: 56px;
+    position: relative;
+}
+:local(.authCode){
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    height: 34px;
+    width: 199px;
+    z-index: 20;
+    border-radius: 0 4px 4px 0;
+}
+:local(.but){
+    width: 240px;
+    margin: 0 auto;
+    margin-top: 30px;
+}

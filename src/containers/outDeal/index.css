@@ -127,6 +127,9 @@
 :local(.stepOne) .ant-select-lg .ant-select-selection--single{
     height: 48px!important;
 }
+:local(.pages) .ant-select-selection--single{
+    height: 40px!important;
+}
 :local(.stepOne) .ant-input-lg{
     line-height: 46px;
     height: 48px;

@@ -28,6 +28,10 @@ import PayPart from './containers/payPart'
 import PayPay from './containers/payPay'
 import PayWeChat from './containers/payWeChat'
 import PayBank from './containers/payBank'
+import PhoneCheck from './containers/phoneCheck'
+import PhoneJie from './containers/phoneJie'
+import PhoneSubmit from './containers/phoneSubmit'
+import WalletRecharge from './containers/walletRecharge'
 
 
 import { LocaleProvider } from 'antd'
@@ -82,6 +86,10 @@ class FF extends React.Component {
                         <Route path="/payPay" component={PayPay}/>
                         <Route path="/payWeChat" component={PayWeChat}/>
                         <Route path="/payBank" component={PayBank}/>
+                        <Route path="/phoneCheck" component={PhoneCheck}/>
+                        <Route path="/phoneJie" component={PhoneJie}/>
+                        <Route path="/phoneSubmit" component={PhoneSubmit}/>
+                        <Route path="/walletRecharge" component={WalletRecharge}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

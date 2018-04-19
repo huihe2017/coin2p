@@ -1,11 +1,11 @@
 import React from 'react'
 import style from './index.css'
-import {Input, Select, Form, Button, message, Icon, Pagination} from 'antd';
+import {Input, Select, Form, Button, message, Icon, Pagination,Table} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
-import {editSearch} from '../../actions/businessProcess'
+import {editSearch, getAdDetails} from '../../actions/businessProcess'
 import {bindActionCreators} from 'redux'
 import {Link} from 'react-router';
 
@@ -18,6 +18,56 @@ import SellPart from '../../components/sellPart'
 const FormItem = Form.Item;
 const Option = Select.Option;
 
+const columns = [{
+    title: '昵称',
+    dataIndex: 'name',
+}, {
+    title: '信用',
+    dataIndex: 'age',
+    sorter: (a, b) => a.age - b.age,
+}, {
+    title: '交易限额',
+    dataIndex: 'address',
+    sorter: (a, b) => a.age - b.age,
+
+}, {
+    title: '浮动单价',
+    dataIndex: 'price',
+    sorter: (a, b) => a.age - b.age,
+
+}, {
+    title: '操作',
+    dataIndex: 'do',
+
+
+}];
+
+const data = [{
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+}, {
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+}, {
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+}, {
+    key: '4',
+    name: 'Jim Red',
+    age: 32,
+    address: 'London No. 2 Lake Park',
+}];
+
+function onChange(pagination, filters, sorter) {
+    console.log('params', pagination, filters, sorter);
+}
+
 class OutDeal extends React.Component {
     constructor(props) {
         super(props)
@@ -28,6 +78,7 @@ class OutDeal extends React.Component {
     componentDidMount() {
         let filter = JSON.parse(this.props.params.filter);
         this.props.editSearch(filter)
+        this.props.getAdDetails(this.props.params.id)
     }
 
     handleSubmit = (e) => {
@@ -45,6 +96,13 @@ class OutDeal extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
+        if (!this.props.adDetails.nickname) {
+            return <div>loading</div>
+        }
+        if(this.props.adDetails.isDownOrder){alert(2)
+            this.props.history.pushState(null, '/')
+        }
+
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -324,479 +382,74 @@ class OutDeal extends React.Component {
                             </a>
                         </div>
                         <div className={style.stepTwoContent}>
-                            {/*<table className={style.stepTwoContentTable}>*/}
-                                {/*<thead>*/}
-                                {/*<tr>*/}
-                                    {/*<td>*/}
-                                        {/*昵称*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*信用 &nbsp;<Icon type="down"/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*交易限额*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*浮动单价 &nbsp;<Icon type="down"/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*操作*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*</thead>*/}
-                                {/*<tbody>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
+                            <Table columns={columns} dataSource={data} onChange={onChange} />
+                            <table className={style.stepTwoContentTable}>
+                                <thead>
+                                <tr>
+                                    <td>
+                                        昵称
+                                    </td>
+                                    <td>
+                                        信用 &nbsp;<Icon type="down"/>
+                                    </td>
+                                    <td>
+                                        交易限额
+                                    </td>
+                                    <td>
+                                        浮动单价 &nbsp;<Icon type="down"/>
+                                    </td>
+                                    <td>
+                                        操作
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td className={style.nick}>
 
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636,*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
+                                        <SellPart
+                                            userMsg={{
+                                                nickname: this.props.adDetails.nickname,
+                                                portrait: this.props.adDetails.portrait,
+                                                adUptime: this.props.adDetails.adUptime,
+                                                isCertifiedBusiness: this.props.adDetails.isCertifiedBusiness,
+                                            }}
+                                            tradeMode={this.props.adDetails.tradeMode}
+                                        />
+                                    </td>
+                                    <td>
+                                            <span className={style.bishu}>
+                                                fudonh
+                                            </span>
+                                        <span className={style.haoping}>
+                                                好评度 100%
+                                            </span>
+                                    </td>
+                                    <td>
+                                            <span className={style.bishu}>
+                                                100-25.754.61
+                                            </span>
+                                        <span className={style.haoping}>
+                                                CNY
+                                            </span>
+                                    </td>
+                                    <td>
+                                            <span className={style.bishu}>
+                                                46.724.96
+                                            </span>
+                                        <span className={style.haoping}>
+                                               CNY/BTC
+                                            </span>
+                                    </td>
+                                    <td>
+                                        <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                                                    word={'购买'}/></Link>
+                                    </td>
+                                </tr>
 
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
 
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*<tr>*/}
-                                    {/*<td className={style.nick}>*/}
-
-                                        {/*<SellPart*/}
-                                            {/*userMsg={{*/}
-                                                {/*nickname: 34636346,*/}
-                                                {/*portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',*/}
-                                                {/*adUptime: 346363636*/}
-                                            {/*}}*/}
-                                            {/*paymode={[*/}
-                                                {/*{alipay: true, checked: true},*/}
-                                                {/*{weixin: true},*/}
-                                                {/*{bankCard: true}*/}
-                                            {/*]}*/}
-                                        {/*/>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*fudonh*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*好评度 100%*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*100-25.754.61*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                                {/*CNY*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                            {/*<span className={style.bishu}>*/}
-                                                {/*46.724.96*/}
-                                            {/*</span>*/}
-                                        {/*<span className={style.haoping}>*/}
-                                               {/*CNY/BTC*/}
-                                            {/*</span>*/}
-                                    {/*</td>*/}
-                                    {/*<td>*/}
-                                        {/*<Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}*/}
-                                                                                    {/*word={'购买'}/></Link>*/}
-                                    {/*</td>*/}
-                                {/*</tr>*/}
-                                {/*</tbody>*/}
-                            {/*</table>*/}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div className={style.page}>
@@ -818,11 +471,14 @@ class OutDeal extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-    return {}
+    return {
+        adDetails: state.businessProcess.orderDetails
+    }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        getAdDetails: bindActionCreators(getAdDetails, dispatch),
         editSearch: bindActionCreators(editSearch, dispatch)
     }
 }

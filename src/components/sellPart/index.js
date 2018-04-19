@@ -28,7 +28,7 @@ class SellPart extends React.Component {
                         {this.props.userMsg.nickname}
                     </span>
                     <span className={style.line}>
-                        <span></span>{setTime(this.props.userMsg.adUptime)}
+                        {setTime(this.props.userMsg.adUptime)}
                     </span>
                 </div>
                 <div className={style.payPart}>

@@ -128,7 +128,7 @@
     height: 48px!important;
 }
 :local(.pages) .ant-select-selection--single{
-    height: 40px!important;
+    height: 32px!important;
 }
 :local(.stepOne) .ant-input-lg{
     line-height: 46px;
@@ -406,21 +406,21 @@
     margin-top: 40px;
 }
 .ant-pagination-jump-next, .ant-pagination-jump-prev, .ant-pagination-next, .ant-pagination-prev{
-    min-width: 40px!important;
-    height: 40px!important;
-    line-height: 40px!important;
+    min-width: 32px!important;
+    height: 32px!important;
+    line-height: 32px!important;
 }
 .ant-pagination-next .ant-pagination-item-link:after, .ant-pagination-prev .ant-pagination-item-link:after{
-    height: 38px!important;
-    line-height: 38px!important;
+    height: 30px!important;
+    line-height: 30px!important;
 }
 .ant-pagination-item{
-    min-width: 40px!important;
+    min-width: 32px!important;
 }
 .ant-pagination-item, .ant-pagination-total-text{
-    height: 40px!important;
+    height: 32px!important;
 
-    line-height: 40px!important;
+    line-height: 32px!important;
 }
 .ant-pagination-item-active{
     background:rgba(218,187,132,1)!important;
@@ -446,7 +446,7 @@
 }
 
 .ant-select-selection__rendered{
-    line-height: 38px!important;
+    line-height: 32px!important;
 }
 .ant-select-focused .ant-select-selection, .ant-select-selection:active, .ant-select-selection:focus {
     border-color: rgba(218,187,132,1)!important;
@@ -456,4 +456,30 @@
 }
 .ant-select-selection:hover {
     border-color: rgba(218,187,132,1)!important;
+}
+:local(.stepTwoContent) .ant-table{
+    width: 100%!important;
+}
+:local(.stepTwoContent) .ant-table-tbody>tr:nth-of-type(odd){
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+}
+:local(.stepTwoContent) .ant-table-tbody>tr:nth-of-type(even){
+    width: 100%;
+    height: 80px;
+    background:rgba(237,237,237,1);
+}
+
+
+:local(.stepTwoContent)  .ant-table-tbody>tr.ant-table-row-hover>td, .ant-table-tbody>tr:hover>td, .ant-table-thead>tr.ant-table-row-hover>td, .ant-table-thead>tr:hover>td {
+    background: rgba(152,152,152,.1)!important;
+}
+
+:local(.stepTwoContent) .ant-table-pagination.ant-pagination{
+    display: none;
+}
+:local(.titleName){
+    font-size: 14px;
+    color: #989898;
 }

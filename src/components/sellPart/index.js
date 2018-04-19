@@ -22,7 +22,10 @@ class SellPart extends React.Component {
 
         return (
             <div className={style.wlop}>
-                <img className={style.ava} src={this.props.userMsg.portrait} alt=""/>
+                <div className={style.ava}>
+                    <img src={this.props.userMsg.portrait} alt=""/>
+                    <div className={style.cir} style={this.props.userMsg.online?{}:{filter:'grayscale(100%)'}}></div>
+                </div>
                 <div className={style.namebox}>
                     <span className={style.name}>
                         {this.props.userMsg.nickname}

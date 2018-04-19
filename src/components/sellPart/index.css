@@ -1,14 +1,38 @@
 :local(.wlop){
     margin-top: 5px;
+
+}
+:local(.wlop):after{
+    clear: both;
+    display: block;
+    content: '';
 }
 :local(.ava){
     width: 40px;
     height: 40px;
     float: left;
     margin-right: 12px;
+    position: relative;
+    /*filter: ;*/
+
+}
+:local(.cir){
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4ADB88;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+:local(.ava)>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%
 }
 :local(.namebox){
     float: left;
+    width: 125px;
 }
 :local(.name){
     font-size:14px;
@@ -24,7 +48,7 @@
 :local(.payPart){
     width: 70px;
     float: left;
-    margin-left: 38px;
+
 }
 :local(.payPartItem){
     width: 16px;

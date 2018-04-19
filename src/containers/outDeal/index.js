@@ -21,47 +21,110 @@ const Option = Select.Option;
 const columns = [{
     title: '昵称',
     dataIndex: 'name',
+    render: () => (
+            <SellPart
+                userMsg={{
+                    nickname: this.props.adDetails.nickname,
+                    portrait: this.props.adDetails.portrait,
+                    adUptime: this.props.adDetails.adUptime,
+                    isCertifiedBusiness: this.props.adDetails.isCertifiedBusiness,
+                }}
+                tradeMode={this.props.adDetails.tradeMode}
+            />
+
+    ),
 }, {
     title: '信用',
     dataIndex: 'age',
     sorter: (a, b) => a.age - b.age,
+    render: () => (
+        <div>
+                                  <span className={style.bishu}>
+                                                fudonh
+                                            </span>
+            <span className={style.haoping}>
+                                                好评度 100%
+                                            </span>
+        </div>
+    ),
 }, {
     title: '交易限额',
     dataIndex: 'address',
     sorter: (a, b) => a.age - b.age,
-
+    render: () => (
+        <div>
+                                      <span className={style.bishu}>
+                                                100-25.754.61
+                                            </span>
+            <span className={style.haoping}>
+                                                CNY
+                                            </span>
+        </div>
+    ),
 }, {
     title: '浮动单价',
     dataIndex: 'price',
     sorter: (a, b) => a.age - b.age,
-
+    render: () => (
+        <div>
+                                            <span className={style.bishu}>
+                                                46.724.96
+                                            </span>
+            <span className={style.haoping}>
+                                               CNY/BTC
+                                            </span>
+        </div>
+    ),
 }, {
     title: '操作',
     dataIndex: 'do',
-
+    render: () => (
+        <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                    word={'购买'}/></Link>
+    ),
 
 }];
 
 const data = [{
     key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
+    name: {name:'小飞机',online:true,portrait: 'http://img5.imgtn.bdimg.com/it/u=3468481793,3455309356&fm=27&gp=0.jpg',time:1524104423593,tradeMode: [
+            {alipay: false, checked: true},
+            {weixin: true},
+            {bankCard: true}
+        ],shop:true},
+    credit: {num:123,rela:50},
+    quota: {fnum:123,lnum:123,part:'CNY'},
+    price: {price:123123,fpart:'CNY',lpart:'BTC'},
 }, {
     key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
+    name: {name:'飞机',online:true,pay:false,portrait: 'http://img5.imgtn.bdimg.com/it/u=1825135465,545203264&fm=27&gp=0.jpg',time:1524105428593,tradeMode: [
+            {alipay: true, checked: true},
+            {weixin: false},
+            {bankCard: false}
+        ],shop:false},
+    credit: {num:1233,rela:90},
+    quota: {fnum:123,lnum:123,part:'USDT'},
+    price: {price:45345,fpart:'CNY',lpart:'BTC'},
 }, {
     key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    name: {name:'大飞机',online:false,pay:true,portrait: 'http://img2.imgtn.bdimg.com/it/u=3905682784,1406008946&fm=27&gp=0.jpg',time:1524105628553,tradeMode: [
+            {alipay: false, checked: true},
+            {weixin: true},
+            {bankCard: true}
+        ],shop:false},
+    credit: {num:123231,rela:100},
+    quota: {fnum:123,lnum:123,part:'BTC'},
+    price: {price:124515,fpart:'USDT',lpart:'BTC'},
 }, {
     key: '4',
-    name: 'Jim Red',
-    age: 32,
-    address: 'London No. 2 Lake Park',
+    name: {name:'大大飞机',online:false,portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',pay:false,time:1524105428593,tradeMode: [
+            {alipay: true, checked: true},
+            {weixin: true},
+            {bankCard: false}
+        ],shop:true},
+    credit: {num:1223,rela:80},
+    quota: {fnum:123,lnum:123,part:'CNY'},
+    price: {price:124515,fpart:'USDT',lpart:'BTC'},
 }];
 
 function onChange(pagination, filters, sorter) {
@@ -102,6 +165,77 @@ class OutDeal extends React.Component {
         if(this.props.adDetails.isDownOrder){alert(2)
             this.props.history.pushState(null, '/')
         }
+        const columns = [{
+            title: <span className={style.titleName}>昵称</span>,
+            dataIndex: 'name',
+            width:390,
+            render: (a) => (
+
+                <SellPart
+                    userMsg={{
+                        nickname: a.name,
+                        portrait: a.portrait,
+                        adUptime: a.time,
+                        isCertifiedBusiness: a.shop,
+                        online:a.online
+                    }}
+                    tradeMode={a.tradeMode}
+                />
+            ),
+        }, {
+            title: <span className={style.titleName}>信用</span>,
+            dataIndex: 'credit',
+            width:230,
+            sorter: (a, b) => a.credit.rela - b.credit.rela,
+            render: (a) => (
+                <div>
+                                  <span className={style.bishu}>
+                                      {a.num}
+                                            </span>
+                    <span className={style.haoping}>
+                                                好评度 {a.rela}%
+                                            </span>
+                </div>
+            ),
+        }, {
+            title:<span className={style.titleName}>交易限额</span> ,
+            dataIndex: 'quota',
+            width:230,
+            render: (a) => (
+                <div>
+                                      <span className={style.bishu}>
+                                                 {a.fnum}-{a.lnum}
+                                            </span>
+                    <span className={style.haoping}>
+                                                {a.part}
+                                            </span>
+                </div>
+            ),
+        }, {
+            title: <span className={style.titleName}>浮动单价</span>,
+            dataIndex: 'price',
+            width:240,
+            sorter: (a, b) => a.price.price - b.price.price,
+            render: (a) => (
+                <div>
+                                            <span className={style.bishu}>
+                                                 {a.price}
+                                            </span>
+                    <span className={style.haoping}>
+                                                {a.fpart}/ {a.lpart}
+                                            </span>
+                </div>
+            ),
+        }, {
+            title: <span className={style.titleName}>操作</span>,
+            dataIndex: 'do',
+            render: () => (
+                <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                            word={'购买'}/></Link>
+            ),
+
+        }];
+
 
         return (
             <div className={style.wrap}>
@@ -382,74 +516,7 @@ class OutDeal extends React.Component {
                             </a>
                         </div>
                         <div className={style.stepTwoContent}>
-                            <Table columns={columns} dataSource={data} onChange={onChange} />
-                            <table className={style.stepTwoContentTable}>
-                                <thead>
-                                <tr>
-                                    <td>
-                                        昵称
-                                    </td>
-                                    <td>
-                                        信用 &nbsp;<Icon type="down"/>
-                                    </td>
-                                    <td>
-                                        交易限额
-                                    </td>
-                                    <td>
-                                        浮动单价 &nbsp;<Icon type="down"/>
-                                    </td>
-                                    <td>
-                                        操作
-                                    </td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td className={style.nick}>
-
-                                        <SellPart
-                                            userMsg={{
-                                                nickname: this.props.adDetails.nickname,
-                                                portrait: this.props.adDetails.portrait,
-                                                adUptime: this.props.adDetails.adUptime,
-                                                isCertifiedBusiness: this.props.adDetails.isCertifiedBusiness,
-                                            }}
-                                            tradeMode={this.props.adDetails.tradeMode}
-                                        />
-                                    </td>
-                                    <td>
-                                            <span className={style.bishu}>
-                                                fudonh
-                                            </span>
-                                        <span className={style.haoping}>
-                                                好评度 100%
-                                            </span>
-                                    </td>
-                                    <td>
-                                            <span className={style.bishu}>
-                                                100-25.754.61
-                                            </span>
-                                        <span className={style.haoping}>
-                                                CNY
-                                            </span>
-                                    </td>
-                                    <td>
-                                            <span className={style.bishu}>
-                                                46.724.96
-                                            </span>
-                                        <span className={style.haoping}>
-                                               CNY/BTC
-                                            </span>
-                                    </td>
-                                    <td>
-                                        <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
-                                                                                    word={'购买'}/></Link>
-                                    </td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
+                            <Table  columns={columns} dataSource={data} onChange={this.onChange} />
                         </div>
                     </div>
                     <div className={style.page}>

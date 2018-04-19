@@ -1,5 +1,5 @@
 let initialState = {
-    account: '',
+    account: localStorage.getItem('account'),
     loading: false,
     error: ''
 }
@@ -14,6 +14,7 @@ export default function user(state = initialState, action = {}) {
 
         case 'USER_LOGIN_SUCCESS':
             let {account} = action.data
+            localStorage.setItem('account',account)
             state.account = account
             state.loading = false
             return Object.assign({}, state, {})
@@ -25,8 +26,9 @@ export default function user(state = initialState, action = {}) {
             return Object.assign({}, state, {})
 
         case 'USER_LOGOUT_SUCCESS':
-            state.isLogout = true
-            return Object.assign({}, state, initialState)
+            localStorage.removeItem('account')
+            state.account = ''
+            return Object.assign({}, state,{})
 
         case 'USER_REGIST_ING':
             state.loading = true

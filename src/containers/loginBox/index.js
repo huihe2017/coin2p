@@ -1,10 +1,11 @@
 import React from 'react'
 import style from './index.css'
-import {Input,Select,Form,Button,message} from 'antd';
+import {Input, Select, Form, Button, message} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import {hashHistory,Link} from 'react-router'
+import {hashHistory, Link} from 'react-router'
 import {connect} from 'react-redux'
+import {login} from '../../actions/user'
 import {bindActionCreators} from 'redux'
 import Toast from 'antd-mobile/lib/toast';
 import UserShow from '../../components/userShow'
@@ -16,15 +17,15 @@ class LoginBox extends React.Component {
     constructor() {
         super()
         this.state = {
-            phone:false
+            phone: false
         }
     }
 
     handleCurrencyChange = (currency) => {
         if (!('value' in this.props)) {
-            this.setState({ currency });
+            this.setState({currency});
         }
-        this.triggerChange({ currency });
+        this.triggerChange({currency});
     }
     triggerChange = (changedValue) => {
         // Should provide an event to pass value to Form.
@@ -34,8 +35,8 @@ class LoginBox extends React.Component {
         }
     }
 
-    componentDidMount(){
-        var that=this
+    componentDidMount() {
+        var that = this
         // this.props.getCaption({},(img) => {
         //     //console.log('huhu'+img)
         //     that.setState({
@@ -44,21 +45,23 @@ class LoginBox extends React.Component {
         // });
     }
 
-    phem(){
-        if(this.state.phone){
+    phem() {
+        if (this.state.phone) {
             this.setState({
-                phone:false
+                phone: false
             })
-        }else {
+        } else {
             this.setState({
-                phone:true
+                phone: true
             })
         }
 
     }
-    regetPicImg(){
+
+    regetPicImg() {
         alert(1)
     }
+
     emailHandleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -80,13 +83,14 @@ class LoginBox extends React.Component {
                 //         this.props.hideAuth()
                 //     }
                 // })
-                message.success("登录成功")
-            }else {
+                this.props.login()
+            } else {
                 message.error("填写不完善")
             }
         });
     }
     phoneHandleSubmit = (e) => {
+        console.log(444444, this.props.form)
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             console.log(this.state.email)
@@ -107,8 +111,8 @@ class LoginBox extends React.Component {
                 //         this.props.hideAuth()
                 //     }
                 // })
-                message.success("登录成功")
-            }else {
+                this.props.login()
+            } else {
                 message.error("填写不完善")
             }
         });
@@ -116,7 +120,12 @@ class LoginBox extends React.Component {
 
     render() {
 
-        const { getFieldDecorator} = this.props.form;
+        if (this.props.user.account) {
+            message.success("登录成功", 3, () => {
+                this.props.history.pushState(null, '/')
+            })
+        }
+        const {getFieldDecorator} = this.props.form;
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -127,13 +136,16 @@ class LoginBox extends React.Component {
                         </ul>
                         <div className={style.boxContentRight}>
 
-                                <div className={style.content1}>
+                            <div className={style.content1}>
                                     <span className={style.llctitle}>
                                         欢迎来到币點點、请登录
-                                        <a className={style.llctitleA} onClick={this.phem.bind(this)} href="javascript:void (0)">{this.state.phone?'使用邮箱登录':'使用手机登录'} &nbsp;></a>
+                                        <a className={style.llctitleA} onClick={this.phem.bind(this)}
+                                           href="javascript:void (0)">{this.state.phone ? '使用邮箱登录' : '使用手机登录'} &nbsp;></a>
                                     </span>
 
-                                    <div hidden={this.state.phone}>
+
+                                {
+                                    !this.state.phone ? <div>
                                         <Form onSubmit={this.emailHandleSubmit}>
                                             <div className={style.perselphone}>
                                                 <div className={style.selphone}>
@@ -144,10 +156,11 @@ class LoginBox extends React.Component {
                                                                 required: true,
                                                                 initialValue: '36363@ww.com',
                                                                 pattern: /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/,
-                                                                message:"请输入正确格式的邮箱地址"
+                                                                message: "请输入正确格式的邮箱地址"
                                                             }],
                                                         })(
-                                                            <Input className={style.inputp} disabled={this.state.checkNick}
+                                                            <Input className={style.inputp}
+                                                                   disabled={this.state.checkNick}
                                                                    placeholder={"请输入邮箱"} onChange={(e) => {
                                                                 this.setState({email: e.target.value})
                                                             }}/>
@@ -172,21 +185,32 @@ class LoginBox extends React.Component {
                                                 </div>
 
                                                 <FormItem>
-                                                    <Button htmlType="submit" style={{width: '100%', height: 48, marginTop: 50,fontSize:16,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"马上登录"}</Button>
+                                                    <Button htmlType="submit" style={{
+                                                        width: '100%',
+                                                        height: 48,
+                                                        marginTop: 50,
+                                                        fontSize: 16,
+                                                        backgroundColor: 'rgba(217,186,131,1)',
+                                                        color: '#fff'
+                                                    }}>{"马上登录"}</Button>
                                                 </FormItem>
                                             </div>
                                         </Form>
-                                    </div>
+                                    </div> : ''
+                                }
 
-                                    <div hidden={!this.state.phone}>
+
+                                {
+                                    this.state.phone ? <div>
                                         <Form onSubmit={this.phoneHandleSubmit}>
                                             <div className={style.perselphone}>
 
                                                 <div className={style.selphone}>
                                                     <div className={style.qh}>
-                                                        <FormItem >
+                                                        <FormItem>
                                                             {getFieldDecorator('price', {
-                                                                initialValue:  'da' })( <Select  onChange={this.handleCurrencyChange}>
+                                                                initialValue: 'da'
+                                                            })(<Select onChange={this.handleCurrencyChange}>
                                                                 <Option value="da">+86</Option>
                                                                 <Option value="xiang">+866</Option>
                                                                 <Option value="tai">+8666</Option>
@@ -200,11 +224,12 @@ class LoginBox extends React.Component {
                                                                 rules: [{
                                                                     required: true,
                                                                     initialValue: ' ',
-                                                                    pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
-                                                                    message:"请输入正确格式的手机号码"
+                                                                    pattern: /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
+                                                                    message: "请输入正确格式的手机号码"
                                                                 }],
                                                             })(
-                                                                <Input className={style.inputp} disabled={this.state.checkNick}
+                                                                <Input className={style.inputp}
+                                                                       disabled={this.state.checkNick}
                                                                        placeholder={"请输入手机号码"} onChange={(e) => {
                                                                     this.setState({phone: e.target.value})
                                                                 }}/>
@@ -219,9 +244,11 @@ class LoginBox extends React.Component {
 
                                                     </div>
                                                     <FormItem>{getFieldDecorator('authCode', {
-                                                        rules: [{ required: true, message: "请输入图形验证码"}],
+                                                        rules: [{required: true, message: "请输入图形验证码"}],
                                                     })(<div>
-                                                        <Input onChange={(e)=>{this.setState({picCode:e.target.value})}} className={style.inputp} placeholder={"请输入图形验证码"}/></div>
+                                                        <Input onChange={(e) => {
+                                                            this.setState({picCode: e.target.value})
+                                                        }} className={style.inputp} placeholder={"请输入图形验证码"}/></div>
                                                     )}
                                                     </FormItem>
                                                 </div>
@@ -243,25 +270,34 @@ class LoginBox extends React.Component {
                                                 </div>
 
                                                 <FormItem>
-                                                    <Button htmlType="submit" style={{width: '100%', height: 48, marginTop: 50,fontSize:16,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"马上登录"}</Button>
+                                                    <Button htmlType="submit" style={{
+                                                        width: '100%',
+                                                        height: 48,
+                                                        marginTop: 50,
+                                                        fontSize: 16,
+                                                        backgroundColor: 'rgba(217,186,131,1)',
+                                                        color: '#fff'
+                                                    }}>{"马上登录"}</Button>
                                                 </FormItem>
 
 
                                             </div>
                                         </Form>
-                                    </div>
-                                    <div className={style.toggletab}>
-                                        <Link to="/forget">
-                                            <a className={style.reg1} href="javascript:void (0)">{"忘记密码？"}</a>
-                                        </Link>
-                                        <Link to="/register">
-                                            <a className={style.reg} href="javascript:void (0)">{"注册账号"}</a>
-                                        </Link>
-                                        <span className={style.noacc}>
+                                    </div> : ''
+                                }
+
+                                <div className={style.toggletab}>
+                                    <Link to="/forget">
+                                        <a className={style.reg1} href="javascript:void (0)">{"忘记密码？"}</a>
+                                    </Link>
+                                    <Link to="/register">
+                                        <a className={style.reg} href="javascript:void (0)">{"注册账号"}</a>
+                                    </Link>
+                                    <span className={style.noacc}>
                                         {"没有账户"}？
                                 </span>
-                                    </div>
                                 </div>
+                            </div>
 
                         </div>
                     </div>
@@ -274,11 +310,13 @@ class LoginBox extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
+        user: state.user
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        login: bindActionCreators(login, dispatch)
     }
 }
 

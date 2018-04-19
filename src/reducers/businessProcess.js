@@ -41,14 +41,15 @@ let initialState = {
         isConfirm: false,
         isChatOnline: true,
         chatRecord: [],
-        Remarks: '',
+        remarks: '',
         remainderTime: '',
         isAlreadyPay: false,
         serviceCharge: '',
         evaluate: {
             level: '',
             content: ''
-        }
+        },
+        orderNo:''
     }
 }
 
@@ -91,8 +92,12 @@ export default function businessProcess(state = initialState, action = {}) {
 
         case 'DOWN_ORDER_SUCCESS':
 
-            state.orderDetails.isDownOrder = true
+            let orderDetails = Object.assign({}, state.orderDetails, {isDownOrder:true,id:action.data})
+            return Object.assign({}, state, {orderDetails})
 
+        case 'GET_ORDER_DETAILS_SUCCESS':
+
+            state.orderDetails = action.data
             return Object.assign({}, state, {})
 
         default:

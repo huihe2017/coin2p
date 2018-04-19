@@ -105,7 +105,33 @@ export function downOrder(data, callback) {
             })
             .catch(function (err) {
                 dispatch({
-                    type: 'GET_AD_DETAILS_SUCCESS',
+                    type: 'DOWN_ORDER_SUCCESS',
+                    data:34643636
+                })
+            })
+    }
+}
+
+export function getOrderDetails(data, callback) {
+    return dispatch => {
+        dispatch({
+            type: 'GET_ORDER_DETAILS_ING'
+        })
+        axios.get('http://www.dianping.com/', {}, {})
+            .then(function (res) {
+                console.log(1111111112);
+                if (res.code === 1) {
+                    dispatch({
+                        type: 'GET_AD_DETAILS_SUCCESS',
+                        data: {
+                            adDetails: data.adDetails
+                        }
+                    })
+                }
+            })
+            .catch(function (err) {
+                dispatch({
+                    type: 'GET_ORDER_DETAILS_SUCCESS',
                     data: {
                         nickname: '2352626',
                         adUptime: '1524018157000',
@@ -125,7 +151,13 @@ export function downOrder(data, callback) {
                         tradeNum: 77,
                         praise: 56,
                         tradeTotal: 4.9,
-                        state: 1
+                        state: 1,
+                        realCurrencyValue:45435,
+                        virtualCurrencyValue:3.2,
+                        orderNo:'252jb52jkb5k2b52k5b25b',
+                        serviceCharge:'免费',
+                        remarks:'转账时请备注【订单编号后4位】 以加快确认速度\n' +
+                        '请勿在汇款备注内填写比特币，BTC，OTC'
                     }
 
                 })

@@ -27,10 +27,19 @@ class NewDealBox extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let _this = this
-        this.props.downOrder()
+        this.props.form.validateFields((err, values) => {
 
+            if (!err) {
+                if (!values.agreement) {
+                    message.error('需勾选确认后方可进行交易')
+                    return false
+                }
+                this.props.downOrder()
+            }
+        });
     }
+
+
 
     onShowSizeChange(current, pageSize) {
         console.log(current, pageSize);
@@ -46,9 +55,9 @@ class NewDealBox extends React.Component {
         if (!this.props.adDetails.nickname) {
             return <div>loading</div>
         }
-        alert(1)
-        if(this.props.adDetails.isDownOrder){alert(2)
-            this.props.history.pushState(null, '/')
+
+        if(this.props.adDetails.isDownOrder){
+            this.props.history.pushState(null, '/inDeal/'+this.props.adDetails.id)
         }
         return (
             <div className={style.wrap}>

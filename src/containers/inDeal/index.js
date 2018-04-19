@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './index.css'
-import {Input,Select,Form,Button,message,Icon,Pagination,Checkbox,Tooltip,Radio } from 'antd';
+import {Input, Select, Form, Button, message, Icon, Pagination, Checkbox, Tooltip, Radio} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
@@ -8,9 +8,11 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Toast from 'antd-mobile/lib/toast';
 import UserShow from '../../components/userShow'
+import {getOrderDetails} from '../../actions/businessProcess'
 import OutHeader from '../../components/outDealHeader'
 import DButton from '../../components/button'
 import SellPart from '../../components/sellPart'
+import Countdown from '../../components/countdownNew'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -21,31 +23,38 @@ class InDealBox extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            CNYNum:0.00,
-            BTCNum:0.00,
-            timeMin:14,
-            timeSec:59,
+            CNYNum: 0.00,
+            BTCNum: 0.00,
+            timeMin: 14,
+            timeSec: 59,
             value: 1,
         }
     }
 
 
-    submit(){
-        let eva={}
-        eva.eva=this.state.eva;
-        eva.hao=this.state.value;
+    submit() {
+        let eva = {}
+        eva.eva = this.state.eva;
+        eva.hao = this.state.value;
         console.log(eva);
     }
+
     onChange = (e) => {
         this.setState({
             value: e.target.value,
         });
     }
 
-
+    componentDidMount() {
+        this.props.getOrderDetails()
+    }
 
     render() {
-        const { getFieldDecorator} = this.props.form;
+        if (!this.props.orderDetails.nickname) {
+            return <div>loading</div>
+        }
+        const {getFieldDecorator} = this.props.form;
+        console.log(1111111111, this.props.orderDetails);
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -64,7 +73,7 @@ class InDealBox extends React.Component {
                                         卖家
                                     </span>
                                     <span className={style.haoping}>
-                                        飞机哈哈哈哈
+                                        {this.props.orderDetails.nickname}
                                     </span>
                                 </td>
                                 <td>
@@ -72,7 +81,7 @@ class InDealBox extends React.Component {
                                         交易金额
                                     </span>
                                     <span className={style.haoping}>
-                                        20000CNY
+                                        {this.props.orderDetails.realCurrencyValue}CNY
                                     </span>
                                 </td>
                                 <td>
@@ -80,7 +89,7 @@ class InDealBox extends React.Component {
                                         单价
                                     </span>
                                     <span className={style.haoping}>
-                                        49200CNY
+                                        {this.props.orderDetails.price}CNY
                                     </span>
                                 </td>
                                 <td>
@@ -88,7 +97,7 @@ class InDealBox extends React.Component {
                                         付款期限
                                     </span>
                                     <span className={style.haoping}>
-                                        2018/04/02 10:39
+                                        {this.props.orderDetails.payPeriod}分
                                     </span>
                                 </td>
                                 <td>
@@ -96,7 +105,15 @@ class InDealBox extends React.Component {
                                         交易方式
                                     </span>
                                     <span className={style.haoping}>
-                                        银行转账
+                                        {
+                                            this.props.orderDetails.tradeMode[0].checked ? '支付宝' : ''
+                                        }
+                                        {
+                                            this.props.orderDetails.tradeMode[1].checked ? '微信支付' : ''
+                                        }
+                                        {
+                                            this.props.orderDetails.tradeMode[2].checked ? '银行卡转账' : ''
+                                        }
                                     </span>
                                 </td>
                                 <td>
@@ -104,7 +121,7 @@ class InDealBox extends React.Component {
                                         订单编号
                                     </span>
                                     <span className={style.haoping}>
-                                        e90c7173-a800
+                                        {this.props.orderDetails.orderNo}
                                     </span>
                                 </td>
                                 <td>
@@ -112,7 +129,7 @@ class InDealBox extends React.Component {
                                         订单状态
                                     </span>
                                     <span className={style.haoping}>
-                                        已下单
+                                        {this.props.orderDetails.state}
                                     </span>
                                 </td>
                             </tr>
@@ -122,14 +139,14 @@ class InDealBox extends React.Component {
                         <div className={style.inDealContentT}>
                             <div className={style.convert}>
                                 <span className={style.convertT}>
-                                    总额：<span>20000 CNY</span>
+                                    总额：<span>{this.props.orderDetails.realCurrencyValue} CNY</span>
                                 </span>
-                                    <span  className={style.convertT}>
-                                    兑换：<span>0.40650406 BTC</span>
+                                <span className={style.convertT}>
+                                    兑换：<span>{this.props.orderDetails.virtualCurrencyValue} BTC</span>
                                 </span>
                             </div>
                             <span className={style.charge}>
-                                交易手续费：免费
+                                交易手续费：{this.props.orderDetails.serviceCharge}
                             </span>
                         </div>
                         <div className={style.chat}>
@@ -167,17 +184,17 @@ class InDealBox extends React.Component {
                                  交易备注:
                             </span>
                                 <span className={style.dealExplainC}>
-                                 转账时请备注【订单编号后4位】 以加快确认速度
+                                 {this.props.orderDetails.remarks}
                             </span>
-                                <span className={style.dealExplainC}>
-                                请勿在汇款备注内填写比特币，BTC，OTC，等任何数字币有关字眼，防止您的汇款被银行拦截
-                            </span>
-                                <span className={style.dealExplainC}>
-                                联系电话：<span className={style.dealExplainT}>1890000000</span>
-                            </span>
-                                <span className={style.dealExplainC}>
-                                <span className={style.dealExplainT}>下单后可以直接加我微信或者用电话和我联系</span>
-                            </span>
+                                {/*<span className={style.dealExplainC}>*/}
+                                {/*请勿在汇款备注内填写比特币，BTC，OTC，等任何数字币有关字眼，防止您的汇款被银行拦截*/}
+                                {/*</span>*/}
+                                {/*<span className={style.dealExplainC}>*/}
+                                {/*联系电话：<span className={style.dealExplainT}>1890000000</span>*/}
+                                {/*</span>*/}
+                                {/*<span className={style.dealExplainC}>*/}
+                                {/*<span className={style.dealExplainT}>下单后可以直接加我微信或者用电话和我联系</span>*/}
+                                {/*</span>*/}
                             </div>
                             <div className={style.dealExplainLi1}>
                                 <span className={style.dealExplainT1}>
@@ -186,20 +203,25 @@ class InDealBox extends React.Component {
                                 <div className={style.sellpart}>
                                     <Tooltip placement="topLeft" title={text}>
                                         <div className={style.TL}>
-                                            <img className={style.butImg} src={require('../../components/sellPart/images/pay.png')} alt=""/>
+                                            <img className={style.butImg}
+                                                 src={require('../../components/sellPart/images/pay.png')} alt=""/>
                                             <span className={style.butword}>
                                                 支付宝
                                             </span>
                                         </div>
                                     </Tooltip>
                                     <Tooltip placement="top" title={text}>
-                                        <div className={style.Top}><img className={style.butImg} src={require('../../components/sellPart/images/wechat.png')} alt=""/>
+                                        <div className={style.Top}><img className={style.butImg}
+                                                                        src={require('../../components/sellPart/images/wechat.png')}
+                                                                        alt=""/>
                                             <span className={style.butword}>
                                                 微信账号
                                             </span></div>
                                     </Tooltip>
                                     <Tooltip placement="topRight" title={text}>
-                                        <div className={style.TR}><img className={style.butImg} src={require('../../components/sellPart/images/bank.png')} alt=""/>
+                                        <div className={style.TR}><img className={style.butImg}
+                                                                       src={require('../../components/sellPart/images/bank.png')}
+                                                                       alt=""/>
                                             <span className={style.butword}>
                                                 银行账户
                                             </span></div>
@@ -209,7 +231,13 @@ class InDealBox extends React.Component {
 
                             <div className={style.partOne} hidden={false}>
                                 <div className={style.lineTime}>
-                                    BTC 托管时间剩余 <span className={style.time}>{this.state.timeMin}：{this.state.timeSec}</span> 逾期将自动取消 请及时付款并点击标记付款
+                                    BTC 托管时间剩余
+
+                                    <span className={style.time} >
+                                       <Countdown endTime={"2018/04/19 11:00:00"} ></Countdown>
+                                    </span>
+                                    逾期将自动取消
+                                    请及时付款并点击标记付款
                                 </div>
                                 <div className={style.but}>
                                     <DButton width={'100%'} height={40} word={'标记付款已完成'} size={14}/>
@@ -225,11 +253,12 @@ class InDealBox extends React.Component {
 
                             <div className={style.partTwo} hidden={true}>
                                 <div className={style.lineTime}>
-BTC 将持续由系统锁定托管
+                                    BTC 将持续由系统锁定托管
                                     <a className={style.appeal} href="">我要申诉</a>
                                 </div>
                                 <div className={style.but}>
-                                    <DButton width={'100%'} height={40} word={' 标记付款，请等待卖家核实后释放数字币'} diss={true} size={14}/>
+                                    <DButton width={'100%'} height={40} word={' 标记付款，请等待卖家核实后释放数字币'} diss={true}
+                                             size={14}/>
                                 </div>
                                 <div className={style.extend}>
                                     <span className={style.tip}>
@@ -248,11 +277,12 @@ BTC 将持续由系统锁定托管
                                     <a className={style.appeal} href="">我要申诉</a>
                                 </div>
                                 <div>
-                                    <textarea className={style.textarea} name="" id="" cols="30" rows="10" onChange={(e)=>{
-                                       this.setState({
-                                           eva:e.target.value
-                                       })
-                                    }}>
+                                    <textarea className={style.textarea} name="" id="" cols="30" rows="10"
+                                              onChange={(e) => {
+                                                  this.setState({
+                                                      eva: e.target.value
+                                                  })
+                                              }}>
 
                                     </textarea>
                                 </div>
@@ -262,7 +292,8 @@ BTC 将持续由系统锁定托管
                                         <Radio value={2}>中评</Radio>
                                         <Radio value={3}>差评</Radio>
                                     </RadioGroup>
-                                    <a onClick={this.submit.bind(this)} className={style.appeal} href="javascript:void (0)">提交评价</a>
+                                    <a onClick={this.submit.bind(this)} className={style.appeal}
+                                       href="javascript:void (0)">提交评价</a>
                                 </div>
 
 
@@ -279,11 +310,13 @@ BTC 将持续由系统锁定托管
 
 function mapStateToProps(state, props) {
     return {
+        orderDetails: state.businessProcess.orderDetails
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        getOrderDetails: bindActionCreators(getOrderDetails, dispatch)
     }
 }
 

@@ -5,7 +5,7 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
-import {editSearch, getAdDetails} from '../../actions/businessProcess'
+import {editSearch, getAdList} from '../../actions/businessProcess'
 import {bindActionCreators} from 'redux'
 import {Link} from 'react-router';
 
@@ -85,47 +85,6 @@ const columns = [{
 
 }];
 
-const data = [{
-    key: '1',
-    name: {name:'小飞机',online:true,portrait: 'http://img5.imgtn.bdimg.com/it/u=3468481793,3455309356&fm=27&gp=0.jpg',time:1524104423593,tradeMode: [
-            {alipay: false, checked: true},
-            {weixin: true},
-            {bankCard: true}
-        ],shop:true},
-    credit: {num:123,rela:50},
-    quota: {fnum:123,lnum:123,part:'CNY'},
-    price: {price:123123,fpart:'CNY',lpart:'BTC'},
-}, {
-    key: '2',
-    name: {name:'飞机',online:true,pay:false,portrait: 'http://img5.imgtn.bdimg.com/it/u=1825135465,545203264&fm=27&gp=0.jpg',time:1524105428593,tradeMode: [
-            {alipay: true, checked: true},
-            {weixin: false},
-            {bankCard: false}
-        ],shop:false},
-    credit: {num:1233,rela:90},
-    quota: {fnum:123,lnum:123,part:'USDT'},
-    price: {price:45345,fpart:'CNY',lpart:'BTC'},
-}, {
-    key: '3',
-    name: {name:'大飞机',online:false,pay:true,portrait: 'http://img2.imgtn.bdimg.com/it/u=3905682784,1406008946&fm=27&gp=0.jpg',time:1524105628553,tradeMode: [
-            {alipay: false, checked: true},
-            {weixin: true},
-            {bankCard: true}
-        ],shop:false},
-    credit: {num:123231,rela:100},
-    quota: {fnum:123,lnum:123,part:'BTC'},
-    price: {price:124515,fpart:'USDT',lpart:'BTC'},
-}, {
-    key: '4',
-    name: {name:'大大飞机',online:false,portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',pay:false,time:1524105428593,tradeMode: [
-            {alipay: true, checked: true},
-            {weixin: true},
-            {bankCard: false}
-        ],shop:true},
-    credit: {num:1223,rela:80},
-    quota: {fnum:123,lnum:123,part:'CNY'},
-    price: {price:124515,fpart:'USDT',lpart:'BTC'},
-}];
 
 function onChange(pagination, filters, sorter) {
     console.log('params', pagination, filters, sorter);
@@ -141,7 +100,7 @@ class OutDeal extends React.Component {
     componentDidMount() {
         let filter = JSON.parse(this.props.params.filter);
         this.props.editSearch(filter)
-        this.props.getAdDetails(this.props.params.id)
+        this.props.getAdList()
     }
 
     handleSubmit = (e) => {
@@ -159,12 +118,12 @@ class OutDeal extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
-        if (!this.props.adDetails.nickname) {
-            return <div>loading</div>
-        }
-        if(this.props.adDetails.isDownOrder){alert(2)
-            this.props.history.pushState(null, '/')
-        }
+        // if (!this.props.adDetails.nickname) {
+        //     return <div>loading</div>
+        // }
+        // if(this.props.adDetails.isDownOrder){alert(2)
+        //     this.props.history.pushState(null, '/')
+        // }
         const columns = [{
             title: <span className={style.titleName}>昵称</span>,
             dataIndex: 'name',
@@ -516,7 +475,7 @@ class OutDeal extends React.Component {
                             </a>
                         </div>
                         <div className={style.stepTwoContent}>
-                            <Table  columns={columns} dataSource={data} onChange={this.onChange} />
+                            <Table  columns={columns} dataSource={this.props.adList} onChange={this.onChange} />
                         </div>
                     </div>
                     <div className={style.page}>
@@ -539,13 +498,13 @@ class OutDeal extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
-        adDetails: state.businessProcess.orderDetails
+        adList: state.businessProcess.adList
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getAdDetails: bindActionCreators(getAdDetails, dispatch),
+        getAdList: bindActionCreators(getAdList, dispatch),
         editSearch: bindActionCreators(editSearch, dispatch)
     }
 }

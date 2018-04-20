@@ -37,7 +37,50 @@ export function getAdList(data, callback) {
 
             })
             .catch(function (err) {
-                console.log(err);
+                dispatch({
+                    type: 'GET_AD_LIST_SUCCESS',
+                    data: [{
+                        key: '1',
+                        name: {name:'小飞机',online:true,portrait: 'http://img5.imgtn.bdimg.com/it/u=3468481793,3455309356&fm=27&gp=0.jpg',time:1524104423593,tradeMode: [
+                                {alipay: false, checked: true},
+                                {weixin: true},
+                                {bankCard: true}
+                            ],shop:true},
+                        credit: {num:123,rela:50},
+                        quota: {fnum:123,lnum:123,part:'CNY'},
+                        price: {price:123123,fpart:'CNY',lpart:'BTC'},
+                    }, {
+                        key: '2',
+                        name: {name:'飞机',online:true,pay:false,portrait: 'http://img5.imgtn.bdimg.com/it/u=1825135465,545203264&fm=27&gp=0.jpg',time:1524105428593,tradeMode: [
+                                {alipay: true, checked: true},
+                                {weixin: false},
+                                {bankCard: false}
+                            ],shop:false},
+                        credit: {num:1233,rela:90},
+                        quota: {fnum:123,lnum:123,part:'USDT'},
+                        price: {price:45345,fpart:'CNY',lpart:'BTC'},
+                    }, {
+                        key: '3',
+                        name: {name:'大飞机',online:false,pay:true,portrait: 'http://img2.imgtn.bdimg.com/it/u=3905682784,1406008946&fm=27&gp=0.jpg',time:1524105628553,tradeMode: [
+                                {alipay: false, checked: true},
+                                {weixin: true},
+                                {bankCard: true}
+                            ],shop:false},
+                        credit: {num:123231,rela:100},
+                        quota: {fnum:123,lnum:123,part:'BTC'},
+                        price: {price:124515,fpart:'USDT',lpart:'BTC'},
+                    }, {
+                        key: '4',
+                        name: {name:'大大飞机',online:false,portrait: 'http://p1.meituan.net/mobilem/ff63f017a1363c29eef79f32cd39a46e5120.png',pay:false,time:1524105428593,tradeMode: [
+                                {alipay: true, checked: true},
+                                {weixin: true},
+                                {bankCard: false}
+                            ],shop:true},
+                        credit: {num:1223,rela:80},
+                        quota: {fnum:123,lnum:123,part:'CNY'},
+                        price: {price:124515,fpart:'USDT',lpart:'BTC'},
+                    }]
+                })
             })
     }
 }

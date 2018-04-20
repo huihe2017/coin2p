@@ -11,6 +11,7 @@ import {getAdDetails,downOrder} from '../../actions/businessProcess'
 import OutHeader from '../../components/outDealHeader'
 import DButton from '../../components/button'
 import SellPart from '../../components/sellPart'
+import {Link} from 'react-router';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -254,7 +255,10 @@ class NewDealBox extends React.Component {
                                 </div>
 
                                 <div className={style.stepOneItemR}>
-                                    <span>进行交易前，请您先登录并通过邮箱验证 <a href="">点击登录</a></span>
+                                    {
+                                        this.props.user.account?'':<span>进行交易前，请您先登录并通过邮箱验证 <Link to={'/login'} >点击登录</Link></span>
+                                    }
+
                                     <div className={style.yanz}>
                                         <FormItem style={{marginBottom: 8}}>
                                             {getFieldDecorator('agreement', {
@@ -328,6 +332,7 @@ class NewDealBox extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
+        user:state.user,
         adDetails: state.businessProcess.orderDetails
     }
 }

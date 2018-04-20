@@ -1,5 +1,6 @@
 let initialState = {
     account: localStorage.getItem('account'),
+    nickname:'',
     loading: false,
     error: ''
 }
@@ -52,6 +53,10 @@ export default function user(state = initialState, action = {}) {
             var {error} = action.data
             state.error = error
             return Object.assign({}, state, {})
+
+        case 'GET_USER_DETAILS_SUCCESS':
+
+            return Object.assign({}, state, action.data)
 
         default:
             return state

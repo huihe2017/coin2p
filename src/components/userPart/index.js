@@ -18,22 +18,23 @@ class UserPart extends React.Component {
 
     render() {
 
+// alert(this.props.userMsg.userAuth.emailAuth)
         return (
             <div className={style.wlop}>
                 <div className={style.wlopMContentLT}>
                     <div className={style.userHead}>
-                        <img className={style.userImg} src={require('./images/userImg.png')} alt=""/>
+                        <img className={style.userImg} src={this.props.userMsg.portrait} alt=""/>
                         <div className={style.userData}>
                                                 <span className={style.userName}>
-                                                    飞机哈哈哈哈
+                                                    {this.props.userMsg.nickname}
                                                 </span>
                             <span className={style.userEmail}>
-                                                    1568765167@qq.com
+                                                    {this.props.userMsg.account}
                                                 </span>
-                            <span>上次登录：2018/04/08 10：09
+                            <span>上次登录：{this.props.userMsg.lastLoginTime}
                                                 </span>
                             <span>
-                                                   评价数：+0/-0
+                                                   评价数：+{this.props.userMsg.evaluateValue[0]}/-{this.props.userMsg.evaluateValue[1]}
                                                 </span>
                         </div>
                     </div>
@@ -62,10 +63,10 @@ class UserPart extends React.Component {
                             <CheckItem title={false} content={'邮箱认证'} checked={true} />
                         </div>
                         <div className={style.checkIdContentLi}>
-                            <CheckItem title={false} content={'实名认证'} checked={false}  herf={'/realCheckStart'} />
+                            <CheckItem title={false} content={'实名认证'} checked={this.props.userMsg.userAuth.realNameAuth}  herf={'/realCheckStart'} />
                         </div>
                         <div className={style.checkIdContentLi}>
-                            <CheckItem title={false} content={'进阶认证'} checked={false} three={true} />
+                            <CheckItem title={false} content={'进阶认证'} checked={this.props.userMsg.userAuth.AdvancedAuth} three={true} />
                         </div>
 
 
@@ -79,10 +80,10 @@ class UserPart extends React.Component {
                     </div>
                     <div className={style.checkIdContent}>
                         <div className={style.checkIdContentLi}>
-                            <CheckItem title={false} content={'两步验证'} checked={false} herf={'/login'} />
+                            <CheckItem title={false} content={'两步验证'} checked={this.props.userMsg.userAuth.twoStepAuth} herf={'/login'} />
                         </div>
                         <div className={style.checkIdContentLi}>
-                            <CheckItem title={false} content={'手机认证'} checked={false} herf={'/login'} />
+                            <CheckItem title={false} content={'手机认证'} checked={this.props.userMsg.userAuth.phoneAuth} herf={'/login'} />
                         </div>
                     </div>
                 </div>

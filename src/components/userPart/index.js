@@ -60,7 +60,7 @@ class UserPart extends React.Component {
                     </div>
                     <div className={style.checkIdContent}>
                         <div className={style.checkIdContentLi}>
-                            <CheckItem title={false} content={'邮箱认证'} checked={true} />
+                            <CheckItem title={false} content={'邮箱认证'} herf={'/emailCheck'} checked={this.props.userMsg.userAuth.emailAuth} />
                         </div>
                         <div className={style.checkIdContentLi}>
                             <CheckItem title={false} content={'实名认证'} checked={this.props.userMsg.userAuth.realNameAuth}  herf={'/realCheckStart'} />

@@ -47,8 +47,6 @@ class SetPass extends React.Component {
                 //     }
                 // })
                 message.success("注册成功")
-            }else {
-                message.error("填写不完善")
             }
         });
     }

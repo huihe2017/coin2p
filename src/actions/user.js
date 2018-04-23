@@ -63,11 +63,11 @@ export function getUserDetails(data, callback) {
                         lastLoginTime: '23563662652',
                         evaluateValue: [34, 56],
                         userAuth: {
-                            emailAuth:true,
-                            realNameAuth:true,
-                            AdvancedAuth:true,
-                            twoStepAuth:true,
-                            phoneAuth:true
+                            emailAuth:false,
+                            realNameAuth:false,
+                            AdvancedAuth:false,
+                            twoStepAuth:false,
+                            phoneAuth:false
                         }
                     }
                 })

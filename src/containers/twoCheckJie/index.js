@@ -43,8 +43,6 @@ class TwoSBack extends React.Component {
                 //     }
                 // })
                 message.success("登录成功")
-            }else {
-                message.error("填写不完善")
             }
         });
     }

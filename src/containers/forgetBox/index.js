@@ -98,8 +98,6 @@ class ForgetBox extends React.Component {
                 //     }
                 // })
                 message.success("邮件已发送")
-            }else {
-                message.error("填写不完善")
             }
         });
     }

@@ -84,8 +84,6 @@ class LoginBox extends React.Component {
                 //     }
                 // })
                 this.props.login()
-            } else {
-                message.error("填写不完善")
             }
         });
     }
@@ -112,8 +110,6 @@ class LoginBox extends React.Component {
                 //     }
                 // })
                 this.props.login()
-            } else {
-                message.error("填写不完善")
             }
         });
     }

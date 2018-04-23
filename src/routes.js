@@ -34,6 +34,8 @@ import PhoneSubmit from './containers/phoneSubmit'
 import WalletRecharge from './containers/walletRecharge'
 import Recharge from './containers/recharge'
 import ExMoney from './containers/exMoney'
+import UserDetails from './containers/userDetails'
+import BoundEmail from './containers/boundEmail'
 
 
 import { LocaleProvider } from 'antd'
@@ -94,6 +96,8 @@ class FF extends React.Component {
                         <Route path="/walletRecharge" component={WalletRecharge}/>
                         <Route path="/recharge" component={Recharge}/>
                         <Route path="/exMoney" component={ExMoney}/>
+                        <Route path="/userDetails" component={UserDetails}/>
+                        <Route path="/boundEmail" component={BoundEmail}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

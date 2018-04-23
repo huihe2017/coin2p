@@ -5,8 +5,8 @@
 }
 :local(.wlopContent){
     width: 1200px;
-    height: 920px;
     margin: 0 auto;
+
 }
 :local(.header){
     height: 70px;
@@ -28,6 +28,7 @@
 }
 :local(.content){
     padding-top: 30px;
+    position: relative;
 }
 :local(.content) .ant-tabs-nav .ant-tabs-tab-active{
     color: #DABB84!important;
@@ -44,4 +45,97 @@
 :local(.content) .ant-tabs-nav .ant-tabs-tab:hover{
     color:  RGBA(218, 187, 132, .8)!important;
 }
+:local(.content) .ant-table{
+    width: 100%!important;
+}
+:local(.content) .ant-table-tbody>tr:nth-of-type(odd){
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+}
+:local(.content) .ant-table-tbody>tr:nth-of-type(even){
+    width: 100%;
+    height: 80px;
+    background:rgba(237,237,237,1);
+}
 
+
+:local(.content)  .ant-table-tbody>tr.ant-table-row-hover>td, .ant-table-tbody>tr:hover>td, .ant-table-thead>tr.ant-table-row-hover>td, .ant-table-thead>tr:hover>td {
+    background: rgba(152,152,152,.1)!important;
+}
+
+:local(.content) .ant-table-pagination.ant-pagination{
+    display: none;
+}
+:local(.titleName){
+    font-size: 14px;
+    color: #989898;
+}
+:local(.coinTip){
+    font-size: 14px;
+    color: #989898;
+    margin-left: 10px;
+}
+:local(.coinTipB){
+    position: absolute;
+    font-size: 14px;
+    color: #989898;
+    display: block;
+
+    bottom: -20px;
+}
+:local(.coinBox){
+    position: relative;
+}
+:local(.butBox){
+    margin-left: 4px;
+    float: right;
+}
+:local(.partOne) .ant-table-tbody>tr>td, .ant-table-thead>tr>th{
+    padding-left: 20px!important;
+    font-weight: bold;
+    color: #2D313B;
+    font-size: 14px;
+}
+:local(.partOne) .ant-dropdown-menu-item-disabled, .ant-dropdown-menu-submenu-title-disabled{
+    background-color: #f6f6f6;
+}
+:local(.page){
+
+    margin-top: 40px;
+}
+:local(.pages) .ant-select-selection--single{
+    height: 32px!important;
+}
+:local(.partOne){
+    position: relative;
+}
+:local(.partOneHeader){
+    width: 390px;
+    position: absolute;
+    top: -90px;
+    left: 400px;
+    line-height: 28px;
+    font-size: 14px;
+    color: #989898;
+}
+
+:local(.partOneHeader1){
+    float: left;
+    width: 240px;
+}
+:local(.partOneHeader2){
+    float: left;
+}
+:local(.headerTitle){
+    font-size: 14px;
+    line-height: 18px;
+    color: #989898;
+    position: absolute;
+    right: 12px;
+    top: 45px;
+}
+:local(.headerTitleB){
+    font-size: 18px;
+    color: #2D313B;
+}

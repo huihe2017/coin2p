@@ -19,6 +19,7 @@ class Button extends React.Component {
        let styles={
            width:this.props.width,
            height:this.props.height,
+           lineHeight:this.props.height-2+'px',
            borderRadius: '5px',
            outline:'none',
            fontSize:this.props.size,

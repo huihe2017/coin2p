@@ -35,11 +35,13 @@ class SellPart extends React.Component {
                     <span className={style.checkIdHeadTidle}>
                     安全认证:
                     </span>
+
                     <Link to={this.props.herf}>
                         <a className={style.checkIdHeadA} href="javascript:void (0)">
                             如何提高账户安全性？
                         </a>
                     </Link>
+
                 </div>)
             }
         } else {
@@ -56,6 +58,7 @@ class SellPart extends React.Component {
 
     word(){
         if(this.props.checked){
+
             if(!this.props.can) {
                 return (
                     <span className={style.checkIdHeadAed}>

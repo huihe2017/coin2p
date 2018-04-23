@@ -32,6 +32,8 @@ import PhoneCheck from './containers/phoneCheck'
 import PhoneJie from './containers/phoneJie'
 import PhoneSubmit from './containers/phoneSubmit'
 import WalletRecharge from './containers/walletRecharge'
+import Recharge from './containers/recharge'
+import ExMoney from './containers/exMoney'
 
 
 import { LocaleProvider } from 'antd'
@@ -90,6 +92,8 @@ class FF extends React.Component {
                         <Route path="/phoneJie" component={PhoneJie}/>
                         <Route path="/phoneSubmit" component={PhoneSubmit}/>
                         <Route path="/walletRecharge" component={WalletRecharge}/>
+                        <Route path="/recharge" component={Recharge}/>
+                        <Route path="/exMoney" component={ExMoney}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

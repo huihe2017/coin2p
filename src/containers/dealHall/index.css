@@ -1,0 +1,201 @@
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 40px 0;
+}
+:local(.wlopContent){
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+:local(.header){
+    width: 100%;
+}
+:local(.header):after,:local(.headerC):after,:local(.headerT):after,:local(.wlopContent):after,:local(.inpBoxI):after{
+    content: '';
+    display: block;
+    clear: both;
+}
+:local(.headerTT){
+    font-size: 24px;
+    line-height: 24px;
+    float: left;
+    font-weight: bold;
+    color: #2D313B;
+}
+:local(.headerT){
+    margin-bottom: 30px;
+}
+:local(.headerC){
+
+}
+:local(.headerCL){
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #2D313B;
+    line-height: 26px;
+    padding-top: 20px;
+}
+:local(.headerCLB){
+    display: block;
+    font-size: 14px;
+    color: #989898;
+    line-height: 26px;
+}
+
+:local(.content){
+
+}
+:local(.titleName1){
+    color: #989898;
+    font-weight: normal;
+}
+:local(.titleName){
+    color: #2D313B;
+    font-weight: bold;
+
+    font-size: 14px;
+}
+:local(.titleContent1){
+    color: #DABB84;
+    font-weight: bold;
+    font-size: 12px;
+}
+:local(.partOneHeader){
+    border-bottom: 1px solid #eee;
+}
+:local(.partOneHeader):after{
+    clear: both;
+    content: '';
+    display: block;
+}
+:local(.partOneH){
+    font-size: 18px;
+    color: #2D313B;
+    line-height: 42px;
+    float: left;
+}
+:local(.partOneHT){
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+:local(.partOneR){
+    float: right;
+}
+
+:local(.alert){
+    margin-bottom: 20px;
+}
+:local(.alert) .ant-alert{
+    font-size: 14px!important;
+    color: #2D313B;
+}
+
+:local(.content) .ant-table{
+    width: 100%!important;
+}
+:local(.smallTable) .ant-table-tbody>tr:nth-of-type(odd){
+    width: 100%;
+    height: 40px!important;
+    background-color: #fff;
+}
+:local(.smallTable) .ant-table-header{
+   margin-bottom: 0!important;
+}
+:local(.smallTable) .ant-table-body{
+    overflow: auto!important;
+
+}
+:local(.smallTable) .ant-table-fixed-header .ant-table-scroll .ant-table-header{
+    overflow: auto!important;
+}
+:local(.smallTable) .ant-table-tbody>tr:nth-of-type(even){
+    width: 100%;
+    height: 40px!important;
+    background:rgba(237,237,237,1);
+}
+:local(.smallTable){
+    margin-bottom: 20px;
+}
+
+:local(.content)  .ant-table-tbody>tr.ant-table-row-hover>td, .ant-table-tbody>tr:hover>td, .ant-table-thead>tr.ant-table-row-hover>td, .ant-table-thead>tr:hover>td {
+    background: rgba(152,152,152,.1)!important;
+}
+:local(.partOne) .ant-table-tbody>tr>td{
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    color: #989898!important;
+    font-weight: normal!important;
+    font-size: 12px!important;
+}
+:local(.partOne) .ant-table-tbody>tr>td:last-child{
+    text-align: left;
+}
+:local(.content) .ant-table-pagination.ant-pagination{
+    display: none;
+}
+
+:local(.partOne) .ant-table-tbody>tr>td, .ant-table-thead>tr>th{
+    padding-left: 12px!important;
+    font-weight: bold;
+    color: #2D313B;
+    font-size: 14px;
+}
+:local(.partOne) .ant-dropdown-menu-item-disabled, .ant-dropdown-menu-submenu-title-disabled{
+    background-color: #f6f6f6;
+}
+
+:local(.partOne):after{
+    content: '';
+    clear: both;
+    display: block;
+}
+:local(.but){
+    float: right;
+    margin-left: 20px;
+}
+:local(.but) .ant-btn{
+    background-color: transparent!important;
+    color: #989898!important;
+    border-color: #989898!important;
+    width: 100px!important;
+    height: 28px!important;
+}
+:local(.but) .ant-btn:hover{
+
+    color: #DABB84!important;
+    border-color: #DABB84!important;
+
+}
+
+
+:local(.bigTable) .ant-table-tbody>tr:nth-of-type(odd){
+    width: 100%;
+    height: 80px!important;
+    background-color: #fff;
+}
+:local(.bigTable) .ant-table-header{
+    margin-bottom: 0!important;
+}
+:local(.bigTable) .ant-table-body{
+    overflow: auto!important;
+}
+:local(.bigTable) .ant-table-fixed-header .ant-table-scroll .ant-table-header{
+    overflow: auto!important;
+}
+:local(.bigTable) .ant-table-tbody>tr:nth-of-type(even){
+    width: 100%;
+    height: 80px!important;
+    background:rgba(237,237,237,1);
+}
+:local(.bigTable){
+    margin-bottom: 20px;
+}
+
+
+

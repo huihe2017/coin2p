@@ -36,6 +36,11 @@ import Recharge from './containers/recharge'
 import ExMoney from './containers/exMoney'
 import UserDetails from './containers/userDetails'
 import BoundEmail from './containers/boundEmail'
+import OneAd from './containers/oneAd'
+import DealHall from './containers/dealHall'
+import CoinRecord from './containers/coinRecord'
+import AdTrash from './containers/adTrash'
+import DataStatistics from './containers/dataStatistics'
 
 
 import { LocaleProvider } from 'antd'
@@ -98,6 +103,11 @@ class FF extends React.Component {
                         <Route path="/exMoney" component={ExMoney}/>
                         <Route path="/userDetails" component={UserDetails}/>
                         <Route path="/boundEmail" component={BoundEmail}/>
+                        <Route path="/oneAd" component={OneAd}/>
+                        <Route path="/dealHall" component={DealHall}/>
+                        <Route path="/coinRecord" component={CoinRecord}/>
+                        <Route path="/adTrash" component={AdTrash}/>
+                        <Route path="/dataStatistics" component={DataStatistics}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

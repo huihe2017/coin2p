@@ -28,6 +28,7 @@ class InDealBox extends React.Component {
             timeMin: 14,
             timeSec: 59,
             value: 1,
+            seller:false
         }
     }
 
@@ -70,7 +71,7 @@ class InDealBox extends React.Component {
                             <tr>
                                 <td>
                                     <span className={style.bishu}>
-                                        卖家
+                                        {this.state.seller?'卖家':'买家'}
                                     </span>
                                     <span className={style.haoping}>
                                         {this.props.orderDetails.nickname}
@@ -137,14 +138,24 @@ class InDealBox extends React.Component {
                     </div>
                     <div className={style.inDealContent}>
                         <div className={style.inDealContentT}>
-                            <div className={style.convert}>
+                            {
+                                this.state.seller?<div className={style.convert}>
+                                    <span className={style.convertT}>
+                                    兑换：<span>{this.props.orderDetails.virtualCurrencyValue} BTC</span>
+                                </span>
                                 <span className={style.convertT}>
                                     总额：<span>{this.props.orderDetails.realCurrencyValue} CNY</span>
                                 </span>
+
+                                </div>:<div className={style.convert}>
                                 <span className={style.convertT}>
+                                    总额：<span>{this.props.orderDetails.realCurrencyValue} CNY</span>
+                                </span>
+                                    <span className={style.convertT}>
                                     兑换：<span>{this.props.orderDetails.virtualCurrencyValue} BTC</span>
                                 </span>
-                            </div>
+                                </div>
+                            }
                             <span className={style.charge}>
                                 交易手续费：{this.props.orderDetails.serviceCharge}
                             </span>
@@ -239,16 +250,28 @@ class InDealBox extends React.Component {
                                     逾期将自动取消
                                     请及时付款并点击标记付款
                                 </div>
-                                <div className={style.but}>
-                                    <DButton width={'100%'} height={40} word={'标记付款已完成'} size={14}/>
-                                </div>
-                                <div className={style.extend}>
-                                    <DButton width={160} height={40} word={'延长订单有效期'} size={14} ghost={true}/>
-                                </div>
-                                <div className={style.extend}>
-                                    <DButton width={160} height={40} word={'取消交易'} size={14} ghost={true}/>
+                                {this.state.seller?<div>
+                                    <div className={style.but}>
+                                        <DButton width={'100%'} height={40} word={'等待对方付款完成'} size={14} dis={true}/>
+                                    </div>
+                                    <span className={style.butTip}>
+                                        注意查收确认买家是否打款完成，保障安全
+                                    </span>
 
-                                </div>
+                                </div>:<div>
+                                    <div className={style.but}>
+                                        <DButton width={'100%'} height={40} word={'标记付款已完成'} size={14}/>
+                                    </div>
+                                    <div className={style.extend}>
+                                        <DButton width={160} height={40} word={'延长订单有效期'} size={14} ghost={true}/>
+                                    </div>
+                                    <div className={style.extend}>
+                                        <DButton width={160} height={40} word={'取消交易'} size={14} ghost={true} />
+
+                                    </div>
+                                </div>}
+
+
                             </div>
 
                             <div className={style.partTwo} hidden={true}>

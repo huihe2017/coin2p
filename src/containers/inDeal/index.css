@@ -261,4 +261,8 @@
     padding-top: 10px;
 }
 
-
+:local(.butTip){
+    font-size: 14px;
+    color: #989898;
+    line-height: 54px;
+}

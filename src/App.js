@@ -12,7 +12,9 @@ import zh from 'react-intl/locale-data/zh';
 import en from 'react-intl/locale-data/en'
 import {addLocaleData } from 'react-intl';
 import IntlProviderWrap from './intlProviderWrap';
-
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 addLocaleData([...en,...zh]);
 

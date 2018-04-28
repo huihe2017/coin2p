@@ -41,7 +41,10 @@ import DealHall from './containers/dealHall'
 import CoinRecord from './containers/coinRecord'
 import AdTrash from './containers/adTrash'
 import DataStatistics from './containers/dataStatistics'
-
+import PushAd from './containers/pushAd'
+import AllIndent from './containers/allIndent'
+import MoneyWater from './containers/moneyWater'
+import MyAd from './containers/myAd'
 
 import { LocaleProvider } from 'antd'
 import {IntlProvider} from 'react-intl';
@@ -108,6 +111,10 @@ class FF extends React.Component {
                         <Route path="/coinRecord" component={CoinRecord}/>
                         <Route path="/adTrash" component={AdTrash}/>
                         <Route path="/dataStatistics" component={DataStatistics}/>
+                        <Route path="/pushAd" component={PushAd}/>
+                        <Route path="/allIndent" component={AllIndent}/>
+                        <Route path="/moneyWater" component={MoneyWater}/>
+                        <Route path="/myAd" component={MyAd}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

@@ -27,9 +27,17 @@ class Button extends React.Component {
            transition: 'all 0.3s'
        }
         return (
-           <button disabled={this.props.diss} className={this.props.ghost?style.ghost:style.but} style={styles}>
-               {this.props.word}
-           </button>
+            <div>
+                {
+                    this.props.dis?<button disabled={true} className={style.disable} style={styles}>
+                        {this.props.word}
+                    </button>:<button className={this.props.ghost?style.ghost:style.but} style={styles}>
+                        {this.props.word}
+                    </button>
+                }
+
+            </div>
+
         )
     }
 }

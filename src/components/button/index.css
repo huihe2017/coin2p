@@ -22,3 +22,9 @@
     color: #989898;
     cursor: not-allowed!important;
 }
+:local(.disable){
+    color: #989898;
+    background-color: #ededed;
+    border:1px solid #ededed;
+    cursor: not-allowed;
+}

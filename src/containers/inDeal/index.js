@@ -13,6 +13,7 @@ import OutHeader from '../../components/outDealHeader'
 import DButton from '../../components/button'
 import SellPart from '../../components/sellPart'
 import Countdown from '../../components/countdownNew'
+import BusinessChat from '../../components/businessChat'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -161,7 +162,13 @@ class InDealBox extends React.Component {
                             </span>
                         </div>
                         <div className={style.chat}>
-
+                            <BusinessChat
+                                appKey={'lmxuhwagliihd'}
+                                type={1}
+                                target={'ccc'}
+                                targetId={'yuyuyu99'}
+                                token={'Bfj7vGulM6xbG1CsT+pvCAWEhbPtTQxEZqtVdtr5INYMQO9bwo50qZ0rEkCW4S5xhYOWK8T4vmHcz+XZVqFQj9qTFof8RNfb'}
+                            ></BusinessChat>
                         </div>
                         <div className={style.dealExplain}>
                             <div className={style.dealExplainLi}>
@@ -244,8 +251,8 @@ class InDealBox extends React.Component {
                                 <div className={style.lineTime}>
                                     BTC 托管时间剩余
 
-                                    <span className={style.time} >
-                                       <Countdown endTime={"2018/04/19 11:00:00"} ></Countdown>
+                                    <span className={style.time}>
+                                       <Countdown endTime={"2018/04/19 11:00:00"}></Countdown>
                                     </span>
                                     逾期将自动取消
                                     请及时付款并点击标记付款

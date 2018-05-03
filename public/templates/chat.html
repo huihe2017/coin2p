@@ -8,7 +8,7 @@ class="rcs-connect-status"connect断开时，状态显示的容器
 class="imageViewBox"图片预览容器
 以上类名不能被修改
  -->
-<div class="rongcloud-kefuChat">
+<div class="rongcloud-kefuChat {%  RCS.config.type===2?'min':'' %}">
     <div id="header" class="rongcloud-rong-header rongcloud-blueBg rongcloud-online">
         {%if(this.terminal == 'phone'){%}
         <span class="rongcloud-phone-exit" onclick="RCS.endConversation()"></span>
@@ -68,7 +68,7 @@ class="imageViewBox"图片预览容器
             <div class="rongcloud-footer-textarea"">
                 <textarea class="rongcloud-text rongcloud-grey" placeholder="请输入文字..." onfocus="RCS.keyboard(event)" onkeydown="RCS.keySend(event)"></textarea>
             </div>
-            <button type="button" style="background-color: #0099ff;" class="rongcloud-rong-btn rongcloud-rong-send-btn" id="rong-sendBtn" onclick="RCS.send(event)">发送</button>
+            <button type="button" style="background-color: #0099ff;" class="rongcloud-rong-btn rongcloud-rong-send-btn" id="rong-sendBtn" onclick="RCS.send(RCS.config.type)">发送</button>
         </div>
     </div>
 </div>

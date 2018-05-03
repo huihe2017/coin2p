@@ -7,6 +7,7 @@ import {showLogin} from '../../actions/auth'
 import {Badge, message, Radio, Button, Modal, Menu, Dropdown, Icon, Affix} from 'antd';
 import io from 'socket.io-client'
 import {logout} from '../../actions/user'
+import BusinessChat from '../../components/businessChat'
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import {IntlProvider, addLocaleData, FormattedMessage} from 'react-intl';
@@ -109,18 +110,30 @@ class Header extends React.Component {
                 </Menu.Item>
                 <Menu.Divider/>
                 <Menu.Item>
-            <span onClick={()=>{this.props.logout()}} className={style.it}>
+            <span onClick={() => {
+                this.props.logout()
+            }} className={style.it}>
                 登出
             </span>
                 </Menu.Item>
             </Menu>
         );
-
         return (
             <div
                 className={this.state.otherStyle ? (style.wrap + ' ' + style[this.state.position] + ' ' + style.otherStyle) : (style.wrap + ' ' + style[this.state.position])}>
 
                 <div className={style.headerTop}>
+                    {
+                        this.state.open ? <BusinessChat
+                            appKey={'lmxuhwagliihd'}
+                            type={2}
+                            target={'vvvvvvvv'}
+                            targetId={'KEFU152334892840419'}
+                            token={'YG+I2a60HemE2x3sKimNDQWEhbPtTQxEZqtVdtr5INYMQO9bwo50qdkT0C2zm08AwSwSo9l9x1HS8g2mI14xrNqTFof8RNfb'}
+                        ></BusinessChat> : ''
+                    }
+
+
                     <div className={style.headerTopBot}>
                         <div className={style.logo}>
                             <Link to="/"><img src={require("./images/logoO.png")}/></Link>
@@ -240,7 +253,25 @@ class Header extends React.Component {
 
                 </Affix>
 
-
+                <div id={'vvvvvvvv'} style={{
+                    width: 326,
+                    height: this.state.open ? 450 : 0,
+                    background: 'red',
+                    position: 'fixed',
+                    bottom: 140,
+                    right: 10
+                }}></div>
+                <div onClick={() => {
+                    this.setState({open: !this.state.open})
+                }} id={'switch'} style={{
+                    width: 50,
+                    height: 50,
+                    background: 'red',
+                    position: 'fixed',
+                    bottom: 20,
+                    right: 20
+                }}>开关
+                </div>
             </div>
         )
     }

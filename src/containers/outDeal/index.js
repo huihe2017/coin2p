@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './index.css'
-import {Input, Select, Form, Button, message, Icon, Pagination,Table} from 'antd';
+import {Input, Select, Form, Button, message, Icon, Pagination, Table} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import {hashHistory} from 'react-router'
@@ -22,15 +22,15 @@ const columns = [{
     title: '昵称',
     dataIndex: 'name',
     render: () => (
-            <SellPart
-                userMsg={{
-                    nickname: this.props.adDetails.nickname,
-                    portrait: this.props.adDetails.portrait,
-                    adUptime: this.props.adDetails.adUptime,
-                    isCertifiedBusiness: this.props.adDetails.isCertifiedBusiness,
-                }}
-                tradeMode={this.props.adDetails.tradeMode}
-            />
+        <SellPart
+            userMsg={{
+                nickname: this.props.adDetails.nickname,
+                portrait: this.props.adDetails.portrait,
+                adUptime: this.props.adDetails.adUptime,
+                isCertifiedBusiness: this.props.adDetails.isCertifiedBusiness,
+            }}
+            tradeMode={this.props.adDetails.tradeMode}
+        />
 
     ),
 }, {
@@ -79,8 +79,15 @@ const columns = [{
     title: '操作',
     dataIndex: 'do',
     render: () => (
-        <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
-                                                    word={'购买'}/></Link>
+
+
+        this.props.route.path === '/outDeal/:filter' ?
+            <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                        word={'购买'}/></Link> :
+            <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                        word={'出售'}/></Link>
+
+
     ),
 
 }];
@@ -98,6 +105,7 @@ class OutDeal extends React.Component {
     }
 
     componentDidMount() {
+        console.log(66666, this.props);
         let filter = JSON.parse(this.props.params.filter);
         this.props.editSearch(filter)
         this.props.getAdList()
@@ -127,7 +135,7 @@ class OutDeal extends React.Component {
         const columns = [{
             title: <span className={style.titleName}>昵称</span>,
             dataIndex: 'name',
-            width:390,
+            width: 390,
             render: (a) => (
 
                 <SellPart
@@ -136,7 +144,7 @@ class OutDeal extends React.Component {
                         portrait: a.portrait,
                         adUptime: a.time,
                         isCertifiedBusiness: a.shop,
-                        online:a.online
+                        online: a.online
                     }}
                     tradeMode={a.tradeMode}
                 />
@@ -144,7 +152,7 @@ class OutDeal extends React.Component {
         }, {
             title: <span className={style.titleName}>信用</span>,
             dataIndex: 'credit',
-            width:230,
+            width: 230,
             sorter: (a, b) => a.credit.rela - b.credit.rela,
             render: (a) => (
                 <div>
@@ -157,9 +165,9 @@ class OutDeal extends React.Component {
                 </div>
             ),
         }, {
-            title:<span className={style.titleName}>交易限额</span> ,
+            title: <span className={style.titleName}>交易限额</span>,
             dataIndex: 'quota',
-            width:230,
+            width: 230,
             render: (a) => (
                 <div>
                                       <span className={style.bishu}>
@@ -173,7 +181,7 @@ class OutDeal extends React.Component {
         }, {
             title: <span className={style.titleName}>浮动单价</span>,
             dataIndex: 'price',
-            width:240,
+            width: 240,
             sorter: (a, b) => a.price.price - b.price.price,
             render: (a) => (
                 <div>
@@ -189,8 +197,11 @@ class OutDeal extends React.Component {
             title: <span className={style.titleName}>操作</span>,
             dataIndex: 'do',
             render: () => (
-                <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
-                                                            word={'购买'}/></Link>
+                this.props.route.path === '/outDeal/:filter' ?
+                    <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                                word={'购买'}/></Link> :
+                    <Link to={'/newDeal/346346263236'}><DButton width={80} height={36} size={17}
+                                                                word={'出售'}/></Link>
             ),
 
         }];
@@ -340,7 +351,12 @@ class OutDeal extends React.Component {
                                 </div>
                             </div>
                             <div className={style.but}>
-                                <DButton width={140} height={40} word={'立即购买'} size={18}/>
+                                {
+                                    this.props.route.path === '/outDeal/:filter' ?
+                                        <DButton width={140} height={40} word={'立即购买'} size={18}/> :
+                                        <DButton width={140} height={40} word={'立即出售'} size={18}/>
+                                }
+
                             </div>
                         </div>
                         <div className={style.notice}>
@@ -386,7 +402,12 @@ class OutDeal extends React.Component {
                                 </div>
                             </div>
                             <div className={style.but}>
-                                <DButton width={140} height={40} word={'立即购买'} size={18}/>
+                                {
+                                    this.props.route.path === '/outDeal/:filter' ?
+                                        <DButton width={140} height={40} word={'立即购买'} size={18}/> :
+                                        <DButton width={140} height={40} word={'立即出售'} size={18}/>
+                                }
+
                             </div>
                         </div>
                         <div className={style.notice}>
@@ -475,7 +496,7 @@ class OutDeal extends React.Component {
                             </a>
                         </div>
                         <div className={style.stepTwoContent}>
-                            <Table  columns={columns} dataSource={this.props.adList} onChange={this.onChange} />
+                            <Table columns={columns} dataSource={this.props.adList} onChange={this.onChange}/>
                         </div>
                     </div>
                     <div className={style.page}>

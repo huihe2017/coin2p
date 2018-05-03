@@ -9,6 +9,12 @@ class BusinessChat extends React.Component {
         }
     }
 
+    componentWillUnmount(){
+        document.querySelectorAll('.rcs-chat-wrapper')[0].innerHTML = '';
+        window.RongIMClient.getInstance().disconnect(true)
+
+    }
+
     componentDidMount(){
         //yuyuyu99
         // var appKey = "lmxuhwagliihd";
@@ -24,12 +30,12 @@ class BusinessChat extends React.Component {
 
 
         window.RCS.init({
-            appKey: appKey,
-            token: token,
-            target: document.getElementById('rcs-app'),
+            appKey: this.props.appKey,
+            token: this.props.token,
+            target: document.getElementById(this.props.target),
             showConversitionList: true,
-            type:2,//1是买卖聊天框  2是客服聊天框
-            targetId:"KEFU152334892840419",
+            type:this.props.type,//1是买卖聊天框  2是客服聊天框
+            targetId:this.props.targetId,
             //targetId:"cddc3aa01b05409292d14b159e5ff749",
             templates: {
                 button: ['<div class="rongcloud-consult rongcloud-im-consult">',
@@ -65,8 +71,11 @@ class BusinessChat extends React.Component {
     }
 
     render() {
+        if(this.props.type===2){
+            return null
+        }
         return(
-            <div id="rcs-app">
+            <div id={this.props.target}>
 
             </div>
 

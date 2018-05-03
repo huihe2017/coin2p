@@ -6,6 +6,7 @@
 :local(.wlopContent){
     width: 1200px;
     margin: 0 auto;
+    min-height: 600px;
 }
 :local(.wlopContentH){
     width: 100%;
@@ -65,6 +66,20 @@
 :local(.wlopContentHTwo){
     float: left;
 }
+:local(.header){
+    position: relative;
+}
+:local(.headerA){
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+    color: #2D313B;
+    font-size: 14px;
+    z-index: 5;
+}
+:local(.headerA):hover{
+    color: RGBA(72, 76, 88, 0.8);
+}
 :local(.headerItem){
     width: 160px;
     float: left;
@@ -102,8 +117,24 @@
     width: 100%!important;
 }
 :local(.but){
-    padding-left: 12px;
-    position: relative;
+    float: left;
+    margin-left: 4px;
+}
+:local(.but):first-child{
+
+    margin-left: 0;
+}
+:local(.butBox){
+    margin-bottom: 10px;
+}
+:local(.butBoxB){
+    float: right;
+    padding-right: 4px;
+}
+:local(.butBox):after{
+    clear: both;
+    content: '';
+    display: block;
 }
 :local(.but) .ant-btn-primary {
     color: #fff;
@@ -116,6 +147,12 @@
 
     background-color: RGBA(218, 187, 132, .8)!important;
     border-color: RGBA(218, 187, 132, .8)!important;
+}
+:local(.but) .ant-btn{
+
+    width: 50px!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
 }
 :local(.wlopContentC){
 
@@ -220,11 +257,18 @@
     color: #989898!important;
 }
 :local(.realTable) .ant-table-thead>tr>th:last-child,.ant-table-tbody>tr>td:last-child{
-    padding-right: 30px!important;
+    padding-right: 20px!important;
 }
 :local(.realTable) .ant-table-tbody>tr>td, .ant-table-thead>tr>th{
     padding-left: 20px!important;
     font-size: 14px!important;
+}
+:local(.realTable) .ant-table-tbody>tr>td:nth-child(2), .ant-table-thead>tr>th:nth-child(2){
+    padding-left: 0!important;
+    font-size: 14px!important;
+}
+:local(.realTable) .ant-table-tbody>tr>td:nth-child(8){
+   text-align: center!important;
 }
 :local(.tableName){
     color: #989898;
@@ -243,7 +287,6 @@
 
 :local(.header){
     width: 100%;
-    padding-bottom: 14px;
     margin-bottom: 30px;
 }
 :local(.header):after,:local(.headerC):after,:local(.headerT):after,:local(.wlopContent):after,:local(.inpBoxI):after{
@@ -275,3 +318,30 @@
     color: #989898;
     line-height: 26px;
 }
+
+:local(.wlopContentC) .ant-table-tbody>tr>td.ant-table-selection-column, .ant-table-thead>tr>th.ant-table-selection-column {
+    text-align: left!important;
+    min-width: 0!important;
+    width: 20px!important;
+}
+:local(.payPart)>img{
+    margin-right: 4px;
+}
+:local(.butBack){
+    margin-top: 12px;
+}
+:local(.butBack) .ant-btn-primary{
+    color: #fff !important;
+    background-color: #FF6060!important;
+    border-color: #FF6060!important;
+}
+:local(.butBack) .ant-btn-primary:hover{
+    color: #fff !important;
+    background-color: RGBA(255, 96, 96, .8)!important;
+    border-color: RGBA(255, 96, 96, .8)!important;
+}
+:local(.butBack) .ant-btn-primary[disabled],.ant-btn-primary[disabled]:hover {
+     color: rgba(0,0,0,.25) !important;
+     background-color: #f7f7f7!important;
+     border-color: #d9d9d9!important;
+ }

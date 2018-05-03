@@ -1,0 +1,189 @@
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding-bottom: 40px;
+}
+:local(.banner){
+    width: 100%;
+    height: 500px;
+    background-image: url("./images/back.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+:local(.wlopContent){
+    width: 1200px;
+    margin: 0 auto;
+
+    background-color: #fff;
+    padding: 0 20px;
+    padding-bottom: 60px;
+    padding-top: 30px;
+    margin-top: -137px;
+
+}
+:local(.wlopContentH):after{
+    display: block;
+    content: '';
+    clear: both;
+}
+:local(.wlopContentHT){
+    float: left;
+}
+:local(.wlopContentHT1){
+    float: left;
+    margin-left: 130px;
+    margin-top: 10px;
+    border-right: 3px solid #eee;
+    padding-right: 100px;
+}
+:local(.wlopContentHT2){
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+:local(.wlopContentHTT){
+    font-size: 24px;
+    line-height: 44px;
+    display: block;
+    color: #2D313B;
+    font-weight: bold;
+}
+:local(.wlopContentHTB){
+    font-size: 14px;
+    line-height: 34px;
+    display: block;
+    color: #2D313B;
+}
+:local(.wlopContentHA){
+
+    font-weight: bold;
+    color:#DABB84;
+}
+:local(.wlopContentHAt){
+    font-size: 18px;
+    color: #2D313B;
+    display: block;
+}
+:local(.wlopContentHAb){
+    font-size: 14px;
+    color: #DABB84;
+    display: block;
+}
+:local(.perNum){
+    font-size: 24px;
+}
+:local(.wlopContentHA):hover{
+    color:RGBA(218, 187, 132, .8);
+}
+:local(.wlopContentHAb1){
+    font-size: 14px;
+    color: #989898;
+    line-height: 44px;
+}
+:local(.inp){
+    width: 720px;
+    float: left;
+}
+:local(.but){
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+}
+:local(.wlopContentC){
+    padding-top: 30px;
+}
+:local(.wlopContentC1){
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+:local(.wlopContentC1):after{
+    display: block;
+    clear: both;
+    content: '';
+}
+:local(.wlopContentCC){
+    border-bottom: 1px solid #eee;
+    line-height: 54px;
+}
+:local(.wlopContentCC):after{
+    display: block;
+    content: '';
+    clear: both;
+}
+:local(.wlopContentC):after{
+    display: block;
+    clear: both;
+    content: '';
+}
+:local(.inp) .ant-input{
+    height: 60px;
+    font-size: 14px;
+}
+:local(.wlopContentCT){
+    font-size: 18px;
+    color: #2D313B;
+
+}
+:local(.wlopContentCT1){
+    font-size: 18px;
+    color: #2D313B;
+    float: left;
+}
+:local(.wlopContentCCT){
+    font-size: 14px;
+    color: #989898;
+    width: 50%;
+    float: left;
+    line-height: 14px;
+    margin-bottom: 10px;
+}
+:local(.wlopContentCCT1){
+    font-size: 14px;
+    color: #989898;
+    width: 50%;
+    float: left;
+    line-height: 14px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+:local(.wlopContentCTtip){
+    font-size: 14px;
+    color: #989898;
+    float: right;
+}
+:local(.title){
+    font-size: 14px;
+    color: #2D313B;
+    display: block;
+    line-height: 38px;
+}
+:local(.content){
+    font-size: 14px;
+    color: #989898;
+    display: block;
+    line-height: 26px;
+}
+.ant-modal{
+    width: 371px!important;
+}
+.ant-modal-content{
+    background-color: transparent!important;
+    box-shadow: none!important;
+}
+:local(.imgTip){
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #DABB84;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+:local(.qcode){
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    bottom: 168px;
+    left: 115px;
+
+}

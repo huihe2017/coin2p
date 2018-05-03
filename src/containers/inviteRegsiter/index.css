@@ -1,0 +1,83 @@
+:local(.wlop){
+    width: 100%;
+    background-color: #f6f6f6;
+    padding-bottom: 40px;
+}
+:local(.banner){
+    width: 100%;
+    height: 500px;
+    background-image: url("./images/welfare.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+:local(.wlopContent){
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    padding-top: 30px;
+    margin-top: -137px;
+}
+:local(.wlopContentH){
+    width: 720px;
+    margin: 0 auto;
+}
+:local(.wlopContentH):after{
+    display: block;
+    content: '';
+    clear: both;
+}
+
+:local(.wlopContentHT){
+    font-size: 24px;
+    line-height: 44px;
+    display: block;
+    color: #2D313B;
+    font-weight: bold;
+}
+:local(.wlopContentHB){
+    font-size: 14px;
+    line-height: 44px;
+    display: block;
+    color: #DABB84;
+
+}
+:local(.selphone){
+    height: 60px;
+}
+:local(.tuxing){
+    width: 720px;
+    height: 60px;
+    position: relative;
+}
+:local(.inputp){
+    height: 40px!important;
+    font-size: 14px!important;
+}
+:local(.inputp1){
+    width: 480px;
+    float: left;
+}
+
+:local(.authCode){
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 40px;
+    width: 220px;
+    z-index: 20;
+    border-radius: 4px;
+}
+:local(.perselphone) .ant-btn {
+    color: #fff!important;
+    border-color:#DABB84!important;
+}
+:local(.perselphone) .ant-btn:hover {
+    color: #fff!important;
+    border-color: RGBA(218, 187, 132, .8)!important;
+    background-color: RGBA(218, 187, 132, .8)!important;
+}
+:local(.butWord){
+    font-size: 18px;
+}

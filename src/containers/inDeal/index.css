@@ -114,6 +114,7 @@
     height: 770px;
     background-color: #989898;
     float: left;
+    position: relative;
 }
 :local(.dealExplain){
     width: 400px;

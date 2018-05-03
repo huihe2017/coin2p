@@ -45,6 +45,11 @@ import PushAd from './containers/pushAd'
 import AllIndent from './containers/allIndent'
 import MoneyWater from './containers/moneyWater'
 import MyAd from './containers/myAd'
+import MoneyApply from './containers/moneyApply'
+import NewCoinAddress from './containers/newCoinAdress'
+import EditAddress from './containers/editAddress'
+import InviteFriend from './containers/inviteFriend'
+import InviteRegister from './containers/inviteRegsiter'
 
 import { LocaleProvider } from 'antd'
 import {IntlProvider} from 'react-intl';
@@ -115,6 +120,11 @@ class FF extends React.Component {
                         <Route path="/allIndent" component={AllIndent}/>
                         <Route path="/moneyWater" component={MoneyWater}/>
                         <Route path="/myAd" component={MyAd}/>
+                        <Route path="/moneyApply" component={MoneyApply}/>
+                        <Route path="/newCoinAddress" component={NewCoinAddress}/>
+                        <Route path="/editAddress" component={EditAddress}/>
+                        <Route path="/inviteFriend" component={InviteFriend}/>
+                        <Route path="/inviteRegister" component={InviteRegister}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

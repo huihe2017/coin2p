@@ -1237,7 +1237,7 @@
         }
     }
     //发送
-    var send = function () {
+    var send = function (q) {alert(q)
         var inputMsg = $(".rongcloud-text")[0];
         var message = inputMsg.value;
         if (message) {
@@ -1825,6 +1825,17 @@
         var token = params.token;
         var navi = params.navi || "";
 
+
+        if(window.rongyun){
+            RCS.config.target.innerHTML = render(templates.main);
+
+
+            startConversation()
+            return false
+        }
+
+
+
         if (navi !== "") {
             //私有云
             var config = {
@@ -1910,6 +1921,7 @@
         RongIMClient.connect(token, {
             onSuccess: function (userId) {
                 callbacks.getCurrentUser && callbacks.getCurrentUser(userId);
+                window.rongyun = true
                 console.log("链接成功，用户id：" + userId);
 
             },
@@ -2048,12 +2060,26 @@
                     startConversation()
                     return false
                 }else{
+
                     config.target.innerHTML = render(templates.main);
 
 
-                    //startConversation()
-                    emoji.init();
-                    createButton(config);
+                    startConversation()
+                    return false
+
+
+
+
+
+
+
+
+                    // config.target.innerHTML = render(templates.main);
+                    //
+                    //
+                    // //startConversation()
+                    // emoji.init();
+                    // createButton(config);
                 }
 
 

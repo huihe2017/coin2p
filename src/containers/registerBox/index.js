@@ -61,7 +61,8 @@ class RegisterBox extends React.Component {
                 //         this.props.hideAuth()
                 //     }
                 // })
-                message.success("注册成功")
+                this.props.history.pushState(null, '/login')
+
             }
         });
     }
@@ -145,215 +146,219 @@ class RegisterBox extends React.Component {
                                     <a className={style.llctitleA} onClick={this.phem.bind(this)} href="javascript:void (0)">{this.state.phone?'使用邮箱注册':'使用手机注册'} &nbsp;></a>
                                 </span>
 
-                                <div hidden={this.state.phone}>
-                                    <Form onSubmit={this.handleSubmit}>
-                                        <div className={style.perselphone}>
-                                            <div className={style.selphone}>
-                                                {/*邮箱登陆*/}
-                                                <FormItem>
-                                                    {getFieldDecorator('email', {
-                                                        rules: [{
-                                                            required: true,
-                                                            initialValue: '36363@ww.com',
-                                                            pattern: /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/,
-                                                            message:"请输入正确格式的邮箱地址"
-                                                        }],
-                                                    })(
-                                                        <Input className={style.inputp} disabled={this.state.checkNick}
-                                                               placeholder={"请输入邮箱"} onChange={(e) => {
-                                                            this.setState({email: e.target.value})
-                                                        }}/>
-                                                    )}
-                                                </FormItem>
-
-
-                                            </div>
-                                            <div className={style.tuxing}>
-                                                <FormItem>{getFieldDecorator('password', {
-                                                    rules: [{
-                                                        required: true,
-                                                        message: "请输入正确格式的密码",
-                                                        pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/
-                                                    }],
-                                                })(<div>
-                                                    <Input onChange={
-                                                        (e) => {
-                                                            this.setState({password: e.target.value})
-                                                        }} className={style.inputp} placeholder={"请输入密码"}
-                                                           type={'password'}/></div>
-                                                )}
-                                                </FormItem>
-                                            </div>
-                                            <div className={style.tuxing}>
-                                                <FormItem
-                                                    hasFeedback
-                                                >
-                                                    {getFieldDecorator('confirm', {
-                                                        rules: [{
-                                                            required: true, message: "请输入正确格式的密码",
-                                                        }, {
-                                                            validator: this.checkPassword.bind(this,"两次输入的密码不同"),
-                                                        }],
-                                                    })(
-                                                        <Input
-                                                            type="password"
-                                                            className={style.inputp}
-                                                            onChange={
-                                                                (e) => {
-                                                                    this.setState({confirm: e.target.value})
-                                                                }
-                                                            }
-                                                            onBlur={this.handleConfirmBlur}
-                                                            placeholder={"请再次输入密码"}/>
-                                                    )}
-                                                </FormItem>
-                                            </div>
-                                            <div className={style.tuxing}>
-                                                <img className={style.authCode}
-                                                     src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508392689327&di=de9f7dd0fb15a19b677b80a6e88956f2&imgtype=0&src=http%3A%2F%2Fimages2015.cnblogs.com%2Fblog%2F875028%2F201605%2F875028-20160513234811280-1452474757.png"
-                                                     alt=""/>
-                                                {/*<div className={style.tx} onClick={this.regetPicImg.bind(this)}>*/}
-                                                {/*{this.state.picImg}*/}
-                                                {/*</div>*/}
-
-
-                                                <FormItem >{getFieldDecorator('authCode', {
-                                                    rules: [{required: true, message: "请输入正确的图形验证码"}],
-                                                })(<div>
-                                                    <Input onChange={
-                                                        (e) => {
-                                                            this.setState({authCode: e.target.value})
-                                                        }
-                                                    }
-                                                           className={style.inputp}
-                                                           placeholder={"请输入图形验证码"}/></div>
-                                                )}
-                                                </FormItem>
-                                            </div>
-                                            <FormItem>
-                                                <Button htmlType="submit" style={{width: '100%', height: 48, marginTop: 10,fontSize:16,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"完成注册并登录"}</Button>
-                                            </FormItem>
-
-
-                                        </div>
-                                    </Form>
-                                </div>
-
-                                <div hidden={!this.state.phone}>
-                                    <Form onSubmit={this.handleSubmit}>
-                                        <div className={style.perselphone}>
-                                            <div className={style.selphone}>
-                                                <div className={style.qh}>
-                                                    <FormItem >
-                                                        {getFieldDecorator('price', {
-                                                            initialValue:  'da' })( <Select  onChange={this.handleCurrencyChange}>
-                                                            <Option value="da">+86</Option>
-                                                            <Option value="xiang">+866</Option>
-                                                            <Option value="tai">+8666</Option>
-                                                        </Select>)}
-                                                    </FormItem>
-
-                                                </div>
-                                                <div className={style.phone}>
+                                {
+                                    !this.state.phone?<div >
+                                        <Form onSubmit={this.handleSubmit}>
+                                            <div className={style.perselphone}>
+                                                <div className={style.selphone}>
+                                                    {/*邮箱登陆*/}
                                                     <FormItem>
-                                                        {getFieldDecorator('phone', {
+                                                        {getFieldDecorator('email', {
                                                             rules: [{
                                                                 required: true,
-                                                                initialValue: ' ',
-                                                                pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
-                                                                message:"请输入正确格式的手机号码"
+                                                                initialValue: '36363@ww.com',
+                                                                pattern: /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/,
+                                                                message:"请输入正确格式的邮箱地址"
                                                             }],
                                                         })(
                                                             <Input className={style.inputp} disabled={this.state.checkNick}
-                                                                   placeholder={"请输入手机号码"} onChange={(e) => {
-                                                                this.setState({phone: e.target.value})
+                                                                   placeholder={"请输入邮箱"} onChange={(e) => {
+                                                                this.setState({email: e.target.value})
                                                             }}/>
+                                                        )}
+                                                    </FormItem>
+
+
+                                                </div>
+                                                <div className={style.tuxing}>
+                                                    <FormItem>{getFieldDecorator('password', {
+                                                        rules: [{
+                                                            required: true,
+                                                            message: "请输入正确格式的密码",
+                                                            pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/
+                                                        }],
+                                                    })(<div>
+                                                        <Input onChange={
+                                                            (e) => {
+                                                                this.setState({password: e.target.value})
+                                                            }} className={style.inputp} placeholder={"请输入密码"}
+                                                               type={'password'}/></div>
+                                                    )}
+                                                    </FormItem>
+                                                </div>
+                                                <div className={style.tuxing}>
+                                                    <FormItem
+                                                        hasFeedback
+                                                    >
+                                                        {getFieldDecorator('confirm', {
+                                                            rules: [{
+                                                                required: true, message: "请输入正确格式的密码",
+                                                            }, {
+                                                                validator: this.checkPassword.bind(this,"两次输入的密码不同"),
+                                                            }],
+                                                        })(
+                                                            <Input
+                                                                type="password"
+                                                                className={style.inputp}
+                                                                onChange={
+                                                                    (e) => {
+                                                                        this.setState({confirm: e.target.value})
+                                                                    }
+                                                                }
+                                                                onBlur={this.handleConfirmBlur}
+                                                                placeholder={"请再次输入密码"}/>
+                                                        )}
+                                                    </FormItem>
+                                                </div>
+                                                <div className={style.tuxing}>
+                                                    <img className={style.authCode}
+                                                         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508392689327&di=de9f7dd0fb15a19b677b80a6e88956f2&imgtype=0&src=http%3A%2F%2Fimages2015.cnblogs.com%2Fblog%2F875028%2F201605%2F875028-20160513234811280-1452474757.png"
+                                                         alt=""/>
+                                                    {/*<div className={style.tx} onClick={this.regetPicImg.bind(this)}>*/}
+                                                    {/*{this.state.picImg}*/}
+                                                    {/*</div>*/}
+
+
+                                                    <FormItem >{getFieldDecorator('authCode', {
+                                                        rules: [{required: true, message: "请输入正确的图形验证码"}],
+                                                    })(<div>
+                                                        <Input onChange={
+                                                            (e) => {
+                                                                this.setState({authCode: e.target.value})
+                                                            }
+                                                        }
+                                                               className={style.inputp}
+                                                               placeholder={"请输入图形验证码"}/></div>
+                                                    )}
+                                                    </FormItem>
+                                                </div>
+                                                <FormItem>
+                                                    <Button htmlType="submit" style={{width: '100%', height: 48, marginTop: 10,fontSize:16,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"完成注册并登录"}</Button>
+                                                </FormItem>
+
+
+                                            </div>
+                                        </Form>
+                                    </div>:<div>
+                                        <Form onSubmit={this.handleSubmit}>
+                                            <div className={style.perselphone}>
+                                                <div className={style.selphone}>
+                                                    <div className={style.qh}>
+                                                        <FormItem >
+                                                            {getFieldDecorator('price', {
+                                                                initialValue:  'da' })( <Select  onChange={this.handleCurrencyChange}>
+                                                                <Option value="da">+86</Option>
+                                                                <Option value="xiang">+866</Option>
+                                                                <Option value="tai">+8666</Option>
+                                                            </Select>)}
+                                                        </FormItem>
+
+                                                    </div>
+                                                    <div className={style.phone}>
+                                                        <FormItem>
+                                                            {getFieldDecorator('phone', {
+                                                                rules: [{
+                                                                    required: true,
+                                                                    initialValue: ' ',
+                                                                    pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
+                                                                    message:"请输入正确格式的手机号码"
+                                                                }],
+                                                            })(
+                                                                <Input className={style.inputp} disabled={this.state.checkNick}
+                                                                       placeholder={"请输入手机号码"} onChange={(e) => {
+                                                                    this.setState({phone: e.target.value})
+                                                                }}/>
+                                                            )}
+                                                        </FormItem>
+                                                    </div>
+
+                                                </div>
+                                                <div className={style.tuxing}>
+                                                    <img className={style.authCode}
+                                                         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508392689327&di=de9f7dd0fb15a19b677b80a6e88956f2&imgtype=0&src=http%3A%2F%2Fimages2015.cnblogs.com%2Fblog%2F875028%2F201605%2F875028-20160513234811280-1452474757.png"
+                                                         alt=""/>
+                                                    {/*<div className={style.tx} onClick={this.regetPicImg.bind(this)}>*/}
+                                                    {/*{this.state.picImg}*/}
+                                                    {/*</div>*/}
+
+
+                                                    <FormItem >{getFieldDecorator('authCode', {
+                                                        rules: [{required: true, message: "请输入正确的图形验证码"}],
+                                                    })(<div>
+                                                        <Input onChange={
+                                                            (e) => {
+                                                                this.setState({authCode: e.target.value})
+                                                            }
+                                                        }
+                                                               className={style.inputp}
+                                                               placeholder={"请输入图形验证码"}/></div>
+                                                    )}
+                                                    </FormItem>
+                                                </div>
+                                                <div className={style.tuxing}>
+                                                    <FormItem>{getFieldDecorator('code', {rules: [{required: true, message: '请输入短信验证码!'
+                                                        }],})(<div>
+                                                        <Countdown
+                                                            beforeClick={() => {return this.checkPhone(getFieldError, getFieldValue)}} phone={this.state.phone} picCode={this.state.authCode} business='REGISTER' failCallback={() => {
+                                                            this.setState({picImg: this.regetPicImg()})
+                                                        }} type="small" onChange={(e) => {this.setState({code: e.target.value})}}/>
+                                                    </div>)}
+                                                    </FormItem>
+                                                </div>
+
+                                                <div className={style.tuxing}>
+                                                    <FormItem>{getFieldDecorator('password', {
+                                                        rules: [{
+                                                            required: true,
+                                                            message: "请输入正确格式的密码",
+                                                            pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/
+                                                        }],
+                                                    })(<div>
+                                                        <Input onChange={
+                                                            (e) => {
+                                                                this.setState({password: e.target.value})
+                                                            }} className={style.inputp} placeholder={"请输入密码"}
+                                                               type={'password'}/></div>
+                                                    )}
+                                                    </FormItem>
+                                                </div>
+                                                <div className={style.tuxing}>
+                                                    <FormItem
+                                                        hasFeedback
+                                                    >
+                                                        {getFieldDecorator('confirm', {
+                                                            rules: [{
+                                                                required: true, message: "请输入正确格式的密码",
+                                                            }, {
+                                                                validator: this.checkPassword.bind(this,"两次输入的密码不同"),
+                                                            }],
+                                                        })(
+                                                            <Input
+                                                                type="password"
+                                                                className={style.inputp}
+                                                                onChange={
+                                                                    (e) => {
+                                                                        this.setState({confirm: e.target.value})
+                                                                    }
+                                                                }
+                                                                onBlur={this.handleConfirmBlur}
+                                                                placeholder={"请再次输入密码"}/>
                                                         )}
                                                     </FormItem>
                                                 </div>
 
-                                            </div>
-                                            <div className={style.tuxing}>
-                                                <img className={style.authCode}
-                                                     src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508392689327&di=de9f7dd0fb15a19b677b80a6e88956f2&imgtype=0&src=http%3A%2F%2Fimages2015.cnblogs.com%2Fblog%2F875028%2F201605%2F875028-20160513234811280-1452474757.png"
-                                                     alt=""/>
-                                                {/*<div className={style.tx} onClick={this.regetPicImg.bind(this)}>*/}
-                                                {/*{this.state.picImg}*/}
-                                                {/*</div>*/}
 
-
-                                                <FormItem >{getFieldDecorator('authCode', {
-                                                    rules: [{required: true, message: "请输入正确的图形验证码"}],
-                                                })(<div>
-                                                    <Input onChange={
-                                                        (e) => {
-                                                            this.setState({authCode: e.target.value})
-                                                        }
-                                                    }
-                                                           className={style.inputp}
-                                                           placeholder={"请输入图形验证码"}/></div>
-                                                )}
+                                                <FormItem>
+                                                    <Button htmlType="submit" style={{width: '100%', height: 48, marginTop: 10,fontSize:16,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"完成注册并登录"}</Button>
                                                 </FormItem>
                                             </div>
-                                            <div className={style.tuxing}>
-                                                <FormItem>{getFieldDecorator('code', {rules: [{required: true, message: '请输入短信验证码!'
-                                                }],})(<div>
-                                                <Countdown
-                                                beforeClick={() => {return this.checkPhone(getFieldError, getFieldValue)}} phone={this.state.phone} picCode={this.state.authCode} business='REGISTER' failCallback={() => {
-                                                    this.setState({picImg: this.regetPicImg()})
-                                                }} type="small" onChange={(e) => {this.setState({code: e.target.value})}}/>
-                                                </div>)}
-                                                </FormItem>
-                                            </div>
+                                        </Form>
+                                    </div>
 
-                                            <div className={style.tuxing}>
-                                                <FormItem>{getFieldDecorator('password', {
-                                                    rules: [{
-                                                        required: true,
-                                                        message: "请输入正确格式的密码",
-                                                        pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/
-                                                    }],
-                                                })(<div>
-                                                    <Input onChange={
-                                                        (e) => {
-                                                            this.setState({password: e.target.value})
-                                                        }} className={style.inputp} placeholder={"请输入密码"}
-                                                           type={'password'}/></div>
-                                                )}
-                                                </FormItem>
-                                            </div>
-                                            <div className={style.tuxing}>
-                                                <FormItem
-                                                    hasFeedback
-                                                >
-                                                    {getFieldDecorator('confirm', {
-                                                        rules: [{
-                                                            required: true, message: "请输入正确格式的密码",
-                                                        }, {
-                                                            validator: this.checkPassword.bind(this,"两次输入的密码不同"),
-                                                        }],
-                                                    })(
-                                                        <Input
-                                                            type="password"
-                                                            className={style.inputp}
-                                                            onChange={
-                                                                (e) => {
-                                                                    this.setState({confirm: e.target.value})
-                                                                }
-                                                            }
-                                                            onBlur={this.handleConfirmBlur}
-                                                            placeholder={"请再次输入密码"}/>
-                                                    )}
-                                                </FormItem>
-                                            </div>
+                                }
 
 
-                                            <FormItem>
-                                                <Button htmlType="submit" style={{width: '100%', height: 48, marginTop: 10,fontSize:16,backgroundColor:'rgba(217,186,131,1)',color:'#fff'}}>{"完成注册并登录"}</Button>
-                                            </FormItem>
-                                        </div>
-                                    </Form>
-                                </div>
+
                                 <div className={style.toggletab}>
                                            <span className={style.noacc1}>
                                         {"注册即表示同意 "}

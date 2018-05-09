@@ -50,6 +50,7 @@ import NewCoinAddress from './containers/newCoinAdress'
 import EditAddress from './containers/editAddress'
 import InviteFriend from './containers/inviteFriend'
 import InviteRegister from './containers/inviteRegsiter'
+import AdDetails from './containers/adDetails'
 
 import { LocaleProvider } from 'antd'
 import {IntlProvider} from 'react-intl';
@@ -125,6 +126,7 @@ class FF extends React.Component {
                         <Route path="/editAddress" component={EditAddress}/>
                         <Route path="/inviteFriend" component={InviteFriend}/>
                         <Route path="/inviteRegister" component={InviteRegister}/>
+                        <Route path="/adDetails" component={AdDetails}/>
                     </Router>
                 </LocaleProvider>
             </IntlProvider>

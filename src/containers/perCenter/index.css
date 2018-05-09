@@ -41,12 +41,23 @@
 }
 :local(.wlopMContentR){
     width: 830px;
+    float: right;
+}
+:local(.wlopMContentH){
+    width: 100%;
+    height: 80px;
+    float: right;
+    background-color: RGBA(218, 187, 132, .3);
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+:local(.wlopMContentRC){
+    width: 100%;
     height: 726px;
     float: right;
     background-color: #fff;
     padding: 0 20px;
     padding-top: 20px;
-
 }
 
 :local(.wlopMContentR) .ant-tabs-nav .ant-tabs-tab-active {
@@ -72,5 +83,89 @@
     padding-right: 0!important;
     margin-right: 40px!important;
 }
+:local(.wlopMContentHL){
+    float: left;
+}
+:local(.wlopMContentHLT){
+    padding-top: 10px;
+}
+:local(.wlopMContentHLT):after{
+    content: '';
+    clear: both;
+    display: block;
+}
+:local(.wlopMContentHLTI){
+    float: left;
+    width: 27px;
+    height: 34px;
+}
+:local(.wlopMContentHLTT){
+    float: left;
+    margin-left: 12px;
+    line-height: 17px;
+    color: #2D313B;
+    font-size: 12px;
+}
+:local(.wlopMContentHLB){
+    line-height: 24px;
+    color: #989898;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+:local(.wlopMContentHR){
+   float: right;
+    padding-top: 25px;
+}
+:local(.wlopMContentHRC){
+    width: 450px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid #989898;
+    line-height: 28px;
+    font-size: 12px;
+    padding-left: 12px;
+    color: #989898;
+}
+:local(.but){
+    margin-top: 20px;
+    margin-left: 8px;
+}
+:local(.but) .ant-btn{
+    width: 352px!important;
+    height: 52px!important;
+    background-color: #EBE15B!important;
+    border-color: #EBE15B!important;
+    color: #AA2B24!important;
+    font-size: 18px!important;
+}
+:local(.but) .ant-btn:hover{
 
+    background-color: RGBA(235, 225, 91, .8)!important;
+    border-color: RGBA(235, 225, 91, .8)!important;
+    color: RGBA(170, 43, 36, 1)!important;
+
+}
+:local(.awordBox){
+    position: relative;
+}
+:local(.num){
+    position: absolute;
+    left: 63px;
+    top: 150px;
+    width: 240px;
+    color: #AA2B24;
+    font-weight: bold;
+    font-size: 41px;
+    text-align: center;
+}
+:local(.coin){
+    position: absolute;
+    left: 63px;
+    top: 200px;
+    width: 240px;
+    color: #AA2B24;
+    font-size: 25px;
+    text-align: center;
+}
 

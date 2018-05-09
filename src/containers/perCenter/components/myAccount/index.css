@@ -44,7 +44,8 @@
     float: left;
 }
 :local(.partOneBCR){
-    float: right;
+    float: left;
+    margin-left: 100px;
 }
 :local(.partOneBCR) .ant-switch-checked {
     background-color: #DABB84;

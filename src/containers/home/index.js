@@ -7,7 +7,8 @@ import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import DealList from './components/dealList'
-
+import {getIndexData} from "../../actions/aroundMsg";
+import {Link} from 'react-router'
 
 
 class Home extends React.Component {
@@ -35,7 +36,14 @@ class Home extends React.Component {
         })
     }
 
+    componentDidMount(){
+        this.props.getIndexData()
+    }
+
     render() {
+        if(!this.props.noticeList){
+            return null
+        }
         return (
             <div className={style.wrap}>
                 <Header/>
@@ -97,7 +105,7 @@ class Home extends React.Component {
                     </ul>
                 </div>
                 <div className={style.tipTip}>
-                    <div className={style.tip}><img className={style.tipImg} src={require('./images/tip.png')} alt=""/><b>最新公告：</b>ETH/USDT、BTC/USTD 交易对上线 （3-29）</div>
+                    <div className={style.tip}><img className={style.tipImg} src={require('./images/tip.png')} alt=""/><b>最新公告：</b><Link to={'/'} >{this.props.noticeList[0].title}</Link></div>
                 </div>
                 <div className={style.outMarket}>
                     <div className={style.outMarketPart}>
@@ -120,13 +128,13 @@ class Home extends React.Component {
                         </div>
                         <div className={style.outMarketListUl}>
                             <div className={style.outMarketListLi}>
-                                <DealList/>
+                                <DealList data={this.props.lastTradeList} num ={1} />
                             </div>
                             <div className={style.outMarketListLi}>
-                                <DealList/>
+                                <DealList data={this.props.lastTradeList} num ={2}/>
                             </div>
                             <div className={style.outMarketListLi}>
-                                <DealList/>
+                                <DealList data={this.props.lastTradeList} num ={3}/>
                             </div>
 
 
@@ -188,13 +196,15 @@ class Home extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
-        auth:state.auth
+        auth:state.auth,
+        noticeList:state.aroundMsg.noticeList,
+        lastTradeList:state.aroundMsg.lastTradeList
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        getIndexData:bindActionCreators(getIndexData,dispatch)
     }
 }
 

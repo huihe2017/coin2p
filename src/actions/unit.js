@@ -1,4 +1,4 @@
-import axios from '../common/axiosConf';
+import {axios} from '../common/axiosConf';
 import webLink from '../common/webLink';
 import { hashHistory } from 'react-router';
 import { message } from 'antd';

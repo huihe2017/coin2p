@@ -19,6 +19,13 @@ export default function aroundMsg(state = initialState, action = {}) {
             state.onlineTradeCount = onlineTradeCount
             return Object.assign({}, state, {})
 
+        case 'GET_INDEX_DATA_SUCCESS':
+            var {indexData} = action.data
+            console.log(444444,indexData.noticeList);
+            state.noticeList = indexData.noticeList
+            state.lastTradeList = indexData.lastTradeList
+            return Object.assign({}, state, {})
+
         default:
             return state
     }
